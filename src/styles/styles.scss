@@ -1,6 +1,24 @@
+@use "./normalize";
 @use "./slick";
 @use "./slick-theme";
+@use "./components";
+@use "./hamburger";
+@use "./header";
+@use "./mixins";
+@use "./movie-cards";
+@use "./typography";
+@use "./variables";
+@use "./wrapper";
 
 h1 {
     font-size: 12rem;
+}
+
+.image-cards-container{
+   
+}
+
+img {
+    width: 289
+    border-radius: 10px;
 }
