@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import "./styles/styles.scss";
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Workshop from "./Workshop";
+import "./styles/styles.scss"
 
 ReactDOM.render(
   <React.StrictMode>
