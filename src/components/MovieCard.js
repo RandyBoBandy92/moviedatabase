@@ -10,11 +10,9 @@ import src from "../images/emojiMovie.jpg";
 // data.overview
 
 const MovieCard = ({ data }) => {
-  console.log(data);
   return (
-    <div className="image-cards-container">
       <img src={`${imageURL}${data.poster_path}`} />
-    </div>
+ 
   )
 };
 

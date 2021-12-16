@@ -14,11 +14,16 @@ h1 {
     font-size: 12rem;
 }
 
-.image-cards-container{
-   
+img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+
 }
 
-img {
-    width: 289
-    border-radius: 10px;
+.wrapper {
+    background-image: radial-gradient( circle 590px at 8.2% 13.8%,  rgba(18,35,60,1) 0%, #bbb 90% );
+    height: 100%;
+    width: auto;
+    padding: 3rem;
 }
