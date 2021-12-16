@@ -10,7 +10,7 @@ const Workshop = () => {
     .then((dataThatWasReturned) => setPopularMovies(dataThatWasReturned.results))
     .catch(error => console.log(error))
   }, []);
-  console.log(getConfigData());
+//   console.log(getConfigData());
 
   const settings = {
     dots: true,
