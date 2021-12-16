@@ -12,6 +12,8 @@ const Workshop = () => {
   }, []);
 //   console.log(getConfigData());
 
+// some content
+
   const settings = {
     dots: true,
     arrows: true,
