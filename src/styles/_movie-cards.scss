@@ -1,0 +1,14 @@
+@use './variables' as *;
+
+// .movie-card {
+//     padding: 1rem;
+//     border-radius: 9%;
+// }
+
+
+img.movie-card {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    // padding: 0.5rem;
+}
