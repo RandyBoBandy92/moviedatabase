@@ -12,6 +12,9 @@ import src from "../images/emojiMovie.jpg";
 const MovieCard = ({ data }) => {
   return (
     <div className="movie-container">
+      <div className="hover-card">
+        <h3>{data.original_title}</h3>
+      </div>
       <img className="movie-card" src={`${imageURL}${data.poster_path}`} />
     </div>
   );

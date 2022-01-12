@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+@font-face{
+    font-family: CircularStdBold;
+    src: url('./fonts/Circular/CircularStd-Bold.otf') format("opentype");
+    font-weight: 700;
+}
+
+h1, h2 , h3, h4 {
+    font-family: CircularStdBold;
+}
+
+h2 {
+    font-size: 1.6rem;
+}

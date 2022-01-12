@@ -33,8 +33,9 @@ const Workshop = () => {
 
 
   const settings = {
-    dots: true,
+    dots: false,
     arrows: true,
+    swipeToSlide: true,
     infinite: true,
     speed: 500,
     slidesToShow: 6,
