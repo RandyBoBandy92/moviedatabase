@@ -10,6 +10,7 @@
 @use "./variables";
 @use "./wrapper";
 @use "./body";
+@use "./nav.scss";
 
 h1 {
     font-size: 12rem;
@@ -19,5 +20,5 @@ h1 {
 .wrapper {
     height: 100%;
     width: auto;
-    padding: 3rem;
+    padding: 1rem;
 }

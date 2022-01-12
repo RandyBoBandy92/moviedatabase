@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
 import MovieCard from "../components/MovieCard";
+import Header from "../components/Header";
 import {
   checkKey,
   getPopular,
@@ -34,47 +35,48 @@ const Home = () => {
 
   const settings = {
     dots: false,
-    arrows: true,
-    swipeToSlide: true,
+    arrows: false,
+    // swipeToSlide: true,
+    swipe: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 2,
+    slidesToScroll: 2,
   };
   return (
     <div className="wrapper">
+      <Header/>
       <h2>Movie Database</h2>
-      <di></di>
-      <div className="movies-container" style={{ padding: "0 25px" }}>
+      <div className="movies-container" style={{}}>
         <h2>Popular</h2>
         {popularMovies ? (
           <Slider {...settings}>
-            {popularMovies.map((movieData) => (
-              <MovieCard data={movieData} />
+            {popularMovies.map((movieData, index) => (
+              <MovieCard key={index} data={movieData} />
             ))}
           </Slider>
         ) : (
           <h2>No Movies</h2>
         )}
       </div>
-      <div className="movies-container" style={{ padding: "0 25px" }}>
+      <div className="movies-container" style={{}}>
         <h2>Now Playing</h2>
         {nowPlayingMovies ? (
           <Slider {...settings}>
-            {nowPlayingMovies.map((movieData) => (
-              <MovieCard data={movieData} />
+            {nowPlayingMovies.map((movieData, index) => (
+              <MovieCard key={index} data={movieData} />
             ))}
           </Slider>
         ) : (
           <h2>No Movies</h2>
         )}
       </div>
-      <div className="movies-container" style={{ padding: "0 25px" }}>
+      <div className="movies-container" style={{}}>
         <h2>Upcoming</h2>
         {upcomingMovies ? (
           <Slider {...settings}>
-            {upcomingMovies.map((movieData) => (
-              <MovieCard data={movieData} />
+            {upcomingMovies.map((movieData, index) => (
+              <MovieCard key={index} data={movieData} />
             ))}
           </Slider>
         ) : (

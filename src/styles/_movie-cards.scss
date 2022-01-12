@@ -1,7 +1,7 @@
 @use './variables' as *;
 
 div.movie-container {
-    margin: 0.5rem;
+    margin: 0.2rem;
     position: relative;
     img.movie-card {
         width: 250px;
@@ -20,6 +20,7 @@ div.movie-container {
         transition: all .3s ease-in-out;
         h3 {
             margin: 0;
+            font-size: 1rem;
         }
     }
     &:hover {

@@ -1,5 +1,4 @@
 import { checkKey, getPopular, imageURL } from "../utilities/api";
-import src from "../images/emojiMovie.jpg";
 
 // Inside data
 // data.id

@@ -1,0 +1,97 @@
+@use 'variables' as *;
+
+nav {
+  ul {
+    padding: 0;
+  }
+  .nav-component {
+    // plus icon, home, favorites, and about
+    border-radius: 50%;
+    // Setting small size to be increased on active class
+    height: 10px;
+    width: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blue;
+    list-style-type: none;
+    color: $font-color-primary;
+    position: fixed;
+    bottom: 4.5rem;
+    right: 2.9rem;
+    z-index: 9001;
+    transition: all 0.2s linear;
+    :hover {
+      cursor: pointer;
+    }
+    .home-link {
+    bottom: 7.5rem;
+    right: 2.3rem;
+  }
+  .favorites-link {
+    right: 5rem;
+    bottom: 6rem;
+  }
+  .about-link {
+    bottom: 3rem;
+    right: 5.2rem;
+  }
+  }
+  .plus-link {
+    // bottom: 4rem;
+    // right: 2rem;
+    z-index: 9002;
+    height: 50px;
+    width: 50px;
+    bottom: 4rem;
+    right: 2rem;
+  }
+}
+.active {
+
+  .nav-component {
+    width: 40px;
+    height: 40px;
+  }
+  .plus-link {
+    // bottom: 4rem;
+    // right: 2rem;
+    z-index: 9002;
+    height: 50px;
+    width: 50px;
+    opacity: 1;
+
+  }
+  .home-link {
+    bottom: 7.5rem;
+    right: 2.3rem;
+    opacity: 1;
+
+  }
+  .favorites-link {
+    right: 5rem;
+    bottom: 6rem;
+    opacity: 1;
+  }
+  .about-link {
+    bottom: 3rem;
+    right: 5.2rem;
+    transform: translateX(30deg);
+  }
+}
+
+.home-link {
+    bottom: 7.5rem;
+    right: 2.3rem;
+    opacity: 0;
+  }
+  .favorites-link {
+    right: 5rem;
+    bottom: 6rem;
+    opacity: 0;
+  }
+  .about-link {
+    bottom: 3rem;
+    right: 5.2rem;
+    opacity: 0;
+  }
