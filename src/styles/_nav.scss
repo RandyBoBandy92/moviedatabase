@@ -1,6 +1,9 @@
 @use 'variables' as *;
 
 nav {
+  a {
+      text-decoration: none;
+  }   
   ul {
     padding: 0;
   }
@@ -8,90 +11,122 @@ nav {
     // plus icon, home, favorites, and about
     border-radius: 50%;
     // Setting small size to be increased on active class
-    height: 10px;
-    width: 10px;
+    height: 0px;
+    width: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+    background-blend-mode: multiply;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     list-style-type: none;
+    outline: 1px solid rgba(255, 255, 255, 0.336);
     color: $font-color-primary;
     position: fixed;
     bottom: 4.5rem;
     right: 2.9rem;
     z-index: 9001;
-    transition: all 0.2s linear;
+    transition: all 0.3s ease-in-out;
     :hover {
       cursor: pointer;
     }
+  } 
     .home-link {
-    bottom: 7.5rem;
-    right: 2.3rem;
-  }
-  .favorites-link {
-    right: 5rem;
-    bottom: 6rem;
-  }
-  .about-link {
-    bottom: 3rem;
-    right: 5.2rem;
-  }
-  }
-  .plus-link {
-    // bottom: 4rem;
-    // right: 2rem;
+        opacity: 0;
+        transform: rotate(540deg);
+        filter: blur(5px);
+    }
+    .favorites-link {
+        opacity: 0;
+       transform: rotate(540deg);
+       filter: blur(5px);
+    }
+    .about-link {
+        opacity: 0;
+        transform: rotate(540deg);
+        filter: blur(5px);
+        
+    }
+  
+  .hamburgler {
     z-index: 9002;
     height: 50px;
     width: 50px;
     bottom: 4rem;
     right: 2rem;
+    transform: rotate(0deg);
+    .hamburger-menu {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        .hamburger-line {
+            position: absolute;
+            width: 23px;
+            height: 3.5px;
+            background-color: #fff;
+            z-index: 9009;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-51%);
+            transition: all 0.3s linear;
+        }
+        :nth-child(1) {
+            top: 15px;
+            transform: translateX(-50%);
+        }
+        :nth-child(3) {
+            top: unset;
+            bottom: 15px;
+            transform: translateX(-50%);
+        }
+    }
   }
-}
+} // end of nav
 .active {
-
   .nav-component {
+      // increase the size of nav components
     width: 40px;
     height: 40px;
   }
-  .plus-link {
-    // bottom: 4rem;
-    // right: 2rem;
-    z-index: 9002;
+  .hamburgler {
     height: 50px;
     width: 50px;
     opacity: 1;
-
+    .hamburger-menu {
+        :nth-child(1) {
+            top: 50%;
+            transform: translateX(-50%) translateY(-51%) rotate(45deg);
+        }
+        :nth-child(2) {
+            transform: translateX(-50%) translateY(-51%) rotate(45deg);
+        }
+        :nth-child(3) {
+            bottom: unset;
+            top: 50%;
+            transform: translateX(-50%) translateY(-51%) rotate(-45deg);
+        }
+    }
   }
   .home-link {
     bottom: 7.5rem;
     right: 2.3rem;
     opacity: 1;
-
+    filter: blur(0px);
+    transform: rotate(0deg);
   }
   .favorites-link {
     right: 5rem;
     bottom: 6rem;
     opacity: 1;
+    filter: blur(0px);
+    transform: rotate(0deg);
   }
   .about-link {
     bottom: 3rem;
     right: 5.2rem;
-    transform: translateX(30deg);
+    opacity: 1;
+    filter: blur(0px);
+    transform: rotate(0deg);
   }
 }
 
-.home-link {
-    bottom: 7.5rem;
-    right: 2.3rem;
-    opacity: 0;
-  }
-  .favorites-link {
-    right: 5rem;
-    bottom: 6rem;
-    opacity: 0;
-  }
-  .about-link {
-    bottom: 3rem;
-    right: 5.2rem;
-    opacity: 0;
-  }

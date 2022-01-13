@@ -5,7 +5,13 @@ const Nav = ({navOpen, isDesktop, showHideNav}) => {
         <nav className={
             navOpen ? "active" : null
         }>
-            <span onClick={() => showHideNav()} className="nav-component plus-link">➕</span>
+            <div onClick={() => showHideNav()} className="nav-component hamburgler">
+                <div className="hamburger-menu">
+                    <span className="hamburger-line"></span>
+                    <span className="hamburger-line"></span>
+                    <span className="hamburger-line"></span>
+                </div>
+            </div>
             <ul>
                 <li className="nav-component home-link"><Link to="/">🏠</Link></li>
                 <li className="nav-component favorites-link"><Link to="/favorites">💖</Link></li>
