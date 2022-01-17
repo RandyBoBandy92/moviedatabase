@@ -1,31 +1,58 @@
 @use './variables' as *;
 
 div.movie-container {
-    margin: 0.2rem;
-    position: relative;
-    img.movie-card {
-        width: 250px;
-        height: auto;
-        border-radius: 10px;
-        // padding: 0.5rem;
+  margin: 0.2rem;
+  position: relative;
+  width: 165px;
+  height: 250px;
+  img.movie-card {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    // padding: 0.5rem;
+  }
+
+  div.hover-card {
+    padding: 0.5rem;
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    height: 100%;
+    width: 100%;
+    filter: opacity(0);
+    transition: all 0.3s ease-in-out;
+    h3 {
+      margin: 0;
+      font-size: 1rem;
     }
-    
+  }
+  &:hover {
     div.hover-card {
-        padding: 0.5rem;
-        position: absolute;
-        background-color: rgba($color: #000000, $alpha: 0.5);
-        height: 100%;
-        width: 100%;
-        filter: opacity(0);
-        transition: all .3s ease-in-out;
-        h3 {
-            margin: 0;
-            font-size: 1rem;
-        }
+      filter: opacity(1);
     }
-    &:hover {
-        div.hover-card {
-            filter: opacity(1);
-        }
-    }
+  }
+}
+
+div.movie-container.fadein {
+  opacity: 0;
+  animation: 1s ease-in 1s forwards fadeIn;
+}
+
+div.movie-container.loading {
+  width: 165px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  border-radius: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

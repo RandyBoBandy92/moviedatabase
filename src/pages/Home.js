@@ -9,6 +9,7 @@ import {
   getNowPlaying,
   getUpcoming,
 } from "../utilities/api";
+import MoviesContainer from "../components/MoviesContainer";
 
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState(false);
@@ -48,42 +49,9 @@ const Home = () => {
       <Header />
       <main>
         <h2>Movie Database</h2>
-        <div className="movies-container" style={{}}>
-          <h2>Popular</h2>
-          {popularMovies ? (
-            <Slider {...settings}>
-              {popularMovies.map((movieData, index) => (
-                <MovieCard key={index} data={movieData} />
-              ))}
-            </Slider>
-          ) : (
-            <h2>No Movies</h2>
-          )}
-        </div>
-        <div className="movies-container" style={{}}>
-          <h2>Now Playing</h2>
-          {nowPlayingMovies ? (
-            <Slider {...settings}>
-              {nowPlayingMovies.map((movieData, index) => (
-                <MovieCard key={index} data={movieData} />
-              ))}
-            </Slider>
-          ) : (
-            <h2>No Movies</h2>
-          )}
-        </div>
-        <div className="movies-container" style={{}}>
-          <h2>Upcoming</h2>
-          {upcomingMovies ? (
-            <Slider {...settings}>
-              {upcomingMovies.map((movieData, index) => (
-                <MovieCard key={index} data={movieData} />
-              ))}
-            </Slider>
-          ) : (
-            <h2>No Movies</h2>
-          )}
-        </div>
+        <MoviesContainer title="Popular" movies={popularMovies} />
+        <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
+        <MoviesContainer title="Upcoming" movies={upcomingMovies} />
       </main>
     </div>
   );
