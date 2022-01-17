@@ -29,6 +29,11 @@ const getUpcoming = async () => {
   return response.json();
 };
 
+const getMovie = async (movieId) => {
+  const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US&${REGION}`)
+  return response.json();
+}
+
 const getConfigData = async () => {
   const response = await fetch(
     `https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`
@@ -36,4 +41,4 @@ const getConfigData = async () => {
   return response.json();
 };
 
-export { checkKey, getPopular, imageURL, getConfigData, getNowPlaying, getUpcoming };
+export { checkKey, getPopular, imageURL, getConfigData, getNowPlaying, getUpcoming, getMovie };
