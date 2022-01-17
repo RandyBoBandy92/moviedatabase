@@ -11,8 +11,8 @@ nav {
     // plus icon, home, favorites, and about
     border-radius: 50%;
     // Setting small size to be increased on active class
-    height: 0px;
-    width: 0px;
+    height: 50px;
+    width: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -38,104 +38,103 @@ nav {
     right: 2.9rem;
     z-index: 9001;
     transition: all 0.3s ease-in-out;
+    transform: rotate(0deg);
     :hover {
       cursor: pointer;
     }
   }
-  .home-link {
-    opacity: 0;
-    transform: rotate(540deg);
-    filter: blur(5px);
+
+  // Hamburger Settings
+
+  .hamburger-menu {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .hamburger-line {
+      width: 60%;
+      height: 5px;
+      background-color: #fff;
+      display: block;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger-line::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 10px;
+      width: 100%;
+      height: 6px;
+      background-color: #fff;
+      transition: all 0.3s ease-in-out;
+    }
+    .hamburger-line::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -10px;
+      width: 100%;
+      height: 6px;
+      background-color: #fff;
+      transition: all 0.3s ease-in-out;
+    }
   }
-  .favorites-link {
-    opacity: 0;
-    transform: rotate(540deg);
-    filter: blur(5px);
+  &.active {
+    .nav-component:not(li) {
+      transform: rotate(180deg);
+    }
+    .hamburger-menu {
+      .hamburger-line {
+        transform: rotate(45deg);
+        &::after {
+          top: 0;
+        }
+        &::before {
+          top: 0;
+          transform: rotate(-90deg);
+        }
+      }
+    }
   }
+
+  .home-link,
+  .favorites-link,
   .about-link {
     opacity: 0;
     transform: rotate(540deg);
     filter: blur(5px);
-  }
-
-  .hamburgler {
-    z-index: 9002;
-    height: 50px;
-    width: 50px;
-    bottom: 4rem;
-    right: 2rem;
-    transform: rotate(0deg);
-    .hamburger-menu {
-      position: relative;
-      height: 100%;
-      width: 100%;
-      .hamburger-line {
-        position: absolute;
-        width: 23px;
-        height: 3.5px;
-        background-color: #fff;
-        z-index: 9009;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-51%);
-        transition: all 0.3s linear;
-      }
-      :nth-child(1) {
-        top: 15px;
-        transform: translateX(-50%);
-      }
-      :nth-child(3) {
-        top: unset;
-        bottom: 15px;
-        transform: translateX(-50%);
-      }
-    }
+    height: 0px;
+    width: 0px;
   }
 } // end of nav
 .active {
   .nav-component {
     // increase the size of nav components
+  }
+
+  .home-link,
+  .favorites-link,
+  .about-link {
     width: 40px;
     height: 40px;
-  }
-  .hamburgler {
-    height: 50px;
-    width: 50px;
-    opacity: 1;
-    .hamburger-menu {
-      :nth-child(1) {
-        top: 50%;
-        transform: translateX(-50%) translateY(-51%) rotate(45deg);
-      }
-      :nth-child(2) {
-        transform: translateX(-50%) translateY(-51%) rotate(45deg);
-      }
-      :nth-child(3) {
-        bottom: unset;
-        top: 50%;
-        transform: translateX(-50%) translateY(-51%) rotate(-45deg);
-      }
-    }
-  }
-  .home-link {
-    bottom: 7.5rem;
-    right: 2.3rem;
     opacity: 1;
     filter: blur(0px);
     transform: rotate(0deg);
+  }
+
+  .home-link {
+    bottom: 7.5rem;
+    right: 2.3rem;
   }
   .favorites-link {
     right: 5rem;
     bottom: 6rem;
-    opacity: 1;
-    filter: blur(0px);
-    transform: rotate(0deg);
   }
   .about-link {
     bottom: 3rem;
     right: 5.2rem;
-    opacity: 1;
-    filter: blur(0px);
-    transform: rotate(0deg);
   }
 }
