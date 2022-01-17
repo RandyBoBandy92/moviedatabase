@@ -1,4 +1,5 @@
 import { checkKey, getPopular, imageURL } from "../utilities/api";
+import loading from "../images/Spinner-1s-200px.gif";
 
 // Inside data
 // data.id
@@ -9,14 +10,22 @@ import { checkKey, getPopular, imageURL } from "../utilities/api";
 // data.overview
 
 const MovieCard = ({ data }) => {
-  return (
-    <div className="movie-container">
-      <div className="hover-card">
-        <h3>{data.original_title}</h3>
+  if (data) {
+    return (
+      <div className="movie-container fadein">
+        <div className="hover-card">
+          <h3>{data.original_title}</h3>
+        </div>
+        <img className="movie-card" src={`${imageURL}${data.poster_path}`} />
       </div>
-      <img className="movie-card" src={`${imageURL}${data.poster_path}`} />
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="movie-container loading">
+        <img className="movie-card" src={loading} />
+      </div>
+    );
+  }
 };
 
 export default MovieCard;
