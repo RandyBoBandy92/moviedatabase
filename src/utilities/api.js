@@ -1,8 +1,9 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const imageURL = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/";
+const imageOriginalURL =  "https://www.themoviedb.org/t/p/original/"
 
-const REGION = 'region=CA'
+const REGION = "region=CA";
 
 const checkKey = () => {
   console.log(API_KEY);
@@ -29,6 +30,27 @@ const getUpcoming = async () => {
   return response.json();
 };
 
+const getMovie = async (movieId) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US&${REGION}`
+  );
+  return response.json();
+};
+
+const getMovieImages = async (movieId) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&language=en-US&`
+  );
+  return response.json();
+};
+
+const getMovieKeywords = async (movieId) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/keywords?api_key=${API_KEY}`
+  );
+  return response.json();
+};
+
 const getConfigData = async () => {
   const response = await fetch(
     `https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`
@@ -36,4 +58,15 @@ const getConfigData = async () => {
   return response.json();
 };
 
-export { checkKey, getPopular, imageURL, getConfigData, getNowPlaying, getUpcoming };
+export {
+  checkKey,
+  getPopular,
+  imageURL,
+  imageOriginalURL,
+  getConfigData,
+  getNowPlaying,
+  getUpcoming,
+  getMovie,
+  getMovieImages,
+  getMovieKeywords,
+};

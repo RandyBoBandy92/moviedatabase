@@ -12,6 +12,8 @@ import {
 import MoviesContainer from "../components/MoviesContainer";
 
 const Home = () => {
+  // getConfigData()
+  // .then(data => console.log(data))
   const [popularMovies, setPopularMovies] = useState(false);
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
@@ -32,8 +34,7 @@ const Home = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  //   console.log(getConfigData());
-
+  // console.log(popularMovies)
   const settings = {
     dots: false,
     arrows: false,
