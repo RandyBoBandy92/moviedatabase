@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Nav from "./Nav";
+import Nav from "../components/Nav";
 
 const Header = () => {
 
     const [navOpen, setNavOpen] = useState(false);
     const [isDesktop, setIsDesktop] = useState(false);
-    
+
 
     const showHideNav = () => {
         setNavOpen(!navOpen);
@@ -16,6 +16,9 @@ const Header = () => {
             setNavOpen(false);
         }
     }
+
+    
+
 
     useEffect(() => {
         let mediaQuery = window.matchMedia('(min-width: 600px)');
