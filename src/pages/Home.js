@@ -36,7 +36,7 @@ const Home = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  //   console.log(getConfigData());
+    // console.log(upcomingMovies);
 
   return (
     <div className="wrapper">
@@ -47,7 +47,7 @@ const Home = () => {
         <SearchMovies/>
         <MoviesContainer title="Popular" movies={popularMovies} />
         <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
-        <MoviesContainer title="Popular" movies={popularMovies} />
+        <MoviesContainer title="Upcoming" movies={upcomingMovies} />
       </main>
     </div>
   );

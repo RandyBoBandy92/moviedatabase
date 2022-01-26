@@ -14,7 +14,7 @@ const MovieCard = ({ data }) => {
     return (
       <div className="movie-container fadein">
         <div className="hover-card">
-          <h3>{data.original_title}</h3>
+          <h3>{data.title}</h3>
         </div>
         <img className="movie-card" src={`${imageURL}${data.poster_path}`} />
       </div>

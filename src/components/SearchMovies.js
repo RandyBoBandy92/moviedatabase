@@ -1,51 +1,53 @@
-import React from 'react';
-import { ALT_API, imageURL } from '../utilities/api';
+import React from "react";
+import { imageURL, searchMovies } from "../utilities/api";
 import { useState } from "react";
 
- function SearchMovies() {
+function SearchMovies() {
+  const [query, setQuery] = useState("");
+  const [movies, setMovies] = useState([]);
 
-    const [query, setQuery] = useState('');
-    const [movies, SetMovies] = useState([]);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchMovies(query)
+      .then((data) => {
+        setMovies(data.results);
+      })
+      .catch((error) => console.log(error));
+  };
 
-    const searchMovies = async (e) => {
-        e.preventDefault();
-        console.log('submitting');
-        const url = `https://api.themoviedb.org/3/search/movie?api_key=${ALT_API}&language=en-US&query=${query}&page=1&include_adult=false`;
-
-    try{
-        const res = await fetch(url);
-        const data = await res.json();
-        SetMovies(data.results);
-    }catch(err){
-        console.log(err);
-    }
-    }
   return (
-
-            <>
-            <form onSubmit={searchMovies}>
-            <label htmlFor='query'>Movie Name</label>
-            <input type="text" name="query" placeholder='Search For movies'
-                   value={query} onChange={(e) => setQuery(e.target.value)}/>
-            <button type="submit">Search</button>
-        </form>
-            {movies.filter(movie => movie.poster_path).map(movie => (
-             <div>
-                <div>
-                    <img  className="movie-card" key={movie.id}src={`${imageURL}${movie.poster_path}`}/>
-                </div>
-                <div>
+    <>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="query">Movie Name</label>
+        <input
+          type="text"
+          name="query"
+          placeholder="Search For movies"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
+      {movies
+        ? movies.map((movie) => (
+            <div key={movie.id}>
+              <div>
+                <img
+                  className="movie-card"
+                  src={`${imageURL}${movie.poster_path}`}
+                />
+              </div>
+              <div>
                 <h3>{movie.title}</h3>
-                <p><small>{movie.release_date}</small> </p>
-                </div>
-                </div>
-            ))}
-             
-       
-        </>
+                <p>
+                  <small>{movie.release_date}</small>{" "}
+                </p>
+              </div>
+            </div>
+          ))
+        : null}
+    </>
   );
+}
 
-};
-
-export default SearchMovies
-
+export default SearchMovies;
