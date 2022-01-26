@@ -34,7 +34,7 @@ const Home = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  console.log(popularMovies)
+  // console.log(popularMovies)
   const settings = {
     dots: false,
     arrows: false,
