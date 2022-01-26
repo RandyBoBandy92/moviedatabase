@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import Slider from "react-slick";
-import MovieCard from "../components/MovieCard";
 import Header from "../components/Header";
+import HeroCard from "../components/HeroCard";
+import SearchMovies from "../components/SearchMovies";
+
 import {
   checkKey,
   getPopular,
+  getVideo,
   getConfigData,
   getNowPlaying,
   getUpcoming,
@@ -16,6 +18,7 @@ const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
 
+
   useEffect(() => {
     getPopular()
       .then((data) => setPopularMovies(data.results))
@@ -24,6 +27,7 @@ const Home = () => {
     getNowPlaying()
       .then((data) => setNowPlayingMovies(data.results))
       .catch((error) => console.log(error));
+    
 
     getUpcoming()
       .then((data) => {
@@ -34,24 +38,16 @@ const Home = () => {
 
   //   console.log(getConfigData());
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    // swipeToSlide: true,
-    swipe: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 2,
-    slidesToScroll: 2,
-  };
   return (
     <div className="wrapper">
       <Header />
+      <h2>Movie Database</h2>
+      <HeroCard title="Upcoming" hero={upcomingMovies[0]}/>
       <main>
-        <h2>Movie Database</h2>
+        <SearchMovies/>
         <MoviesContainer title="Popular" movies={popularMovies} />
         <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
-        <MoviesContainer title="Upcoming" movies={upcomingMovies} />
+        <MoviesContainer title="Popular" movies={popularMovies} />
       </main>
     </div>
   );
