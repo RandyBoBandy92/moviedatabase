@@ -1,13 +1,21 @@
 @use './variables' as *;
+@use 'mixins' as *;
+
 
 div.movie-container {
   margin: 0.2rem;
   position: relative;
   width: 165px;
   height: 250px;
-  img.movie-card {
-    width: 250px;
+  @include mxMax(370px){
+    width: 150px;
+  }
+  @include mxMax(340px){
+    width: 200px;
     height: auto;
+    text-align: center;
+  }
+  img.movie-card {
     border-radius: 10px;
     // padding: 0.5rem;
   }
@@ -56,3 +64,4 @@ div.movie-container.loading {
     opacity: 1;
   }
 }
+

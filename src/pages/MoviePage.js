@@ -5,7 +5,7 @@ import {
   getMovie,
   getMovieImages,
   getMovieKeywords,
-  imageOriginalURL,
+  originalImageURL,
   imageURL,
 } from "../utilities/api";
 
@@ -98,7 +98,7 @@ const MoviePage = () => {
           <div className="movie-poster">
             <img
               className="backdrop"
-              src={`${imageOriginalURL}${movieData.backdrop_path}`}
+              src={`${originalImageURL}${movieData.backdrop_path}`}
               alt={`${movieData.original_title} backdrop`}
             />
             <img
