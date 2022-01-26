@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Nav from "../components/Nav";
+import Nav from "./Nav";
 
 const Header = () => {
 
