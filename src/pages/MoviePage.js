@@ -65,8 +65,8 @@ const formatMovieRuntime = (rawMovieRuntime) => {
 
 const renderMovieGenres = (movieData) => {
   let genreElems = [];
-  movieData.genres.forEach((genre) => {
-    genreElems.push(<li>{genre.name}</li>);
+  movieData.genres.forEach((genre, index) => {
+    genreElems.push(<li key={index}>{genre.name}</li>);
   });
   return genreElems;
 };
