@@ -5,6 +5,7 @@ import {
   getMovie,
   getMovieImages,
   getMovieKeywords,
+  imageOriginalURL,
   imageURL,
 } from "../utilities/api";
 
@@ -63,17 +64,16 @@ const formatMovieRuntime = (rawMovieRuntime) => {
 };
 
 const renderMovieGenres = (movieData) => {
-  let genreElems = []
-  movieData.genres.forEach(genre => {
-    genreElems.push(<li>{genre.name}</li>)
+  let genreElems = [];
+  movieData.genres.forEach((genre) => {
+    genreElems.push(<li>{genre.name}</li>);
   });
-  return genreElems
-}
-
+  return genreElems;
+};
 
 const MoviePage = () => {
   const [movieData, setMovieData] = useState(false);
-  const [movieKeywords, setMovieKeywords] = useState(false)
+  // const [movieKeywords, setMovieKeywords] = useState(false);
   // const [movieImages, setMovieImages] = useState(false);
   const { id } = useParams();
 
@@ -87,16 +87,22 @@ const MoviePage = () => {
     // getMovieImages(id)
     //   .then((data) => setMovieImages(data))
     //   .catch((error) => console.log(error));
+    
   }, []);
   if (movieData) {
-    console.log(movieData)
+    console.log(movieData);
     return (
-      <div className="wrapper">
+      <>
         <Header />
         <main className="movie-page">
           <div className="movie-poster">
             <img
-              className="poster-bg"
+              className="backdrop"
+              src={`${imageOriginalURL}${movieData.backdrop_path}`}
+              alt={`${movieData.original_title} backdrop`}
+            />
+            <img
+              className="poster"
               src={`${imageURL}${movieData.poster_path}`}
               alt={`${movieData.original_title} poster`}
             />
@@ -108,14 +114,10 @@ const MoviePage = () => {
           <h3 className="movie-runtime">
             {formatMovieRuntime(movieData.runtime)}
           </h3>
-          <ul className="movie-genres">
-            {renderMovieGenres(movieData)}
-          </ul>
-          <p className="plot-summary">
-            {movieData.overview}
-          </p>
+          <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
+          <p className="plot-summary">{movieData.overview}</p>
         </main>
-      </div>
+      </>
     );
   } else {
     return null;

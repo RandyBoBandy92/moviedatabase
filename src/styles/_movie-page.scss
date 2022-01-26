@@ -6,9 +6,27 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     .movie-poster {
-        grid-column: 2 / 5;
-        .poster-bg {
+        grid-column: 1 / 6;
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 200px;
+        overflow: hidden;
+        .backdrop {
+            grid-column: 1/7;
+            grid-row: 1;
+            filter: brightness(50%) blur(1px);
+            
+        }
+        .poster {
+            grid-row: 1;
+            grid-column: 3/5;
             object-fit: cover;
+            height: 200px;
+            z-index: 2;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+
         }
     }
     .movie-title {

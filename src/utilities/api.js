@@ -1,6 +1,7 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const imageURL = "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/";
+const imageOriginalURL =  "https://www.themoviedb.org/t/p/original/"
 
 const REGION = "region=CA";
 
@@ -38,7 +39,7 @@ const getMovie = async (movieId) => {
 
 const getMovieImages = async (movieId) => {
   const response = await fetch(
-    ` https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&language=en-US&`
+    `https://api.themoviedb.org/3/movie/${movieId}/images?api_key=${API_KEY}&language=en-US&`
   );
   return response.json();
 };
@@ -61,6 +62,7 @@ export {
   checkKey,
   getPopular,
   imageURL,
+  imageOriginalURL,
   getConfigData,
   getNowPlaying,
   getUpcoming,
