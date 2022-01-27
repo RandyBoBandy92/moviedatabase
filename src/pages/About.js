@@ -7,8 +7,7 @@ const About = () => {
       <main className="about-page">
         <div className="main-heading">
           <div className="future-text">
-            <h2 className="future-of">The future of</h2>
-            <p>searching for</p>
+            <h2 className="future-of">The future of</h2>{" "}
             <h2 className="future-today">movies.</h2>
           </div>
           <h2>Today. 🔥</h2>
