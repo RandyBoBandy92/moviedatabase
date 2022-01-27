@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import FavouritesButton from "../components/FavouritesButton";
 import Header from "../components/Header";
+import { GlobalContext } from "../GlobalState";
 import {
   getMovie,
   getMovieImages,
@@ -77,6 +79,7 @@ const MoviePage = () => {
   // const [movieImages, setMovieImages] = useState(false);
   const { id } = useParams();
 
+
   useEffect(() => {
     getMovie(id)
       .then((data) => setMovieData(data))
@@ -116,6 +119,7 @@ const MoviePage = () => {
           </h3>
           <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
           <p className="plot-summary">{movieData.overview}</p>
+          <FavouritesButton movieData={movieData}/>
         </main>
       </>
     );
