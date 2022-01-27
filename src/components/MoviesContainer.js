@@ -13,7 +13,10 @@ const MoviesContainer = ({ title, movies }) => {
     // swipeToSlide: true,
     swipe: true,
     draggable: true,
-    infinite: true,
+    infinite: movies.length > 3,
+    // had to change this from true to some boolean logic
+    // if not, when the user only has 1 favourite
+    // it will clone it and show the same movie twice.
     speed: 500,
     responsive: [
       {
@@ -99,7 +102,6 @@ const MoviesContainer = ({ title, movies }) => {
   }
   
 
-  console.log(movies.length)
 
   return (
     <div className="movies-container" style={{}}>
