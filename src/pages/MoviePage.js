@@ -39,7 +39,6 @@ import {
 // vote_count: 2852
 
 const formatMovieDate = (rawMovieDate) => {
-  console.log(rawMovieDate.split("-"));
   const movieDateArray = rawMovieDate.split("-");
   const [year, month, day] = movieDateArray;
   let date = new Date(`${month} ${day} ${year}`);
@@ -93,7 +92,6 @@ const MoviePage = () => {
     
   }, []);
   if (movieData) {
-    console.log(movieData);
     return (
       <>
         <Header />
@@ -131,7 +129,7 @@ const MoviePage = () => {
   // poster in background opacity
   // poster in foreground DONE
   // Probably an H2 with the title DONE
-  // Add to favorites
+  // Add to favourites
   // maybe an h3 with the release data DONE
   // Rating MISSING from API
   // Run time DONE

@@ -1,15 +1,15 @@
 import { useContext } from "react"
 import { GlobalContext } from "../GlobalState"
 
-const FavouritesButton = (movieData) => {
+const FavouritesButton = ({movieData}) => {
     // this button will take in the id of the movie it is being rendered by
     // it will then draw in the entire favourites context and necessary actions
     // conditionally display different text based on whether the movie
     // is or is not favourites
     // and it will handle clicks to either add/remove a movie from favourites
  
+
   const {favourites, addFavourite, delFavourite} = useContext(GlobalContext)
-  console.log(favourites)
   
   const isFavourited = () => {
       const movieInFavourites = favourites.filter(favourite => favourite.id === movieData.id)
@@ -29,6 +29,7 @@ const FavouritesButton = (movieData) => {
   }
   
 
+  console.log(movieData)
   
 
     return (

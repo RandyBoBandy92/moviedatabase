@@ -99,6 +99,8 @@ const MoviesContainer = ({ title, movies }) => {
   }
   
 
+  console.log(movies.length)
+
   return (
     <div className="movies-container" style={{}}>
       <h2>{title}</h2>

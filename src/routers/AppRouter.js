@@ -12,7 +12,7 @@ const AppRouter = () => {
         <Routes>
           <Route path="workshop" exact element={<Workshop />} />
           <Route path="/movie/:id" exact element={<MoviePage />} />
-          <Route path="/movie/:id" exact element={<FavouritesPage />} />
+          <Route path="/favourites" exact element={<FavouritesPage />} />
           <Route path="/" exact element={<Home />} />
         </Routes>
       </GlobalProvider>
