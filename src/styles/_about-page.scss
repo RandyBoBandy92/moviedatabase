@@ -1,0 +1,10 @@
+h2.future {
+  position: relative;
+  & * {
+    display: inline-block;
+  }
+  & p {
+      position: absolute;
+      top: 0;
+  }
+}
