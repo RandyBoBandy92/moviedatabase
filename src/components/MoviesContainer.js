@@ -2,7 +2,7 @@ import Slider from "react-slick";
 import MovieCard from "./MovieCard";
 import SearchMovies from "./SearchMovies";
 
-const MoviesContainer = ({ title, movies }) => {
+const MoviesContainer = ({ movies }) => {
 
   const settings = {
     
@@ -105,7 +105,6 @@ const MoviesContainer = ({ title, movies }) => {
 
   return (
     <div className="movies-container" style={{}}>
-      <h2>{title}</h2>
       {movies ? (
         <Slider {...settings}>
           {movies.map((movieData, index) => (
