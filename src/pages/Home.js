@@ -12,6 +12,7 @@ import {
   getUpcoming,
 } from "../utilities/api";
 import MoviesContainer from "../components/MoviesContainer";
+import MovieCard from "../components/MovieCard";
 
 const Home = () => {
   // getConfigData()
@@ -44,9 +45,10 @@ const Home = () => {
     <div className="wrapper">
       <Header />
       <h2>Movie Database</h2>
+      <SearchMovies />
       <HeroCard title="Upcoming" hero={upcomingMovies[0]}/>
       <main>
-        <SearchMovies/>
+     
         <MoviesContainer title="Popular" movies={popularMovies} />
         <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
         <MoviesContainer title="Upcoming" movies={upcomingMovies} />

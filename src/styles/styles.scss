@@ -11,8 +11,9 @@
 @use "./variables";
 @use "./wrapper";
 @use "./body";
-@use "./nav.scss";
-@use "./hero-card.scss";
+@use "./nav";
+@use "./hero-card";
+@use "./search-movies";
 
 h1 {
     font-size: 12rem;

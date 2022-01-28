@@ -2,13 +2,13 @@ import { checkKey, getPopular, imageURL } from "../utilities/api";
 import loading from "../images/Spinner-1s-200px.gif";
 import { Link, Navigate } from "react-router-dom";
 
-// Inside data
-// data.id
-// data.original_title
-// data.vote_average
-// data.vote_count
-// data.release_date
-// data.overview
+// Inside movies
+// movies.id
+// movies.original_title
+// movies.vote_average
+// movies.vote_count
+// movies.release_date
+// movies.overview
 
 const MovieCard = ({ data }) => {
   if (data) {
@@ -18,7 +18,7 @@ const MovieCard = ({ data }) => {
         className="movie-container fadein"
       >
         {/* <div className="hover-card">
-          <h3>{data.original_title}</h3>
+          <h3>{movies.original_title}</h3>
         </div> */}
         <Link to={`/movie/${data.id}`}>
           <img className="movie-card" src={`${imageURL}${data.poster_path}`} />
