@@ -50,6 +50,7 @@ const Home = ({ nicCageMode }) => {
 
   console.log(popularMovies);
 
+
   return (
     <>
       <div className="wrapper">

@@ -12,12 +12,12 @@ const AppRouter = () => {
     <BrowserRouter>
       <GlobalProvider>
         <Routes>
-          <Route path="workshop" exact element={<Workshop />} />
-          <Route path="/search/:query" exact element={<SearchPage/>} />
-          <Route path="/movie/:id" exact element={<MoviePage />} />
-          <Route path="/about" exact element={<About />} />
-          <Route path="/favourites" exact element={<FavouritesPage />} />
-          <Route path="/" exact element={<Home nicCageMode={false} />} />
+            <Route path="workshop" exact element={<Workshop />} />
+            <Route path="/search/:query" exact element={<SearchPage />} />
+            <Route path="/movie/:id" exact element={<MoviePage />} />
+            <Route path="/about" exact element={<About />} />
+            <Route path="/favourites" exact element={<FavouritesPage />} />
+            <Route path="/" exact element={<Home nicCageMode={false} />} />
         </Routes>
       </GlobalProvider>
     </BrowserRouter>

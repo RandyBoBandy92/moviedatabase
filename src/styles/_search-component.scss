@@ -5,9 +5,9 @@
 .searchBox {
     z-index: 9999;
     position: absolute;
-    top: 16.75333333px;
-    right: 0;
-    // transform: translate(-50%, 50%);
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
     background: $background-color-secondary;
     outline: 1.5px solid white;
     height: 40px;
