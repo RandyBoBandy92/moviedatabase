@@ -3,9 +3,10 @@ import { imageURL, searchMovies } from "../utilities/api";
 import MovieCard from "./MovieCard";
 import { useState } from "react";
 
-function SearchMovies( { moviedata } ) {
+function SearchMovies() {
   const [query, setQuery] = useState("");
   const [movie, setMovies] = useState([]);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,10 +17,11 @@ function SearchMovies( { moviedata } ) {
       .catch((error) => console.log(error));
   };
 
+
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor={query}>Search</label>
+        <label htmlFor="query">Movie Name</label>
         <input
           type="text"
           name="query"
@@ -30,12 +32,13 @@ function SearchMovies( { moviedata } ) {
         <button type="submit">Search</button>
       </form>
         <div className="search-movies">
+        {/* <h2>Search results for:{query}</h2> */}
         {movie.filter(moviedata => moviedata.poster_path).map(moviedata => (
           <MovieCard data={moviedata} key={moviedata.id} />
         ))}
-      
       </div>
     </>
+
   );
 }
 

@@ -44,11 +44,9 @@ const Home = () => {
   return (
     <div className="wrapper">
       <Header />
-      <h2>Movie Database</h2>
       <SearchMovies />
-      <HeroCard title="Upcoming" hero={upcomingMovies[0]}/>
       <main>
-     
+        <HeroCard title="Upcoming" hero={upcomingMovies[0]}/>
         <MoviesContainer title="Popular" movies={popularMovies} />
         <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
         <MoviesContainer title="Upcoming" movies={upcomingMovies} />
