@@ -46,10 +46,11 @@
     .hero-category {
         margin: 0;
         padding: 0;
-        font-size: 1rem;
-        color: $font-color-secondary;
+        font-size: .75rem;
+        color: $font-color-primary;
+
   
-        opacity: .3;
+        opacity: .9;
         grid-column: 1/4;
         grid-row: 2;
     }
