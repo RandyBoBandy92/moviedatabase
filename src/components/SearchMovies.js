@@ -29,22 +29,22 @@ function SearchMovies() {
 
 
   return (
-    <>
+  
  
-      <form onSubmit={handleSubmit} class="searchBox">
-        <input className="search-input"
+      <form onSubmit={handleSubmit} className="searchBox">
+        <input className="searchInput"
           type="text"
           name="query"
-          placeholder="Search For movies"
+          placeholder="Movie..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <div onClick={handleSubmit} className="search-icon-container" >
-          <Search className="search-icon" />
-      </div>  
+        <div onClick={handleSubmit} className="searchButton" >
+          <Search/>
+        </div>  
       </form>
        
-    </>
+ 
   );
 }
 

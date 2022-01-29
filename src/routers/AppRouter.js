@@ -17,7 +17,7 @@ const AppRouter = () => {
           <Route path="/movie/:id" exact element={<MoviePage />} />
           <Route path="/about" exact element={<About />} />
           <Route path="/favourites" exact element={<FavouritesPage />} />
-          <Route path="/" exact element={<Home />} />
+          <Route path="/" exact element={<Home nicCageMode={true} />} />
         </Routes>
       </GlobalProvider>
     </BrowserRouter>

@@ -14,7 +14,7 @@ const PlayTrailerButton = ({ trailerKey }) => {
     window.location = url;
   };
 
-  return <button onClick={handleClick}>Play Trailer</button>;
+  return <button className="trailer-button" onClick={handleClick}>Play Trailer</button>;
 };
 
 export default PlayTrailerButton;

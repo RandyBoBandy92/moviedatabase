@@ -10,11 +10,13 @@ import {
   getConfigData,
   getNowPlaying,
   getUpcoming,
+  getMovieCredits,
+  getMovieCreditsByActor,
 } from "../utilities/api";
 import MoviesContainer from "../components/MoviesContainer";
 import MovieCard from "../components/MovieCard";
 
-const Home = () => {
+const Home = ({ nicCageMode }) => {
   // getConfigData()
   // .then(data => console.log(data))
   const [popularMovies, setPopularMovies] = useState(false);
@@ -37,21 +39,42 @@ const Home = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  // console.log(upcomingMovies);
+  useEffect(() => {
+    if (nicCageMode) {
+      // NIC CAGE is 2963
+      getMovieCreditsByActor(2963)
+        .then((data) => setPopularMovies(data.cast))
+        .catch((error) => console.log(error));
+    }
+  }, []);
+
+  console.log(popularMovies);
 
   return (
     <>
       <div className="wrapper">
-      <Header />
-        <main>
-          <HeroCard title="Upcoming" hero={upcomingMovies[0]} />
-          <h2>Popular</h2>
-          <MoviesContainer title="Popular" movies={popularMovies} />
-          <h2>Now Playing</h2>
-          <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
-          <h2>Upcoming</h2>
-          <MoviesContainer title="Upcoming" movies={upcomingMovies} />
-        </main>
+        <Header />
+        {nicCageMode && popularMovies ? (
+          <>
+            <main>
+              <section className="cage-results">
+                {popularMovies.map((nicCageMovie) => (
+                  <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
+                ))}
+              </section>
+            </main>
+          </>
+        ) : (
+          <main>
+            <HeroCard title="Upcoming" hero={upcomingMovies[0]} />
+            <h2>Popular</h2>
+            <MoviesContainer title="Popular" movies={popularMovies} />
+            <h2>Now Playing</h2>
+            <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
+            <h2>Upcoming</h2>
+            <MoviesContainer title="Upcoming" movies={upcomingMovies} />
+          </main>
+        )}
       </div>
     </>
   );

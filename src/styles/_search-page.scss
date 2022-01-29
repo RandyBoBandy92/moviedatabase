@@ -1,6 +1,8 @@
 @use 'variables' as *;
 
 
+
+
 .search-results-section{
     width: 100%;
     margin: 0 auto;
@@ -23,4 +25,10 @@
 
 }
 
+}
+
+
+.search-movies{
+    display: flex;
+    flex-wrap: wrap;
 }

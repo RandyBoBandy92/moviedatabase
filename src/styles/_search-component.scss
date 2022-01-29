@@ -1,45 +1,59 @@
 @use 'variables' as *;
 
+//This component is nested inside header
 
 .searchBox {
-display: block;
-max-width: 100%;    
-height: 40px;
-width: 40px;
-background: blue;
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 10px;
-border-radius: 50px;
-
-
-.search-input{
-    float: left;
-    width: 0px;
-    outline: none;
-    background: none;
-    border: none;
-}
-
-.search-icon-container {
-    float: right;
-    width: 30px;
-    height: 30px;
-    background: red;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .search-icon{
-        display: block;
-        margin: auto;
-        font-size:.8rem;
+    z-index: 9999;
+    position: absolute;
+    top: 16.75333333px;
+    right: 0;
+    // transform: translate(-50%, 50%);
+    background: $background-color-secondary;
+    height: 40px;
+    border-radius: 40px;
+    padding: 0px;
+  
+    &:hover > {
+      .searchInput {
+        z-index: 9999;
+        width: 200px;
+        padding: 0 10px;
+      }
+  
+      .searchButton {
+        z-index: 9999;
+        background: $font-color-secondary;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
     }
+  }
+  
+  .searchButton {
+      z-index: 9999;
+    color: white;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $background-color-secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s;
+  }
+  
+  .searchInput {
+      z-index: 9999;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+  }
 
-   
-}
-
-
-}

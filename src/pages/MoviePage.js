@@ -77,7 +77,6 @@ const renderMovieGenres = (movieData) => {
 const getTrailerKey = (videos) => {
   for (let index = 0; index < videos.length; index++) {
     const video = videos[index];
-    console.log(video)
     if (video.site === "YouTube" && video.type === "Trailer") {
       return video.key;
     }
@@ -105,12 +104,13 @@ const MoviePage = () => {
       });
     }
   }, [movieData]);
-  console.log(trailerKey)
 
   if (movieData) {
     return (
       <>
-        <Header />
+        <div className="wrapper">
+          <Header />
+        </div>
         <main className="movie-page">
           <div className="movie-poster">
             <img
