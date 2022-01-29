@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FavouritesButton from "../components/FavouritesButton";
 import Header from "../components/Header";
+import PlayTrailerButton from "../components/PlayTrailerButton";
 import { GlobalContext } from "../GlobalState";
 import {
   getMovie,
@@ -9,6 +10,7 @@ import {
   getMovieKeywords,
   originalImageURL,
   imageURL,
+  getVideos,
 } from "../utilities/api";
 
 // Data Structure from API:
@@ -72,25 +74,39 @@ const renderMovieGenres = (movieData) => {
   return genreElems;
 };
 
+const getTrailerKey = (videos) => {
+  for (let index = 0; index < videos.length; index++) {
+    const video = videos[index];
+    console.log(video)
+    if (video.site === "YouTube" && video.type === "Trailer") {
+      return video.key;
+    }
+  }
+};
+
 const MoviePage = () => {
   const [movieData, setMovieData] = useState(false);
-  // const [movieKeywords, setMovieKeywords] = useState(false);
-  // const [movieImages, setMovieImages] = useState(false);
-  const { id } = useParams();
+  // I don't actually need to keep the entire array
+  // of videos, i only need the one I intend to show the user
+  const [trailerKey, setTrailerKey] = useState("");
 
+  const { id } = useParams();
 
   useEffect(() => {
     getMovie(id)
       .then((data) => setMovieData(data))
       .catch((error) => console.log(error));
-    // getMovieKeywords(id)
-    //   .then((data) => setMovieKeywords(data))
-    //   .catch((error) => console.log(error));
-    // getMovieImages(id)
-    //   .then((data) => setMovieImages(data))
-    //   .catch((error) => console.log(error));
-    
   }, []);
+
+  useEffect(() => {
+    if (movieData) {
+      getVideos(movieData.id).then((data) => {
+        setTrailerKey(getTrailerKey(data.results));
+      });
+    }
+  }, [movieData]);
+  console.log(trailerKey)
+
   if (movieData) {
     return (
       <>
@@ -117,7 +133,8 @@ const MoviePage = () => {
           </h3>
           <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
           <p className="plot-summary">{movieData.overview}</p>
-          <FavouritesButton movieData={movieData}/>
+          <FavouritesButton movieData={movieData} />
+          {trailerKey ? <PlayTrailerButton trailerKey={trailerKey} /> : null}
         </main>
       </>
     );

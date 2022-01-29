@@ -67,6 +67,14 @@ const getRecommendedMovies = async (movieId) => {
   return response.json();
 };
 
+const getVideos = async (movieId) => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`
+  );
+  return response.json();
+}
+
+
 const URL_SEARCH = "https://api.themoviedb.org/3/search/movie?query=";
 
 export {
@@ -77,6 +85,7 @@ export {
   searchMovies,
   getMovie,
   getRecommendedMovies,
+  getVideos,
   imageURL,
   URL_SEARCH,
   originalImageURL,

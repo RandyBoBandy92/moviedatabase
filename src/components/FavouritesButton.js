@@ -29,8 +29,6 @@ const FavouritesButton = ({movieData}) => {
   }
   
 
-  console.log(movieData)
-  
 
     return (
         <button onClick={handleClick}>

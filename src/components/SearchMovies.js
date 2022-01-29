@@ -30,20 +30,21 @@ function SearchMovies() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
+ 
+      <form onSubmit={handleSubmit} class="searchBox">
+        <input className="search-input"
           type="text"
           name="query"
           placeholder="Search For movies"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <span onClick={handleSubmit} className="search-icon-container" >
-          <Search  />
-        </span>
-          
-      </form>    </>
-
+        <div onClick={handleSubmit} className="search-icon-container" >
+          <Search className="search-icon" />
+      </div>  
+      </form>
+       
+    </>
   );
 }
 
