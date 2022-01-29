@@ -2,6 +2,7 @@ import { originalImageURL } from "../utilities/api";
 import loading from "../images/Spinner-1s-200px.gif";
 import { useEffect, useState } from "react";
 import { formatMovieDate } from "../utilities/toolbelt.js";
+import MoreInfo from "./MoreInfo";
 
 // Inside data
 // data.id
@@ -26,6 +27,7 @@ const HeroCard = ({ hero }) => {
             {formatMovieDate(hero.release_date)}
           </h2>
           <h3 className="hero-overview">{hero.overview}</h3>
+          <MoreInfo movieId={hero.id}/>
         </div>
       </div>
     );

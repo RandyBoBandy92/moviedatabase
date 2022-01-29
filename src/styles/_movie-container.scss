@@ -1,0 +1,8 @@
+@use 'variables' as *;
+
+
+.movies-container {
+    +  h2 {
+        color: red;
+    }
+}
