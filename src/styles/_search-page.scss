@@ -1,0 +1,26 @@
+@use 'variables' as *;
+
+
+.search-results-section{
+    width: 100%;
+    margin: 0 auto;
+
+.search-text-container {
+    margin-bottom: 2rem;
+
+
+.searchHeading{
+    color: $font-color-secondary;
+    font-style: italic;
+}
+
+
+.searchQuery{
+    text-align: center;
+    margin: 0 auto;
+    font-size: 3rem;
+}
+
+}
+
+}
