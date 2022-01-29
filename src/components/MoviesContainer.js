@@ -1,6 +1,5 @@
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
-import SearchMovies from "./SearchMovies";
 
 const MoviesContainer = ({ movies }) => {
 

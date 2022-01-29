@@ -1,10 +1,12 @@
 import React from "react";
 import { imageURL, searchMovies } from "../utilities/api";
+import MovieCard from "./MovieCard";
 import { useState } from "react";
 
 function SearchMovies() {
   const [query, setQuery] = useState("");
-  const [movies, setMovies] = useState([]);
+  const [movie, setMovies] = useState([]);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +16,7 @@ function SearchMovies() {
       })
       .catch((error) => console.log(error));
   };
+
 
   return (
     <>
@@ -28,25 +31,14 @@ function SearchMovies() {
         />
         <button type="submit">Search</button>
       </form>
-      {movies
-        ? movies.map((movie) => (
-            <div key={movie.id}>
-              <div>
-                <img
-                  className="movie-card"
-                  src={`${imageURL}${movie.poster_path}`}
-                />
-              </div>
-              <div>
-                <h3>{movie.title}</h3>
-                <p>
-                  <small>{movie.release_date}</small>{" "}
-                </p>
-              </div>
-            </div>
-          ))
-        : null}
+        <div className="search-movies">
+        {/* <h2>Search results for:{query}</h2> */}
+        {movie.filter(moviedata => moviedata.poster_path).map(moviedata => (
+          <MovieCard data={moviedata} key={moviedata.id} />
+        ))}
+      </div>
     </>
+
   );
 }
 
