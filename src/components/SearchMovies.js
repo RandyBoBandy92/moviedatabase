@@ -11,25 +11,26 @@ function SearchMovies() {
   const [movie, setMovies] = useState([]);
 
   const navigate = useNavigate();
-  
 
-  const handleSubmit = () => {
-    console.log("cliced")
-    // e.preventDefault();
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     // searchMovies(query)
     //   .then((data) => {
     //     setMovies(data.results);
     //   })
     //   .catch((error) => console.log(error));
     if (query) {
-      navigate(`/search/${query}`)
+      const uriQuery = encodeURIComponent(query)
+      navigate(`/search/${uriQuery}`)
     }
   };
 
 
   return (
     <>
-      <div>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="query"
@@ -41,7 +42,7 @@ function SearchMovies() {
           <Search  />
         </span>
           
-      </div>    </>
+      </form>    </>
 
   );
 }
