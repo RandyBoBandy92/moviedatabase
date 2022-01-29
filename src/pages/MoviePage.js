@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import FavouritesButton from "../components/FavouritesButton";
 import Header from "../components/Header";
+import { GlobalContext } from "../GlobalState";
 import {
   getMovie,
   getMovieImages,
@@ -37,7 +39,6 @@ import {
 // vote_count: 2852
 
 const formatMovieDate = (rawMovieDate) => {
-  console.log(rawMovieDate.split("-"));
   const movieDateArray = rawMovieDate.split("-");
   const [year, month, day] = movieDateArray;
   let date = new Date(`${month} ${day} ${year}`);
@@ -77,6 +78,7 @@ const MoviePage = () => {
   // const [movieImages, setMovieImages] = useState(false);
   const { id } = useParams();
 
+
   useEffect(() => {
     getMovie(id)
       .then((data) => setMovieData(data))
@@ -90,7 +92,6 @@ const MoviePage = () => {
     
   }, []);
   if (movieData) {
-    console.log(movieData);
     return (
       <>
         <Header />
@@ -116,6 +117,7 @@ const MoviePage = () => {
           </h3>
           <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
           <p className="plot-summary">{movieData.overview}</p>
+          <FavouritesButton movieData={movieData}/>
         </main>
       </>
     );
@@ -127,7 +129,7 @@ const MoviePage = () => {
   // poster in background opacity
   // poster in foreground DONE
   // Probably an H2 with the title DONE
-  // Add to favorites
+  // Add to favourites
   // maybe an h3 with the release data DONE
   // Rating MISSING from API
   // Run time DONE

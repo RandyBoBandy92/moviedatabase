@@ -47,9 +47,12 @@ const Home = () => {
       <HeroCard title="Upcoming" hero={upcomingMovies[0]}/>
       <main>
         <SearchMovies/>
-        <MoviesContainer title="Popular" movies={popularMovies} />
-        <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
-        <MoviesContainer title="Upcoming" movies={upcomingMovies} />
+        <h2>Popular</h2>
+        <MoviesContainer movies={popularMovies} />
+        <h2>Now Playing</h2>
+        <MoviesContainer movies={nowPlayingMovies} />
+        <h2>Upcoming</h2>
+        <MoviesContainer movies={upcomingMovies} />
       </main>
     </div>
   );

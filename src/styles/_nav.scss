@@ -8,7 +8,7 @@ nav {
     padding: 0;
   }
   .nav-component {
-    // plus icon, home, favorites, and about
+    // plus icon, home, favourites, and about
     border-radius: 50%;
     // Setting small size to be increased on active class
     height: 50px;
@@ -101,7 +101,7 @@ nav {
   }
 
   .home-link,
-  .favorites-link,
+  .favourites-link,
   .about-link {
     opacity: 0;
     transform: rotate(540deg);
@@ -116,7 +116,7 @@ nav {
   }
 
   .home-link,
-  .favorites-link,
+  .favourites-link,
   .about-link {
     width: 40px;
     height: 40px;
@@ -129,7 +129,7 @@ nav {
     bottom: 8.2rem;
     right: 3.5rem;
   }
-  .favorites-link {
+  .favourites-link {
     right: 6.2rem;
     bottom: 6.4rem;
   }
