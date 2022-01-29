@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import MoviePage from "../pages/MoviePage";
 import About from "../pages/About";
 import Workshop from "../Workshop";
+import SearchPage from "../pages/SearchPage";
 
 const AppRouter = () => {
   return (
@@ -12,6 +13,7 @@ const AppRouter = () => {
       <GlobalProvider>
         <Routes>
           <Route path="workshop" exact element={<Workshop />} />
+          <Route path="/search/:query" exact element={<SearchPage/>} />
           <Route path="/movie/:id" exact element={<MoviePage />} />
           <Route path="/about" exact element={<About />} />
           <Route path="/favourites" exact element={<FavouritesPage />} />

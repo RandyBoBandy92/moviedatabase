@@ -2,26 +2,34 @@ import React from "react";
 import { imageURL, searchMovies } from "../utilities/api";
 import MovieCard from "./MovieCard";
 import { useState } from "react";
+import { Search } from "react-bootstrap-icons";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+
 
 function SearchMovies() {
   const [query, setQuery] = useState("");
   const [movie, setMovies] = useState([]);
+
+  const navigate = useNavigate();
   
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    searchMovies(query)
-      .then((data) => {
-        setMovies(data.results);
-      })
-      .catch((error) => console.log(error));
+  const handleSubmit = () => {
+    console.log("cliced")
+    // e.preventDefault();
+    // searchMovies(query)
+    //   .then((data) => {
+    //     setMovies(data.results);
+    //   })
+    //   .catch((error) => console.log(error));
+    if (query) {
+      navigate(`/search/${query}`)
+    }
   };
 
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="query">Movie Name</label>
+      <div>
         <input
           type="text"
           name="query"
@@ -29,17 +37,14 @@ function SearchMovies() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button type="submit">Search</button>
-      </form>
-        <div className="search-movies">
-        {/* <h2>Search results for:{query}</h2> */}
-        {movie.filter(moviedata => moviedata.poster_path).map(moviedata => (
-          <MovieCard data={moviedata} key={moviedata.id} />
-        ))}
-      </div>
-    </>
+        <span onClick={handleSubmit} className="search-icon-container" >
+          <Search  />
+        </span>
+          
+      </div>    </>
 
   );
 }
 
 export default SearchMovies;
+      {/* <h2>Search results for:{query}</h2> */}

@@ -21,7 +21,6 @@ const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
 
-
   useEffect(() => {
     getPopular()
       .then((data) => setPopularMovies(data.results))
@@ -30,7 +29,6 @@ const Home = () => {
     getNowPlaying()
       .then((data) => setNowPlayingMovies(data.results))
       .catch((error) => console.log(error));
-    
 
     getUpcoming()
       .then((data) => {
@@ -39,22 +37,23 @@ const Home = () => {
       .catch((error) => console.log(error));
   }, []);
 
-    // console.log(upcomingMovies);
+  // console.log(upcomingMovies);
 
   return (
-    <div className="wrapper">
+    <>
+      <div className="wrapper">
       <Header />
-      <SearchMovies />
-      <main>
-        <HeroCard title="Upcoming" hero={upcomingMovies[0]}/>
-        <h2>Popular</h2>
-        <MoviesContainer title="Popular" movies={popularMovies} />
-        <h2>Now Playing</h2>
-        <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
-        <h2>Upcoming</h2>
-        <MoviesContainer title="Upcoming" movies={upcomingMovies} />
-      </main>
-    </div>
+        <main>
+          <HeroCard title="Upcoming" hero={upcomingMovies[0]} />
+          <h2>Popular</h2>
+          <MoviesContainer title="Popular" movies={popularMovies} />
+          <h2>Now Playing</h2>
+          <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
+          <h2>Upcoming</h2>
+          <MoviesContainer title="Upcoming" movies={upcomingMovies} />
+        </main>
+      </div>
+    </>
   );
 };
 
