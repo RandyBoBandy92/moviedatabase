@@ -11,16 +11,19 @@ import { useEffect, useState } from "react";
 // data.overview
 
 const HeroCard = ({ hero }) => {
- 
-    if (hero) {
+  if (hero) {
     return (
-        <div className="hero-container">
-          <img className="hero-card" src={`${originalImageURL}${hero.backdrop_path}`} />
-            <div className="hero-info-container">
-              <h1>{hero.original_title}</h1>
-                <h3>{hero.overview}</h3>
-            </div>
+      <div className="hero-container">
+        <img
+          className="hero-card"
+          src={`${originalImageURL}${hero.backdrop_path}`}
+        />
+        <div className="hero-info-container">
+          <h1 className="hero-title">{hero.original_title}</h1>
+          <h2 className="hero-category">Upcoming</h2>
+          <h3 className="hero-overview">{hero.overview}</h3>
         </div>
+      </div>
     );
   } else {
     return (
@@ -32,6 +35,3 @@ const HeroCard = ({ hero }) => {
 };
 
 export default HeroCard;
-
-
-

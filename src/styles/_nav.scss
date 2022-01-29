@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 // ==============================MOBILE NAV===================================================================//
 
@@ -35,8 +36,6 @@
     :hover {
       cursor: pointer;
     }
-    // hiding temporarily
-    display: none;
   }
 
   // Hamburger Settings
@@ -139,6 +138,7 @@
 .desktop-nav {
   margin: 0;
   padding: 0;
+  display: none;
   
   ul {
     display: flex;
@@ -159,5 +159,17 @@
         }
       }
     }
+  }
+}
+
+
+// Media Query to toggle nav
+
+@include mxMin(31.25rem) {
+  .mobile-nav {
+    display: none;
+  }
+  .desktop-nav {
+    display: block;
   }
 }
