@@ -1,10 +1,12 @@
 import Header from "../components/Header";
+import humans from '../images/humans.png'
 
 const About = () => {
   return (
     <div className="wrapper">
       <Header />
       <main className="about-page">
+          <img src={humans} alt="" />
         <div className="main-heading">
           <div className="future-text">
             <h2 className="future-of">The future of</h2>{" "}
