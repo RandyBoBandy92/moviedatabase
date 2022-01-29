@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
 import SearchMovies from "./SearchMovies";
+import Logo from './Logo';
 
 const Header = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -19,7 +20,7 @@ const Header = () => {
                     About
                     Favourites?
             */}
-      <h2 className="logo">bdmi</h2>
+      <Logo/>
       <SearchMovies />
       <Nav navOpen={navOpen} showHideNav={showHideNav} />
     </header>

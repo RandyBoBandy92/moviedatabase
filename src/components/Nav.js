@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 
 const Nav = ({ navOpen, isDesktop, showHideNav }) => {
   return (
-    <nav className={navOpen ? "active" : null}>
+    <>
+    {/* Mobile Nav */}
+    <nav className={`mobile-nav${navOpen ? " active" : ""}`}>
       <div onClick={() => showHideNav()} className="nav-component">
         <div className="hamburger-menu"><span className="hamburger-line"></span></div>
       </div>
@@ -18,6 +20,17 @@ const Nav = ({ navOpen, isDesktop, showHideNav }) => {
         </li>
       </ul>
     </nav>
+    {/* END Mobile Nav */}
+    {/* Desktop Nav */}
+    <nav className="desktop-nav">
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/favourites">Favourites</Link></li>
+        <li><Link to="/about">About</Link></li>
+      </ul>
+    </nav>
+    {/* End Desktop Nav */}
+    </>
   );
 };
 

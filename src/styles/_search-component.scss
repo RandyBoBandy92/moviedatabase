@@ -9,11 +9,12 @@
     right: 0;
     // transform: translate(-50%, 50%);
     background: $background-color-secondary;
+    outline: 1.5px solid white;
     height: 40px;
     border-radius: 40px;
     padding: 0px;
   
-    &:hover > {
+    &:hover> {
       .searchInput {
         z-index: 9999;
         width: 200px;
