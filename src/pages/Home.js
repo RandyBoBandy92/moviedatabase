@@ -36,12 +36,15 @@ const Home = ({ nicCageMode }) => {
 
     getUpcoming()
       .then((data) => {
-        const movies = sanitizeVideoData(data.results)
+        const movies = sanitizeVideoData(data.results);
         setUpcomingMovies(movies);
-        setHeroMovie(movies[generateRandomIndex(data.results.length)])
       })
       .catch((error) => console.log(error));
   }, []);
+
+  useEffect(() => {
+    setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
+  }, [upcomingMovies]);
 
   useEffect(() => {
     if (nicCageMode) {
@@ -53,7 +56,7 @@ const Home = ({ nicCageMode }) => {
   }, []);
 
   console.log(popularMovies);
-  console.log(heroMovie)
+  console.log(heroMovie);
 
   return (
     <>
