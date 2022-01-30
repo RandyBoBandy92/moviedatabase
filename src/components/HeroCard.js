@@ -1,4 +1,5 @@
 import { getVideos, originalImageURL } from "../utilities/api";
+import {ChevronBarRight, ChevronBarLeft, ChevronLeft, ChevronRight} from "react-bootstrap-icons";
 import loading from "../images/Spinner-1s-200px.gif";
 import { useEffect, useState } from "react";
 import { formatMovieDate, generateTextExcerpt, getTrailerKey } from "../utilities/toolbelt.js";

@@ -1,5 +1,7 @@
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
+import {ChevronBarRight, ChevronBarLeft, ChevronLeft, ChevronRight} from "react-bootstrap-icons";
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const MoviesContainer = ({ title, movies }) => {
 
@@ -9,6 +11,8 @@ const MoviesContainer = ({ title, movies }) => {
     arrows: false,
     slidesToShow: 10,
     slidesToScroll: 4,
+    nextArrow: <FaChevronRight /> ,
+    prevArrow: <FaChevronLeft />,
     // swipeToSlide: true,
     swipe: true,
     draggable: true,

@@ -10,7 +10,6 @@ const FavouritesPage = () => {
     <div className="wrapper">
       <Header />
       <main className="favourites-page">
-        <h2>Favourites</h2>
         {favourites.length > 0 ? (
           <MoviesContainer title="Favourites" movies={favourites} />
         ) : (

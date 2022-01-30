@@ -33,3 +33,14 @@
     margin: auto;
   }
 }
+
+.no-text {
+  width: 35px;
+  height: 35px;
+  display: block;
+  padding: 0;
+  .more-info-text {
+
+    display: none;
+  }
+}
