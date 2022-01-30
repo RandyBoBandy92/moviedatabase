@@ -21,7 +21,7 @@ const AppRouter = () => {
           <Route path="/about" exact element={<About />} />
           <Route path="/favourites" exact element={<FavouritesPage />} />
           <Route path="/settings" exact element={<SettingsPage />} />
-          <Route path="/" exact element={<Home nicCageMode={false} />} />
+          <Route path="/" exact element={<Home />} />
         </Routes>
       </GlobalProvider>
     </BrowserRouter>

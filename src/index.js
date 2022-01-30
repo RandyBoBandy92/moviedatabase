@@ -6,7 +6,7 @@ import AppRouter from "./routers/AppRouter";
 ReactDOM.render(
   <React.StrictMode>
     <div className="site-limiter">
-      <div class="wrapper">
+      <div className="wrapper">
         <AppRouter />
       </div>
     </div>
