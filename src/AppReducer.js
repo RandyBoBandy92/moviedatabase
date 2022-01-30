@@ -21,6 +21,7 @@ const AppReducer = (state, action) => {
       saveToLocalStorage("favourites", updatedFavourites);
       console.log(state);
       return {
+        ...state,
         favourites: updatedFavourites,
       };
       break;
@@ -30,7 +31,7 @@ const AppReducer = (state, action) => {
         (favourite) => favourite.id !== action.payload.id
       );
       saveToLocalStorage("favourites", updatedFavourites);
-      return { favourites: updatedFavourites };
+      return { ...state, favourites: updatedFavourites };
       break;
 
     case TOGGLE_SETTING:
@@ -39,7 +40,7 @@ const AppReducer = (state, action) => {
         [action.payload]: !state.settings[action.payload],
       };
       saveToLocalStorage("settings", updatedSettings);
-      return { settings: updatedSettings };
+      return { ...state, settings: updatedSettings };
       break;
 
     default:
