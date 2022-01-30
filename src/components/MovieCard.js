@@ -4,6 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 import { formatMovieDate, generateTextExcerpt } from "../utilities/toolbelt";
 import MoreInfo from "./MoreInfo";
 import FavouritesButton from "./FavouritesButton";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 // Inside movies
 // movies.id
@@ -37,8 +38,10 @@ const MovieCard = ({ data }) => {
     );
   } else {
     return (
-      <div className="movie-container loading">
-        <img className="movie-card" src={loading} />
+      <div className="loading">
+        {/* <img className="movie-card" src={loading} /> */}
+        <LoadingSpinner/>
+      {/* <div className="loader loader8 movie-card"></div> */}
       </div>
     );
   }

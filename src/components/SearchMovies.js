@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useRef } from "react";
-import { Search } from "react-bootstrap-icons";
+import { ImSearch } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 
 function SearchMovies() {
@@ -37,12 +37,12 @@ function SearchMovies() {
         ref={ref}
         type="text"
         name="query"
-        placeholder="Movie..."
+        placeholder="Search for a movie..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
       <div onClick={handleSubmit} className="searchButton">
-        <Search />
+        <ImSearch className="search-icon" />
       </div>
     </form>
   );

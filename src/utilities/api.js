@@ -1,29 +1,25 @@
+import { fetchWithDelay } from '../utilities/toolbelt';
+
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 const REGION = "region=CA|US";
 const imageURL = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/`;
 const originalImageURL = `https://www.themoviedb.org/t/p/original/`;
 const URL_IMAGE = `https://www.themoviedb.org/t/p/`;
 
-const getPopular = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&${REGION}&page=1`
-  );
-  return response.json();
-};
 
-const getNowPlaying = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&${REGION}&page=1`
-  );
-  return response.json();
-};
+//========================For rendering movies on homepage - 
+// see toolbelt.js for info on FetchWithDelay================
 
-const getUpcoming = async () => {
-  const response = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&${REGION}&with_release_type=2|3`
-  );
-  return response.json();
-};
+const getNowPlaying  = () => fetchWithDelay(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&${REGION}&page=1`);
+
+const getPopular = () => fetchWithDelay(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&${REGION}&page=1`);
+
+const getUpcoming = () => fetchWithDelay(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&${REGION}&with_release_type=2|3`);
+
+//==================================================================
+
+
 
 const getMovie = async (movieId) => {
   const response = await fetch(

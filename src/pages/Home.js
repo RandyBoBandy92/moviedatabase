@@ -1,26 +1,21 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { trackPromise } from "react-promise-tracker";
 import HeroCard from "../components/HeroCard";
+import MoviesContainer from "../components/MoviesContainer";
+import MovieCard from "../components/MovieCard";
+import { GlobalContext } from "../GlobalState";
 
 import {
-  checkKey,
   getPopular,
-  getVideo,
-  getConfigData,
   getNowPlaying,
   getUpcoming,
-  getMovieCredits,
   getMovieCreditsByActor,
   getRecommendedMovies,
 } from "../utilities/api";
-import MoviesContainer from "../components/MoviesContainer";
-import MovieCard from "../components/MovieCard";
+
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
-import { GlobalContext } from "../GlobalState";
-import { cleanup } from "@testing-library/react";
 
 const Home = () => {
-  // getConfigData()
-  // .then(data => console.log(data))
   const [popularMovies, setPopularMovies] = useState(false);
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
@@ -29,20 +24,30 @@ const Home = () => {
   const { favourites, settings } = useContext(GlobalContext);
 
   useEffect(() => {
-    getPopular()
-      .then((data) => setPopularMovies(sanitizeVideoData(data.results)))
-      .catch((error) => console.log(error));
+    trackPromise(
+      getPopular().then((data) =>
+        setPopularMovies(sanitizeVideoData(data.results)).catch((error) =>
+          console.log(error)
+        )
+      )
+    );
 
-    getNowPlaying()
-      .then((data) => setNowPlayingMovies(sanitizeVideoData(data.results)))
-      .catch((error) => console.log(error));
+    trackPromise(
+      getNowPlaying().then((data) =>
+        setNowPlayingMovies(sanitizeVideoData(data.results)).catch((error) =>
+          console.log(error)
+        )
+      )
+    );
 
-    getUpcoming()
-      .then((data) => {
-        const movies = sanitizeVideoData(data.results);
-        setUpcomingMovies(movies);
-      })
-      .catch((error) => console.log(error));
+    trackPromise(
+      getUpcoming()
+        .then((data) => {
+          const movies = sanitizeVideoData(data.results);
+          setUpcomingMovies(movies);
+        })
+        .catch((error) => console.log(error))
+    );
 
     if (favourites.length > 0) {
       const recommendedMovieSeed =

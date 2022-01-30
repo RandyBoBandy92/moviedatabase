@@ -14,11 +14,45 @@
 
 
 .slick-next{
-    width: 5rem;
-    height: 5rem;
+    width: 3rem;
+    height: 3rem;
     color: white;
+    opacity: .7;
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    transition:  all .3s  ease-in-out;
+  
+
+    &:hover{
+        opacity: 1;
+        transition:  all .3s  ease-in-out;
+    }
+    &:active{
+        transition:  all .1s  ease-in-out;
+        color: $font-color-secondary;
+        opacity: 1;
+        width: 2.9rem;
+    height: 2.9rem;
+
+    }
 }
+
 .slick-prev{
-    font-size: 10rem;
+    width: 3rem;
+    height: 3rem;
     color: white;
+    opacity: .7;
+    filter: drop-shadow( 3px 3px 2px rgba(0, 0, 0, .7));
+    transition:  all .3s  ease-in-out;
+    &:hover{
+        opacity: 1;
+        transition:  all .3s  ease-in-out;
+    }
+    &:active{
+        transition:  all .1s  ease-in-out;
+        color: $font-color-secondary;
+        opacity: 1;
+        width: 2.9rem;
+        height: 2.9rem;
+    }
 }
+
