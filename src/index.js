@@ -5,8 +5,10 @@ import AppRouter from "./routers/AppRouter";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="site-wrapper">
-      <AppRouter />
+    <div className="site-limiter">
+      <div class="wrapper">
+        <AppRouter />
+      </div>
     </div>
   </React.StrictMode>,
   document.getElementById("root")

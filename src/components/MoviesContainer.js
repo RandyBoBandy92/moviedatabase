@@ -1,107 +1,109 @@
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
-import {ChevronBarRight, ChevronBarLeft, ChevronLeft, ChevronRight} from "react-bootstrap-icons";
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import {
+  ChevronBarRight,
+  ChevronBarLeft,
+  ChevronLeft,
+  ChevronRight,
+} from "react-bootstrap-icons";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const MoviesContainer = ({ title, movies }) => {
-
   const settings = {
-    
     dots: false,
     arrows: false,
     slidesToShow: 10,
     slidesToScroll: 4,
-    nextArrow: <FaChevronRight /> ,
+    nextArrow: <FaChevronRight />,
     prevArrow: <FaChevronLeft />,
     // swipeToSlide: true,
     swipe: true,
     draggable: true,
-    infinite: movies.length > 3,
+    infinite: true,
     // had to change this from true to some boolean logic
     // if not, when the user only has 1 favourite
     // it will clone it and show the same movie twice.
     speed: 500,
     responsive: [
-
       {
         breakpoint: 3000,
         settings: {
           slidesToShow: 9,
           slidesToScroll: 9,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 1820,
         settings: {
           slidesToShow: 9,
           slidesToScroll: 9,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 1720,
         settings: {
           slidesToShow: 9,
           slidesToScroll: 8,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 1650,
         settings: {
           slidesToShow: 8,
           slidesToScroll: 7,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 1480,
         settings: {
           slidesToShow: 7,
           slidesToScroll: 6,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 1310,
         settings: {
           slidesToShow: 6,
           slidesToScroll: 5,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 1150,
         settings: {
           slidesToShow: 5,
           slidesToScroll: 4,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 970,
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
-          arrows: true
-        }
+          arrows: true,
+        },
       },
       {
         breakpoint: 800,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          arrows: false
-        }
+          arrows: false,
+        },
       },
       {
         breakpoint: 545,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-          arrows: false
-        }
+          arrows: false,
+        },
       },
       {
         breakpoint: 340,
@@ -109,21 +111,19 @@ const MoviesContainer = ({ title, movies }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
-          arrows: false
-        }
+          arrows: false,
+        },
       },
-    ]
+    ],
   };
 
   const renderLoadingCards = () => {
-      const loadingCards = []
-      for (let index = 0; index < settings.slidesToShow; index++) {
-          loadingCards.push(<MovieCard key={index} data={""}/>)
-      }
-      return loadingCards
-  }
-  
-
+    const loadingCards = [];
+    for (let index = 0; index < settings.slidesToShow; index++) {
+      loadingCards.push(<MovieCard key={index} data={""} />);
+    }
+    return loadingCards;
+  };
 
   return (
     <div className="movies-container">
@@ -135,9 +135,7 @@ const MoviesContainer = ({ title, movies }) => {
           ))}
         </Slider>
       ) : (
-        <Slider {...settings} >
-            {renderLoadingCards()}
-        </Slider>
+        <Slider {...settings}>{renderLoadingCards()}</Slider>
       )}
     </div>
   );

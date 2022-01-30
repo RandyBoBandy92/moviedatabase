@@ -7,8 +7,8 @@
 @use "./mixins";
 @use "./_logo.scss";
 @use "./movie-cards";
-@use './_movie-page';
-@use './_about-page';
+@use "./_movie-page";
+@use "./_about-page";
 @use "./typography";
 @use "./variables";
 @use "./wrapper";
@@ -24,16 +24,13 @@
 @use "./movie-container";
 @use "./_favourites-page.scss";
 
-
-
-.site-wrapper {
-    max-width: 1920px;
-    margin: auto;
+.site-limiter {
+  max-width: 1920px;
+  margin: auto;
 }
 
-
 .wrapper {
-    height: 100%;
-    width: auto;
-    padding: 0 1rem;
+  height: 100%;
+  width: auto;
+  padding: 0 1rem;
 }

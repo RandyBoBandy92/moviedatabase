@@ -75,33 +75,30 @@ const Home = ({ nicCageMode }) => {
 
   return (
     <>
-      <div className="wrapper">
-        <Header />
-        {nicCageMode && popularMovies ? (
-          <>
-            <main>
-              <section className="cage-results">
-                {popularMovies.map((nicCageMovie) => (
-                  <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
-                ))}
-              </section>
-            </main>
-          </>
-        ) : (
+      {nicCageMode && popularMovies ? (
+        <>
           <main>
-            <HeroCard title="Upcoming" hero={heroMovie} />
-            <MoviesContainer title="Popular" movies={popularMovies} />
-            <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
-            <MoviesContainer title="Upcoming" movies={upcomingMovies} />
-            {recommendedMovies?.movies?.length > 0 ? (
-              <MoviesContainer
-                title={`If you liked ${recommendedMovies.recommendedMovieSeed.original_title}, you might also like...`}
-                movies={recommendedMovies.movies}
-              />
-            ) : null}
+            <section className="cage-results">
+              {popularMovies.map((nicCageMovie) => (
+                <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
+              ))}
+            </section>
           </main>
-        )}
-      </div>
+        </>
+      ) : (
+        <main>
+          <HeroCard title="Upcoming" hero={heroMovie} />
+          <MoviesContainer title="Popular" movies={popularMovies} />
+          <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
+          <MoviesContainer title="Upcoming" movies={upcomingMovies} />
+          {recommendedMovies?.movies?.length > 0 ? (
+            <MoviesContainer
+              title={`If you liked ${recommendedMovies.recommendedMovieSeed.original_title}, you might also like...`}
+              movies={recommendedMovies.movies}
+            />
+          ) : null}
+        </main>
+      )}
     </>
   );
 };
