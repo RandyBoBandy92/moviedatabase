@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { trackPromise } from 'react-promise-tracker';
 import Header from "../components/Header";
 import HeroCard from "../components/HeroCard";
-import SearchMovies from "../components/SearchMovies";
+import MoviesContainer from "../components/MoviesContainer";
+import MovieCard from "../components/MovieCard";
 
 import {
   checkKey,
@@ -13,9 +15,8 @@ import {
   getMovieCredits,
   getMovieCreditsByActor,
 } from "../utilities/api";
-import MoviesContainer from "../components/MoviesContainer";
-import MovieCard from "../components/MovieCard";
-import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
+
+import { generateRandomIndex, sanitizeVideoData, myTimeout} from "../utilities/toolbelt";
 
 const Home = ({ nicCageMode }) => {
   // getConfigData()
@@ -26,20 +27,20 @@ const Home = ({ nicCageMode }) => {
   const [heroMovie, setHeroMovie] = useState(false);
 
   useEffect(() => {
-    getPopular()
-      .then((data) => setPopularMovies(sanitizeVideoData(data.results)))
-      .catch((error) => console.log(error));
+    trackPromise(getPopular()
+      .then((data) => setPopularMovies(sanitizeVideoData(data.results))
+      .catch((error) => console.log(error))));
 
-    getNowPlaying()
-      .then((data) => setNowPlayingMovies(sanitizeVideoData(data.results)))
-      .catch((error) => console.log(error));
+    trackPromise(getNowPlaying()
+      .then((data) => setNowPlayingMovies(sanitizeVideoData(data.results))
+      .catch((error) => console.log(error))));
 
-    getUpcoming()
+    trackPromise(getUpcoming()
       .then((data) => {
-        const movies = sanitizeVideoData(data.results)
+        const movies = sanitizeVideoData(data.results);
         setUpcomingMovies(movies);
         setHeroMovie(movies[generateRandomIndex(data.results.length)])
-      })
+      }))
       .catch((error) => console.log(error));
   }, []);
 

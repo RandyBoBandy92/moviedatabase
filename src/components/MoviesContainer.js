@@ -1,10 +1,9 @@
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
-import {ChevronBarRight, ChevronBarLeft, ChevronLeft, ChevronRight} from "react-bootstrap-icons";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const MoviesContainer = ({ title, movies }) => {
-
+ 
   const settings = {
     
     dots: false,
@@ -115,6 +114,7 @@ const MoviesContainer = ({ title, movies }) => {
     ]
   };
 
+
   const renderLoadingCards = () => {
       const loadingCards = []
       for (let index = 0; index < settings.slidesToShow; index++) {
@@ -124,9 +124,8 @@ const MoviesContainer = ({ title, movies }) => {
   }
   
 
-
   return (
-    <div className="movies-container">
+   <div className="movies-container">
       <h2>{title}</h2>
       {movies ? (
         <Slider {...settings}>

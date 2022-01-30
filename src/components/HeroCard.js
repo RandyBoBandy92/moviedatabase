@@ -1,10 +1,10 @@
 import { getVideos, originalImageURL } from "../utilities/api";
-import {ChevronBarRight, ChevronBarLeft, ChevronLeft, ChevronRight} from "react-bootstrap-icons";
 import loading from "../images/Spinner-1s-200px.gif";
 import { useEffect, useState } from "react";
 import { formatMovieDate, generateTextExcerpt, getTrailerKey } from "../utilities/toolbelt.js";
 import MoreInfo from "./MoreInfo";
 import PlayTrailerButton from "./PlayTrailerButton";
+import { LoadingSpinner } from "./LoadingSpinner";
 
 // Inside data
 // data.id
@@ -48,7 +48,9 @@ const HeroCard = ({ hero }) => {
   } else {
     return (
       <div className="hero-container">
-        <img className="hero-card" src={loading} />
+        <div className="hero-loader">
+          <LoadingSpinner/>
+        </div>
       </div>
     );
   }
