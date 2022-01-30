@@ -49,6 +49,7 @@ div.movie-container {
         grid-column: 1;
       }
       .favourite {
+        z-index: 100000;
         grid-column: 4;
         pointer-events: auto;
       }
