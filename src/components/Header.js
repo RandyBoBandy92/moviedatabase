@@ -4,12 +4,13 @@ import SearchMovies from "./SearchMovies";
 import Logo from "./Logo";
 
 const Header = () => {
-  const [navOpen, setNavOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
-    setScrollPosition(position);
+    if (scrollPosition !== position) {
+      setScrollPosition(position);
+    }
   };
 
   useEffect(() => {
@@ -18,13 +19,9 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [console.log(scrollPosition)]);
+  }, [scrollPosition]);
 
-  const showHideNav = () => {
-    setNavOpen(!navOpen);
-  };
-
-  const headerClass = scrollPosition > 40 ? "scrolled" : "";
+  const headerClass = scrollPosition > 150 ? "scrolled" : "";
 
   return (
     <header className={headerClass} id="header">
@@ -39,7 +36,7 @@ const Header = () => {
       <div className="header-wrapper">
         <Logo />
         <SearchMovies />
-        <Nav navOpen={navOpen} showHideNav={showHideNav} />
+        <Nav />
       </div>
     </header>
   );
