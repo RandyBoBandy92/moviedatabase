@@ -6,6 +6,7 @@ header {
   right: 0;
   top: 0;
   z-index: 9001;
+  transition: all 0.3s ease-in-out;
 
   .header-wrapper {
     max-width: 1920px;
@@ -22,7 +23,7 @@ header {
       rgba(0, 0, 0, 0.35) 80.3%,
       rgba(0, 0, 0, 0) 96.9%
     );
-    transition: all 0.5s ease-in-out;
+    
   }
 
   form {
