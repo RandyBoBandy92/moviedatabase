@@ -40,8 +40,10 @@ const generateRandomIndex = (arrayLength) => {
 };
 
 const sanitizeVideoData = (videos) => {
-  return videos.filter(video => video.backdrop_path !== null && video.poster_path !== null)
-}
+  return videos.filter(
+    (video) => video.backdrop_path !== null && video.poster_path !== null
+  );
+};
 
 export {
   formatMovieDate,
