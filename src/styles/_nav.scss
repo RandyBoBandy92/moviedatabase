@@ -5,13 +5,40 @@
 
 .mobile-nav {
   position: absolute;
-  a {
+  .link {
     text-decoration: none;
+    z-index: -1;
+    
   }
   ul {
     padding: 0;
   }
+  &.active {
+    .nav-component:not(li) {
+      transform: rotate(180deg);
+      
+    }
+    .hamburger-menu {
+      z-index: 10000;
+      .hamburger-line {
+        transform: rotate(45deg);
+        margin-top: -2px;
+        
+        &::after {
+          top: 0;
+          background-color: $primary-color;
+        }
+        &::before {
+          top: 0;
+          transform: rotate(-90deg);
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+}
   .nav-component {
+    -webkit-tap-highlight-color: transparent; //this removes the blue outline box when tapped on mobile
     // plus icon, home, favourites, and about
     border-radius: 50%;
     // Setting small size to be increased on active class
@@ -25,12 +52,11 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px;
     list-style-type: none;
-    outline: 2px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     color: $font-color-primary;
     position: fixed;
     bottom: 4.5rem;
     right: 2.9rem;
-    z-index: 9001;
     transition: all 0.3s ease-in-out;
     transform: rotate(0deg);
     :hover {
@@ -41,6 +67,7 @@
   // Hamburger Settings
 
   .hamburger-menu {
+    z-index: 999;
     height: 50px;
     width: 50px;
     position: relative;
@@ -48,7 +75,7 @@
     place-items: center;
     .hamburger-line {
       width: 30px;
-      height: 5px;
+      height: 3px;
       background-color: #fff;
       display: block;
       position: relative;
@@ -60,7 +87,7 @@
       position: absolute;
       top: 8px;
       width: 30px;
-      height: 5px;
+      height: 3px;
       background-color: #fff;
       transition: all 0.3s ease-in-out;
     }
@@ -70,40 +97,29 @@
       position: absolute;
       top: -8px;
       width: 30px;
-      height: 5px;
+      height: 3px;
       background-color: #fff;
       transition: all 0.3s ease-in-out;
-    }
-  }
-  &.active {
-    .nav-component:not(li) {
-      transform: rotate(180deg);
-    }
-    .hamburger-menu {
-      .hamburger-line {
-        transform: rotate(45deg);
-        margin-top: -2px;
-        &::after {
-          top: 0;
-        }
-        &::before {
-          top: 0;
-          transform: rotate(-90deg);
-        }
-      }
     }
   }
 
   .home-link,
   .favourites-link,
   .about-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     opacity: 0;
     transform: rotate(540deg);
-    filter: blur(5px);
+    filter: blur(3px);
     height: 0px;
     width: 0px;
   }
-} // end of nav style
+
+  
+
+  
+ // end of nav style
 .active {
   .nav-component {
     // increase the size of nav components
@@ -112,11 +128,14 @@
   .home-link,
   .favourites-link,
   .about-link {
+    background-color: rgb(31, 30, 30);
     width: 40px;
     height: 40px;
     opacity: 1;
     filter: blur(0px);
     transform: rotate(0deg);
+    
+    
   }
 
   .home-link {
@@ -131,7 +150,19 @@
     bottom: 3.2rem;
     right: 6.2rem;
   }
+
 }
+
+
+.nav-icon{
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: auto;
+  display: block;
+  color: white;
+}
+
+
 
 // ==============================END MOBILE NAV===================================================================//
 
