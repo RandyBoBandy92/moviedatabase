@@ -33,11 +33,19 @@ div.movie-container {
       font-size: 1rem;
     }
   }
+  transition: all .1s linear;
+  
   &:hover {
+    transform: scale(1.1);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    &:hover {
     div.hover-card {
       filter: opacity(1);
     }
   }
+
+}
+
 }
 
 div.movie-container.fadein {

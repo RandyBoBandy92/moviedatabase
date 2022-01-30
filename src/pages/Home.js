@@ -15,6 +15,7 @@ import {
 } from "../utilities/api";
 import MoviesContainer from "../components/MoviesContainer";
 import MovieCard from "../components/MovieCard";
+import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
 
 const Home = ({ nicCageMode }) => {
   // getConfigData()
@@ -22,19 +23,22 @@ const Home = ({ nicCageMode }) => {
   const [popularMovies, setPopularMovies] = useState(false);
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
+  const [heroMovie, setHeroMovie] = useState(false);
 
   useEffect(() => {
     getPopular()
-      .then((data) => setPopularMovies(data.results))
+      .then((data) => setPopularMovies(sanitizeVideoData(data.results)))
       .catch((error) => console.log(error));
 
     getNowPlaying()
-      .then((data) => setNowPlayingMovies(data.results))
+      .then((data) => setNowPlayingMovies(sanitizeVideoData(data.results)))
       .catch((error) => console.log(error));
 
     getUpcoming()
       .then((data) => {
-        setUpcomingMovies(data.results);
+        const movies = sanitizeVideoData(data.results)
+        setUpcomingMovies(movies);
+        setHeroMovie(movies[generateRandomIndex(data.results.length)])
       })
       .catch((error) => console.log(error));
   }, []);
@@ -49,7 +53,7 @@ const Home = ({ nicCageMode }) => {
   }, []);
 
   console.log(popularMovies);
-
+  console.log(heroMovie)
 
   return (
     <>
@@ -67,12 +71,9 @@ const Home = ({ nicCageMode }) => {
           </>
         ) : (
           <main>
-            <HeroCard title="Upcoming" hero={upcomingMovies[0]} />
-            <h2>Popular</h2>
+            <HeroCard title="Upcoming" hero={heroMovie} />
             <MoviesContainer title="Popular" movies={popularMovies} />
-            <h2>Now Playing</h2>
             <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
-            <h2>Upcoming</h2>
             <MoviesContainer title="Upcoming" movies={upcomingMovies} />
           </main>
         )}

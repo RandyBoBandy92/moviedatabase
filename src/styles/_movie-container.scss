@@ -2,7 +2,12 @@
 
 
 .movies-container {
-    +  h2 {
-        color: red;
+    h2 {
+    transition: all .3s linear;
+    }
+    &:hover {
+        h2 {
+            color: $primary-color;
+        }
     }
 }

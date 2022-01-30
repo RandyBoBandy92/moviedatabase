@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
 
-const MoviesContainer = ({ movies }) => {
+const MoviesContainer = ({ title, movies }) => {
 
   const settings = {
     
@@ -18,11 +18,21 @@ const MoviesContainer = ({ movies }) => {
     // it will clone it and show the same movie twice.
     speed: 500,
     responsive: [
+
+      {
+        breakpoint: 3000,
+        settings: {
+          slidesToShow: 9,
+          slidesToScroll: 9,
+          arrows: true
+        }
+      },
       {
         breakpoint: 1820,
         settings: {
           slidesToShow: 9,
           slidesToScroll: 9,
+          arrows: true
         }
       },
       {
@@ -30,6 +40,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 9,
           slidesToScroll: 8,
+          arrows: true
         }
       },
       {
@@ -37,6 +48,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 8,
           slidesToScroll: 7,
+          arrows: true
         }
       },
       {
@@ -44,6 +56,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 7,
           slidesToScroll: 6,
+          arrows: true
         }
       },
       {
@@ -51,6 +64,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 6,
           slidesToScroll: 5,
+          arrows: true
         }
       },
       {
@@ -58,6 +72,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 5,
           slidesToScroll: 4,
+          arrows: true
         }
       },
       {
@@ -65,6 +80,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 4,
+          arrows: true
         }
       },
       {
@@ -72,6 +88,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
+          arrows: false
         }
       },
       {
@@ -79,6 +96,7 @@ const MoviesContainer = ({ movies }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          arrows: false
         }
       },
       {
@@ -87,6 +105,7 @@ const MoviesContainer = ({ movies }) => {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerMode: true,
+          arrows: false
         }
       },
     ]
@@ -103,7 +122,8 @@ const MoviesContainer = ({ movies }) => {
 
 
   return (
-    <div className="movies-container" style={{}}>
+    <div className="movies-container">
+      <h2>{title}</h2>
       {movies ? (
         <Slider {...settings}>
           {movies.map((movieData, index) => (

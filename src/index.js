@@ -5,7 +5,7 @@ import AppRouter from "./routers/AppRouter";
 
 ReactDOM.render(
   <React.StrictMode>
-    <div onScroll={(event) => {console.log("test")}}>
+    <div className="site-wrapper">
       <AppRouter />
     </div>
   </React.StrictMode>,

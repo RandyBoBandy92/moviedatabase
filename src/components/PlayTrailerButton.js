@@ -1,12 +1,8 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { getVideos } from "../utilities/api";
 
 const PlayTrailerButton = ({ trailerKey }) => {
   // so... beginning from mobile first
   // we take the movieId, and we look for some videos
   // we should examine the results first
-  const navigate = useNavigate();
 
   const handleClick = () => {
     const url = `https://youtu.be/${trailerKey}`;
@@ -14,7 +10,7 @@ const PlayTrailerButton = ({ trailerKey }) => {
     window.location = url;
   };
 
-  return <button className="trailer-button" onClick={handleClick}>Play Trailer</button>;
+  return <button className="play-trailer" onClick={handleClick}>Play Trailer</button>;
 };
 
 export default PlayTrailerButton;

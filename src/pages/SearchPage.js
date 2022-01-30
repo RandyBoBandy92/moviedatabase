@@ -4,6 +4,7 @@ import { getRecommendedMovies, searchMovies } from "../utilities/api";
 import MovieCard from "../components/MovieCard";
 import Header from "../components/Header";
 import MoviesContainer from "../components/MoviesContainer";
+import { sanitizeVideoData } from "../utilities/toolbelt";
 
 const SearchPage = () => {
   const { query } = useParams();
@@ -26,14 +27,14 @@ const SearchPage = () => {
     // grab movies from query
     searchMovies(query)
       .then((data) => {
-        setMovies(data.results);
+        setMovies(sanitizeVideoData(data.results));
         if (data.results.length > 0) {
           // we can search for recommended
           const recommendationId = data.results[0].id;
           getRecommendedMovies(recommendationId)
             .then((data) => {
               console.log(data);
-              setRecommendedMovies(data.results);
+              setRecommendedMovies(sanitizeVideoData(data.results));
             })
             .catch((error) => console.log(error));
         } else {

@@ -16,6 +16,7 @@
 @use "./nav";
 @use "./hero-card";
 @use "./more-info";
+@use "./play-trailer";
 @use "./search-movies";
 @use "./search-page";
 @use "./search-component";
@@ -24,7 +25,10 @@
 
 
 
-
+.site-wrapper {
+    max-width: 1920px;
+    margin: auto;
+}
 
 
 .wrapper {

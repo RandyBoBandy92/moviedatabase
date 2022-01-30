@@ -12,7 +12,7 @@ import {
   imageURL,
   getVideos,
 } from "../utilities/api";
-import {formatMovieDate} from '../utilities/toolbelt.js';
+import {formatMovieDate, getTrailerKey} from '../utilities/toolbelt.js';
 
 // Data Structure from API:
 // adult: false
@@ -63,14 +63,6 @@ const renderMovieGenres = (movieData) => {
   return genreElems;
 };
 
-const getTrailerKey = (videos) => {
-  for (let index = 0; index < videos.length; index++) {
-    const video = videos[index];
-    if (video.site === "YouTube" && video.type === "Trailer") {
-      return video.key;
-    }
-  }
-};
 
 const MoviePage = () => {
   const [movieData, setMovieData] = useState(false);

@@ -1,12 +1,12 @@
 @use 'variables' as *;
+@use 'mixins' as *;
 
 .hero-container {
   width: 100vw;
-  height: 30vh;
+  height: 25vh;
   // display: flex;
   transform: translateX(-1rem);
   position: relative;
-  border: 1px solid blue;
 
   img {
     position: absolute;
@@ -31,15 +31,17 @@
   grid-template-rows: auto;
   .hero-title {
     width: 100%;
-    font-size: 2.3rem;
-    grid-column: 1/5;
+    font-size: 1.5rem;
+    grid-column: 1/4;
     grid-row: 1;
     margin: 0;
   }
-  .hero-category {
+  .hero-release-date {
     padding: 0;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: $font-color-primary;
+    font-family: CircularStdLight;
+    font-weight: 500;
 
     opacity: 0.9;
     grid-column: 1/4;
@@ -47,12 +49,170 @@
   }
   .hero-overview {
     display: none;
+    font-family: CircularStdMedium;
+    font-weight: 500;
+  }
+  // .more-info-button {
+  //   grid-row: 3;
+  //   grid-column: 2;
+  // }
+  // .play-trailer {
+  //   grid-row: 3;
+  //   grid-column: 1;
+
+  // }
+
+  .button-container {
+    grid-row: 3;
+    grid-column: 1;
+    display: flex;
   }
 
   & * {
     // this gives each child of the info container:
     // margin reset, then margin down by an equal amount of rem
     margin: 0;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
+  }
+}
+
+//=============================================================================================//
+//=================================MEDIA QUERIES===============================================//
+//=============================================================================================//
+
+@include mxMin(31.25rem) {
+  .hero-container {
+    height: 42vh;
+  }
+  .hero-info-container {
+    top: 9.5rem;
+    
+
+
+    .hero-release-date {
+      padding: 0;
+      font-size: 1.25rem;
+      color: $font-color-primary;
+
+      opacity: 0.9;
+      grid-column: 1/4;
+      grid-row: 2;
+    }
+    .hero-overview {
+      display: block;
+      grid-row: 3;
+      grid-column: 1/4;
+      font-size: 1rem;
+      font-family: CircularStdMedium;
+      font-weight: 500;
+    }
+
+    .button-container {
+      grid-row: 4;
+      grid-column: 1;
+      display: flex;
+    }
+
+    & * {
+      // this gives each child of the info container:
+      // margin reset, then margin down by an equal amount of rem
+      margin: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+@include mxMin(720px) {
+  .hero-container {
+    height: 48vh;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+ 
+    }
+  }
+  .hero-info-container {
+    top: 11.5rem;
+
+    .hero-title {
+      font-size: 2rem;
+    }
+    & * {
+      // this gives each child of the info container:
+      // margin reset, then margin down by an equal amount of rem
+      margin: 0;
+      margin-bottom: 0.9rem;
+    }
+  }
+}
+
+@include mxMin(950px) {
+  .hero-container {
+    height: 55vh;
+  }
+
+  .hero-info-container {
+    top: 14rem;
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    & * {
+      // this gives each child of the info container:
+      // margin reset, then margin down by an equal amount of rem
+      margin: 0;
+      margin-bottom: 1.2rem;
+    }
+  }
+}
+
+
+@include mxMin(1060px) {
+  .hero-container {
+    height: 63vh;
+  }
+
+  .hero-info-container {
+    top: 18rem;
+    .hero-title {
+      font-size: 3rem;
+    }
+
+  }
+}
+
+@include mxMin(1300px) {
+  .hero-container {
+    height: 80vh;
+  }
+
+  .hero-info-container {
+    top: 27rem;
+    .hero-title {
+      font-size: 4rem;
+    }
+
+  }
+}
+
+@include mxMin(1500px) {
+  .hero-container {
+    height: 88vh;
+  }
+
+  .hero-info-container {
+    top: 32rem;
+    .hero-title {
+      font-size: 5rem;
+    }
+    .hero-release-date {
+      font-size: 1.9rem;
+    }
+    .hero-overview {
+      font-size: 1.5rem;
+      grid-column: 1/3;
+    }
+
   }
 }

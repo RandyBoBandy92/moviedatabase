@@ -36,9 +36,11 @@ const Header = () => {
                     About
                     Favourites?
             */}
-      <Logo />
-      <SearchMovies />
-      <Nav navOpen={navOpen} showHideNav={showHideNav} />
+      <div className="header-wrapper">
+        <Logo />
+        <SearchMovies />
+        <Nav navOpen={navOpen} showHideNav={showHideNav} />
+      </div>
     </header>
   );
 };

@@ -1,35 +1,30 @@
 @use "./variables" as *;
 
-.more-info-button {
+.play-trailer {
   text-decoration: none;
-  color: white;
+  color: black;
   font-family: CircularStdBold;
   display: flex;
-  width: 7.5625rem;
+  width: 100px;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgba(139, 139, 139, 0.767);
+  background-image: linear-gradient(
+    to right,
+    #ff8008 0%,
+    #ffc837 51%,
+    #ff8008 100%
+  );
   //   outline: 1px solid rgba(255, 255, 255, 0.541);
   border: 1px solid transparent;
   border-radius: 5px;
   padding: 0.1rem;
-  padding-left: 0.8rem;
+  margin-right: 0.2rem;
+  // padding-left: 0.8rem;
   transition: all 0.15s ease-in-out;
   &:hover {
     border: 1px solid rgba(255, 255, 255, 0.26);
     border-radius: 7px;
     background-color: rgba(114, 114, 114, 0.966);
-  }
-  .more-info-text {
-    // display: none;
-    // margin: 0.5rem;
-    font-size: 1rem;
-    white-space: nowrap;
-    margin: auto;
-  }
-  .info-icon {
-    font-size: 2rem;
-    // margin: 0.3rem;
-    margin: auto;
+    cursor: pointer;
   }
 }
