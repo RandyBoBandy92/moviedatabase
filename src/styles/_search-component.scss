@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 //This component is nested inside header
 
@@ -15,7 +15,7 @@
   border-radius: 40px;
   padding: 0px;
 
-  &:hover > {
+  &.active > {
     .searchInput {
       z-index: 9999;
       width: 150px;
@@ -30,7 +30,7 @@
     }
   }
   @include mxMin(28.125rem) {
-    &:hover > {
+    &.active > {
       .searchInput {
         width: 200px;
       }
