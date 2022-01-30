@@ -9,7 +9,7 @@ const MoviesContainer = ({ title, movies }) => {
     dots: false,
     arrows: false,
     slidesToShow: 10,
-    slidesToScroll: 4,
+    slidesToScroll: 6,
     nextArrow: <FaChevronRight /> ,
     prevArrow: <FaChevronLeft />,
     // swipeToSlide: true,

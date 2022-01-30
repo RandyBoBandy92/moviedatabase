@@ -6,21 +6,15 @@ import MoviesContainer from "../components/MoviesContainer";
 import MovieCard from "../components/MovieCard";
 
 import {
-  checkKey,
   getPopular,
-  getVideo,
-  getConfigData,
   getNowPlaying,
   getUpcoming,
-  getMovieCredits,
   getMovieCreditsByActor,
 } from "../utilities/api";
 
-import { generateRandomIndex, sanitizeVideoData, myTimeout} from "../utilities/toolbelt";
+import { generateRandomIndex, sanitizeVideoData} from "../utilities/toolbelt";
 
 const Home = ({ nicCageMode }) => {
-  // getConfigData()
-  // .then(data => console.log(data))
   const [popularMovies, setPopularMovies] = useState(false);
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
