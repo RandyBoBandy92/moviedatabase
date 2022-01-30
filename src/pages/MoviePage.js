@@ -12,7 +12,7 @@ import {
   imageURL,
   getVideos,
 } from "../utilities/api";
-import {formatMovieDate, getTrailerKey} from '../utilities/toolbelt.js';
+import { formatMovieDate, getTrailerKey } from "../utilities/toolbelt.js";
 
 // Data Structure from API:
 // adult: false
@@ -41,7 +41,6 @@ import {formatMovieDate, getTrailerKey} from '../utilities/toolbelt.js';
 // vote_average: 7.3
 // vote_count: 2852
 
-
 const formatMovieRuntime = (rawMovieRuntime) => {
   // data will arrive as probably a 2 or 3 digit number
   // if it is over 60 minutes, then it should return
@@ -62,7 +61,6 @@ const renderMovieGenres = (movieData) => {
   });
   return genreElems;
 };
-
 
 const MoviePage = () => {
   const [movieData, setMovieData] = useState(false);
@@ -89,9 +87,6 @@ const MoviePage = () => {
   if (movieData) {
     return (
       <>
-        <div className="wrapper">
-          <Header />
-        </div>
         <main className="movie-page">
           <div className="movie-poster">
             <img

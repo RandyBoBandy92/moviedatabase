@@ -22,7 +22,6 @@ const SearchPage = () => {
     return queryArray.join(" ");
   };
 
-
   useEffect(() => {
     // grab movies from query
     searchMovies(query)
@@ -48,42 +47,39 @@ const SearchPage = () => {
   // console.log(movies);
   return (
     <>
-      <div className="wrapper">
-        <Header />
-        <main>
-          {movies.length > 0 ? (
-            <>
-              <section className="search-results-section">
-                <div className="search-text-container">
-                  <h2 className="searchHeading">Search results for:</h2>
-                  <h1 className="searchQuery">{formatQuery(query)}</h1>
-                </div>
-                <div className="search-movies">
-                  {/* <h2>Search results for:{query}</h2> */}
-                  {movies
-                    .filter((moviedata) => moviedata.poster_path)
-                    .map((moviedata) => (
-                      <MovieCard data={moviedata} key={moviedata.id} />
-                    ))}
-                </div>
-              </section>
-              {recommendedMovies.length > 0 ? (
-                <section className="recommended-section">
-                  <h2>
-                    If you liked {movies[0].original_title} then you gonna love
-                    this:
-                  </h2>
-                  <MoviesContainer movies={recommendedMovies} />
-                </section>
-              ) : null}
-            </>
-          ) : (
-            <section>
-              <h2 className="search-result-heading">No Movies Found :(</h2>
+      <main>
+        {movies.length > 0 ? (
+          <>
+            <section className="search-results-section">
+              <div className="search-text-container">
+                <h2 className="searchHeading">Search results for:</h2>
+                <h1 className="searchQuery">{formatQuery(query)}</h1>
+              </div>
+              <div className="search-movies">
+                {/* <h2>Search results for:{query}</h2> */}
+                {movies
+                  .filter((moviedata) => moviedata.poster_path)
+                  .map((moviedata) => (
+                    <MovieCard data={moviedata} key={moviedata.id} />
+                  ))}
+              </div>
             </section>
-          )}
-        </main>
-      </div>
+            {recommendedMovies.length > 0 ? (
+              <section className="recommended-section">
+                <h2>
+                  If you liked {movies[0].original_title} then you gonna love
+                  this:
+                </h2>
+                <MoviesContainer movies={recommendedMovies} />
+              </section>
+            ) : null}
+          </>
+        ) : (
+          <section>
+            <h2 className="search-result-heading">No Movies Found :(</h2>
+          </section>
+        )}
+      </main>
     </>
   );
 };
