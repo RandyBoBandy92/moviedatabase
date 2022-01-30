@@ -1,10 +1,17 @@
 import React, { createContext, useReducer } from "react";
 import AppReducer from "./AppReducer";
-import { ADD_FAVOURITE, DEL_FAVOURITE } from "./utilities/constants";
+import {
+  ADD_FAVOURITE,
+  DEL_FAVOURITE,
+  TOGGLE_SETTING,
+} from "./utilities/constants";
 
 // Initial State
 const initialState = {
-  favourites: JSON.parse(localStorage.getItem('favourites')) || [],
+  favourites: JSON.parse(localStorage.getItem("favourites")) || [],
+  settings: JSON.parse(localStorage.getItem("settings")) || {
+    nicCageMode: false,
+  },
 };
 
 // createContext returns an object with a Provider and Consumer
@@ -37,13 +44,26 @@ const GlobalProvider = (props) => {
     });
   };
 
+  const toggleSetting = (setting) => {
+    dispatch({
+      type: TOGGLE_SETTING,
+      payload: setting,
+    });
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ favourites: state.favourites, addFavourite, delFavourite }}
+      value={{
+        settings: state.settings,
+        toggleSetting,
+        favourites: state.favourites,
+        addFavourite,
+        delFavourite,
+      }}
     >
       {props.children}
     </GlobalContext.Provider>
   );
 };
 
-export { GlobalContext, GlobalProvider }
+export { GlobalContext, GlobalProvider };

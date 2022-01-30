@@ -34,3 +34,10 @@
   width: auto;
   padding: 0 1rem;
 }
+
+// target every main element that does not have a class of home-page
+// to push content down below header
+
+main:not(.home-page) {
+  margin-top: 5rem;
+}

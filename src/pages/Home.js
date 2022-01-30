@@ -1,7 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import Header from "../components/Header";
 import HeroCard from "../components/HeroCard";
-import SearchMovies from "../components/SearchMovies";
 
 import {
   checkKey,
@@ -18,8 +16,9 @@ import MoviesContainer from "../components/MoviesContainer";
 import MovieCard from "../components/MovieCard";
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
 import { GlobalContext } from "../GlobalState";
+import { cleanup } from "@testing-library/react";
 
-const Home = ({ nicCageMode }) => {
+const Home = () => {
   // getConfigData()
   // .then(data => console.log(data))
   const [popularMovies, setPopularMovies] = useState(false);
@@ -27,7 +26,7 @@ const Home = ({ nicCageMode }) => {
   const [upcomingMovies, setUpcomingMovies] = useState(false);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
   const [heroMovie, setHeroMovie] = useState(false);
-  const { favourites } = useContext(GlobalContext);
+  const { favourites, settings } = useContext(GlobalContext);
 
   useEffect(() => {
     getPopular()
@@ -62,22 +61,19 @@ const Home = ({ nicCageMode }) => {
   }, [upcomingMovies]);
 
   useEffect(() => {
-    if (nicCageMode) {
+    if (settings.nicCageMode) {
       // NIC CAGE is 2963
       getMovieCreditsByActor(2963)
-        .then((data) => setPopularMovies(data.cast))
+        .then((data) => setPopularMovies(sanitizeVideoData(data.cast)))
         .catch((error) => console.log(error));
     }
   }, []);
 
-  console.log(popularMovies);
-  console.log(heroMovie);
-
   return (
     <>
-      {nicCageMode && popularMovies ? (
+      {settings.nicCageMode && popularMovies ? (
         <>
-          <main>
+          <main className="home-page">
             <section className="cage-results">
               {popularMovies.map((nicCageMovie) => (
                 <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
@@ -86,7 +82,7 @@ const Home = ({ nicCageMode }) => {
           </main>
         </>
       ) : (
-        <main>
+        <main className="home-page">
           <HeroCard title="Upcoming" hero={heroMovie} />
           <MoviesContainer title="Popular" movies={popularMovies} />
           <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />

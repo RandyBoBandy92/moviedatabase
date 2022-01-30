@@ -1,4 +1,8 @@
-import { ADD_FAVOURITE, DEL_FAVOURITE } from "./utilities/constants";
+import {
+  ADD_FAVOURITE,
+  DEL_FAVOURITE,
+  TOGGLE_SETTING,
+} from "./utilities/constants";
 
 const AppReducer = (state, action) => {
   // the action is an object with a type and a payload
@@ -6,27 +10,36 @@ const AppReducer = (state, action) => {
   // the state is created in the GlobalState.js file
   // via the GlobalProvider useReducer hook
 
-  const saveFavourites = (newFavourites) => {
-      localStorage.setItem('favourites', JSON.stringify(newFavourites))
-  }
+  const saveToLocalStorage = (localStorageItem, data) => {
+    localStorage.setItem(localStorageItem, JSON.stringify(data));
+  };
 
   let updatedFavourites;
   switch (action.type) {
     case ADD_FAVOURITE:
       updatedFavourites = [...state.favourites, action.payload];
-      saveFavourites(updatedFavourites)
-      console.log(state)
+      saveToLocalStorage("favourites", updatedFavourites);
+      console.log(state);
       return {
-          favourites: updatedFavourites
-      }
+        favourites: updatedFavourites,
+      };
       break;
 
     case DEL_FAVOURITE:
       updatedFavourites = state.favourites.filter(
         (favourite) => favourite.id !== action.payload.id
       );
-      saveFavourites(updatedFavourites)
+      saveToLocalStorage("favourites", updatedFavourites);
       return { favourites: updatedFavourites };
+      break;
+
+    case TOGGLE_SETTING:
+      const updatedSettings = {
+        ...state.settings,
+        [action.payload]: !state.settings[action.payload],
+      };
+      saveToLocalStorage("settings", updatedSettings);
+      return { settings: updatedSettings };
       break;
 
     default:
