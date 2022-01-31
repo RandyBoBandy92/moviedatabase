@@ -1,4 +1,5 @@
 @use "./_mixins.scss" as *;
+@use "./variables" as *;
 
 main.about-page {
   color: white;
@@ -41,13 +42,27 @@ main.about-page {
   }
   p,
   ul {
-    font-family: CircularStdLight;
-  }
-  ul {
     font-family: CircularStdMedium;
+    list-style-type: none;
+    padding: 0;
+    li {
+      font-size: 1.2rem;
+    }
   }
   .emoji {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+  }
+
+  .github-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    &:hover {
+      color: $primary-color
+    }
+    .social-icon {
+      margin-left: 0.2rem;
+    }
   }
 
   @include mqMin(850px) {
