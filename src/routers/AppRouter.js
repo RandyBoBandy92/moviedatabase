@@ -8,6 +8,7 @@ import Workshop from "../Workshop";
 import SearchPage from "../pages/SearchPage";
 import SettingsPage from "../pages/SettingsPage";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const AppRouter = () => {
   return (
@@ -23,6 +24,7 @@ const AppRouter = () => {
           <Route path="/settings" exact element={<SettingsPage />} />
           <Route path="/" exact element={<Home />} />
         </Routes>
+        <Footer />
       </GlobalProvider>
     </BrowserRouter>
   );
