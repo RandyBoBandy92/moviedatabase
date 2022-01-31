@@ -116,3 +116,46 @@
   .slider.round {
     border-radius: 34px;
   }
+
+//===============================================================================================================//
+//==========================================END/MODAL============================================================//
+//===============================================================================================================//
+
+//=========================================Movie Ratings=========================================================//
+.default-rating{
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  grid-column: 1;
+  grid-row: 2;
+  
+      .rating-number{
+        margin:auto;
+        padding: 0;
+
+      }
+      
+}
+
+.low-rating{
+  outline: 2px solid red;
+}
+
+.medium-rating{
+  outline: 2px solid rgb(255, 136, 0);
+}
+.good-rating{
+  outline: 2px solid rgb(68, 173, 41);
+}
+
+.no-rating {
+  outline: 2px solid white;
+}
+
+
+
+
+
