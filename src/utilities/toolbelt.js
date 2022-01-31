@@ -49,22 +49,6 @@ const sanitizeVideoData = (videos) => {
 };
 
 //this function adds a delay buffer when the api is called to run spinner for 1s as a buffer
-// const fetchWithDelay = async (url) => {
-//   const promise = new Promise((resolve) => {
-//     setTimeout(() => { 
-//       resolve(fetch(url, {
-//       })
-//         .then((response) => response.json()));
-//     }, 1000)
-//   });
-//   return promise;
-// }
-const fetchWithDelay = async (url) => {
-  const response = await fetch(url);
-  
-  return response.json();
-};
-
 
 export {
   formatMovieDate,
@@ -72,5 +56,4 @@ export {
   generateTextExcerpt,
   generateRandomIndex,
   sanitizeVideoData,
-  fetchWithDelay,
 };
