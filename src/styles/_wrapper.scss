@@ -1,5 +1,9 @@
-.wrapper{
-    overflow: hidden;
-    background-color: black;
-    height: 100vh;
+@use "./variables" as *;
+
+.wrapper {
+  overflow: hidden;
+  background-color: $background-color;
+  width: auto;
+  padding: 0 1rem;
+  min-height: 100vh;
 }

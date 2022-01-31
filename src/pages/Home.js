@@ -20,6 +20,7 @@ const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
+  const [cageMovies, setCageMovies] = useState(false);
   const [heroMovie, setHeroMovie] = useState(false);
   const { favourites, settings } = useContext(GlobalContext);
 
@@ -62,29 +63,42 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
+    if (!settings.nicCageMode) {
+      setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
+    }
   }, [upcomingMovies]);
+
+  // useEffect(() => {
+  //   if (settings.nicCageMode) {
+  //     setHeroMovie(cageMovies[generateRandomIndex(popularMovies.length)]);
+  //   }
+  // }, [cageMovies]);
 
   useEffect(() => {
     if (settings.nicCageMode) {
       // NIC CAGE is 2963
-      getMovieCreditsByActor(2963)
-        .then((data) => setPopularMovies(sanitizeVideoData(data.cast)))
-        .catch((error) => console.log(error));
+      trackPromise(
+        getMovieCreditsByActor(2963)
+          .then((data) => {
+            const cageMovies = sanitizeVideoData(data.cast);
+            setHeroMovie(cageMovies[generateRandomIndex(cageMovies.length)]);
+            setCageMovies(cageMovies);
+          })
+          .catch((error) => console.log(error))
+      );
+    } else {
+      // we need to make sure a hero movie is set again
+      setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
     }
-  }, []);
+  }, [settings.nicCageMode]);
 
   return (
     <>
-      {settings.nicCageMode && popularMovies ? (
+      {settings.nicCageMode ? (
         <>
           <main className="home-page">
-              <h1 className='cage-title'>Nicholas Cage: Engaged</h1>
-            <section className="cage-results">
-              {popularMovies.map((nicCageMovie) => (
-                <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
-              ))}
-            </section>
+            <HeroCard title="Upcoming" hero={heroMovie} />
+            <MoviesContainer title="" movies={cageMovies} flex={true} />
           </main>
         </>
       ) : (
@@ -106,4 +120,3 @@ const Home = () => {
 };
 
 export default Home;
-

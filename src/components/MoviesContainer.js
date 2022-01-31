@@ -1,8 +1,9 @@
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { render } from "@testing-library/react";
 
-const MoviesContainer = ({ title, movies }) => {
+const MoviesContainer = ({ title, movies, flex = false }) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -118,6 +119,19 @@ const MoviesContainer = ({ title, movies }) => {
     }
     return loadingCards;
   };
+
+  if (flex) {
+    return (
+      <>
+        {title && <h2>{title}</h2>}
+        <div className="movies-container movies-flexed">
+          {movies
+            ? movies.map((movie) => <MovieCard data={movie} />)
+            : renderLoadingCards()}
+        </div>
+      </>
+    );
+  }
 
   return (
     <div className="movies-container">

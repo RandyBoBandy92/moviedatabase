@@ -9,7 +9,7 @@ const FavouritesPage = () => {
   return (
     <main className="favourites-page">
       {favourites.length > 0 ? (
-        <MoviesContainer title="Favourites" movies={favourites} />
+        <MoviesContainer title="Favourites" movies={favourites} flex="true" />
       ) : (
         <>
           <h3>

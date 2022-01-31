@@ -1,15 +1,11 @@
-@use 'variables' as *;
-@use 'typography' as *;
-
-
+@use "variables" as *;
+@use "typography" as *;
 
 body {
- background: $background-color;
- color: $font-color-primary;
- height: 100vh;
+  background: $background-color;
+  color: $font-color-primary;
 }
 
 main {
-    position: relative;
+  position: relative;
 }
-
