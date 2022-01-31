@@ -73,34 +73,38 @@ const MoviePage = () => {
               alt={`${movieData.original_title} poster`}
             />
           </div>
-          <h2 className="movie-title">{movieData.original_title}</h2>
-          <div className="release-and-runtime">
-            <h3 className="release-date">
-              {formatMovieDate(movieData.release_date)}
-            </h3>
-            <h3 className="movie-runtime">
-              {formatMovieRuntime(movieData.runtime)}
-            </h3>
+          <div class="movie">
+            <div class="movie-details">
+              <h2 className="movie-title">{movieData.original_title}</h2>
+              <div className="release-and-runtime">
+                <h3 className="release-date">
+                  {formatMovieDate(movieData.release_date)}
+                </h3>
+                <h3 className="movie-runtime">
+                  {formatMovieRuntime(movieData.runtime)}
+                </h3>
+              </div>
+              <div className="button-container">
+                {trailerKey ? (
+                  <PlayTrailerButton trailerKey={trailerKey} />
+                ) : null}
+                <FavouritesButton movieData={movieData} />
+              </div>
+              <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
+              <p className="plot-summary">{movieData.overview}</p>
+            </div>
+            {/* YT Embed */}
+            {trailerKey ? (
+              <iframe
+                className="youtube-video"
+                src={`https://www.youtube.com/embed/${trailerKey}`}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            ) : null}
           </div>
-          {/* YT Embed */}
-          {trailerKey ? (
-            <iframe
-              className="youtube-video"
-              width="560"
-              height="315"
-              src={`https://www.youtube.com/embed/${trailerKey}`}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          ) : null}
-          <div className="button-container">
-            {trailerKey ? <PlayTrailerButton trailerKey={trailerKey} /> : null}
-            <FavouritesButton movieData={movieData} />
-          </div>
-          <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
-          <p className="plot-summary">{movieData.overview}</p>
         </main>
       </>
     );
