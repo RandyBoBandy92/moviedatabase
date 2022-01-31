@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 .hero-container {
   width: 100vw;
@@ -80,14 +80,12 @@
 //=================================MEDIA QUERIES===============================================//
 //=============================================================================================//
 
-@include mxMin(31.25rem) {
+@include mqMin(31.25rem) {
   .hero-container {
     height: 42vh;
   }
   .hero-info-container {
     top: 9.5rem;
-    
-
 
     .hero-release-date {
       padding: 0;
@@ -122,7 +120,7 @@
   }
 }
 
-@include mxMin(720px) {
+@include mqMin(720px) {
   .hero-container {
     height: 48vh;
 
@@ -133,8 +131,6 @@
   }
   .hero-info-container {
     top: 11.5rem;
-
-      
 
     .hero-title {
       font-size: 2rem;
@@ -148,7 +144,7 @@
   }
 }
 
-@include mxMin(950px) {
+@include mqMin(950px) {
   .hero-container {
     height: 55vh;
   }
@@ -168,8 +164,7 @@
   }
 }
 
-
-@include mxMin(1060px) {
+@include mqMin(1060px) {
   .hero-container {
     height: 63vh;
   }
@@ -179,11 +174,10 @@
     .hero-title {
       font-size: 3rem;
     }
-
   }
 }
 
-@include mxMin(1300px) {
+@include mqMin(1300px) {
   .hero-container {
     height: 80vh;
   }
@@ -193,11 +187,10 @@
     .hero-title {
       font-size: 4rem;
     }
-
   }
 }
 
-@include mxMin(93.75rem) {
+@include mqMin(93.75rem) {
   .hero-container {
     height: 88vh;
   }
@@ -214,7 +207,5 @@
       font-size: 1.5rem;
       grid-column: 1/3;
     }
-
   }
 }
-
