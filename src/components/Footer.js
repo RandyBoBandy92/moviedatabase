@@ -1,4 +1,4 @@
-import { FaCopyright, FaRegCopyright } from "react-icons/fa";
+import { FaCopyright, FaFacebook, FaInstagram, FaRegCopyright, FaTwitter } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { GlobalContext } from "../GlobalState";
@@ -14,6 +14,11 @@ const Footer = () => {
     <footer>
       {/* <Link to="/settings">Settings</Link> */}
       <SettingsPage />
+      <div className="socials">
+        <FaFacebook className="social-icon"/>
+        <FaTwitter className="social-icon"/>
+        <FaInstagram className="social-icon"/>
+      </div>
       <span className="copyright">
         <FaRegCopyright />
         <p>{new Date().getFullYear()} Elongated Muskrat Inc.</p>
