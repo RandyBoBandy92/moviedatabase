@@ -14,6 +14,7 @@ import {
   URL_IMAGE,
 } from "../utilities/api";
 import { formatMovieDate, getTrailerKey } from "../utilities/toolbelt.js";
+import { APP_NAME } from "../utilities/constants";
 
 const formatMovieRuntime = (rawMovieRuntime) => {
   // data will arrive as probably a 2 or 3 digit number
@@ -44,6 +45,8 @@ const MoviePage = () => {
   const { favourites, settings } = useContext(GlobalContext);
 
   const { id } = useParams();
+  const movieTitle = movieData?.original_title ? movieData.original_title : "..."
+  document.title = APP_NAME + movieTitle
 
   useEffect(() => {
     getMovie(id, settings.adultSearch)
