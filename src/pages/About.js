@@ -1,5 +1,7 @@
+import { FaGithub } from "react-icons/fa";
 import { ImSearch } from "react-icons/im";
 import { IoMdHeart } from "react-icons/io";
+import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import humans from "../images/humans.png";
 
@@ -35,6 +37,15 @@ const About = () => {
             <span className="emoji">🤷</span> And much, much more!
           </li>
         </ul>
+        <p>
+          Check out our code on{" "}
+          <a
+            className="github-link"
+            href="https://github.com/RandyBoBandy92/moviedatabase"
+          >
+            GitHub! <FaGithub className="social-icon" />
+          </a>
+        </p>
       </div>
     </main>
   );
