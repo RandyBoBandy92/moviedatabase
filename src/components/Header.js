@@ -25,14 +25,6 @@ const Header = () => {
 
   return (
     <header className={headerClass} id="header">
-      {/* Would structure be something like:
-                from left to right:
-                Logo
-                Nav
-                    Home
-                    About
-                    Favourites?
-            */}
       <div className="header-wrapper">
         <Logo />
         <SearchMovies />
