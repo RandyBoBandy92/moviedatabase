@@ -74,16 +74,33 @@ const MoviePage = () => {
             />
           </div>
           <h2 className="movie-title">{movieData.original_title}</h2>
-          <h3 className="release-date">
-            {formatMovieDate(movieData.release_date)}
-          </h3>
-          <h3 className="movie-runtime">
-            {formatMovieRuntime(movieData.runtime)}
-          </h3>
+          <div class="release-and-runtime">
+            <h3 className="release-date">
+              {formatMovieDate(movieData.release_date)}
+            </h3>
+            <h3 className="movie-runtime">
+              {formatMovieRuntime(movieData.runtime)}
+            </h3>
+          </div>
+          {/* YT Embed */}
+          {trailerKey && (
+            <iframe
+              className="youtube-video"
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${trailerKey}`}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          )}
+          <div class="button-container">
+            {trailerKey ? <PlayTrailerButton trailerKey={trailerKey} /> : null}
+            <FavouritesButton movieData={movieData} />
+          </div>
           <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
           <p className="plot-summary">{movieData.overview}</p>
-          <FavouritesButton movieData={movieData} />
-          {trailerKey ? <PlayTrailerButton trailerKey={trailerKey} /> : null}
         </main>
       </>
     );
