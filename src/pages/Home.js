@@ -1,8 +1,6 @@
 import { useEffect, useState, useContext } from "react";
-import { trackPromise } from "react-promise-tracker";
 import HeroCard from "../components/HeroCard";
 import MoviesContainer from "../components/MoviesContainer";
-import MovieCard from "../components/MovieCard";
 import { GlobalContext } from "../GlobalState";
 
 import {
@@ -29,44 +27,26 @@ const Home = () => {
   const { favourites, settings } = useContext(GlobalContext);
 
   useEffect(() => {
-    trackPromise(
-      getPopular(settings.adultSearch).then((data) =>
-        setPopularMovies(sanitizeVideoData(data.results)).catch((error) =>
-          console.log(error)
-        )
-      )
-    );
+    getPopular(settings.adultSearch)
+      .then((data) => setPopularMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
 
-    trackPromise(
-      getNowPlaying(settings.adultSearch).then((data) =>
-        setNowPlayingMovies(sanitizeVideoData(data.results)).catch((error) =>
-          console.log(error)
-        )
-      )
-    );
-    trackPromise(
-      getTrending(settings.adultSearch).then((data) =>
-        setTrendingMovies(sanitizeVideoData(data.results)).catch((error) =>
-          console.log(error)
-        )
-      )
-    );
-    trackPromise(
-      getTopRated(settings.adultSearch).then((data) =>
-        setTopRatedMovies(sanitizeVideoData(data.results)).catch((error) =>
-          console.log(error)
-        )
-      )
-    );
+    getNowPlaying(settings.adultSearch)
+      .then((data) => setNowPlayingMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
+    getTrending(settings.adultSearch)
+      .then((data) => setTrendingMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
+    getTopRated(settings.adultSearch)
+      .then((data) => setTopRatedMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
 
-    trackPromise(
-      getUpcoming(settings.adultSearch)
-        .then((data) => {
-          const movies = sanitizeVideoData(data.results);
-          setUpcomingMovies(movies);
-        })
-        .catch((error) => console.log(error))
-    );
+    getUpcoming(settings.adultSearch)
+      .then((data) => {
+        const movies = sanitizeVideoData(data.results);
+        setUpcomingMovies(movies);
+      })
+      .catch((error) => console.log(error));
 
     if (favourites.length > 0) {
       const recommendedMovieSeed =
@@ -86,19 +66,16 @@ const Home = () => {
     }
   }, [upcomingMovies]);
 
-
   useEffect(() => {
     if (settings.nicCageMode) {
       // NIC CAGE is 2963
-      trackPromise(
-        getMovieCreditsByActor(2963, settings.adultSearch)
-          .then((data) => {
-            const cageMovies = sanitizeVideoData(data.cast);
-            setHeroMovie(cageMovies[generateRandomIndex(cageMovies.length)]);
-            setCageMovies(cageMovies);
-          })
-          .catch((error) => console.log(error))
-      );
+      getMovieCreditsByActor(2963, settings.adultSearch)
+        .then((data) => {
+          const cageMovies = sanitizeVideoData(data.cast);
+          setHeroMovie(cageMovies[generateRandomIndex(cageMovies.length)]);
+          setCageMovies(cageMovies);
+        })
+        .catch((error) => console.log(error));
     } else {
       // we need to make sure a hero movie is set again
       setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
@@ -128,7 +105,6 @@ const Home = () => {
               movies={recommendedMovies.movies}
             />
           ) : null}
-          
         </main>
       )}
     </>

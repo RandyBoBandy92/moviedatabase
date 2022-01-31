@@ -74,8 +74,8 @@ const MoviePage = () => {
               alt={`${movieData.original_title} poster`}
             />
           </div>
-          <div class="movie">
-            <div class="movie-details">
+          <div className="movie">
+            <div className="movie-details">
               <h2 className="movie-title">{movieData.original_title}</h2>
               <div className="release-and-runtime">
                 <h3 className="release-date">
@@ -100,9 +100,9 @@ const MoviePage = () => {
                 className="youtube-video"
                 src={`https://www.youtube.com/embed/${trailerKey}`}
                 title="YouTube video player"
-                frameborder="0"
+                frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowFullScreen
               ></iframe>
             ) : null}
           </div>
