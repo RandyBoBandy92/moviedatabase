@@ -57,11 +57,7 @@ const SearchPage = () => {
               </div>
               <div className="search-movies">
                 {/* <h2>Search results for:{query}</h2> */}
-                {movies
-                  .filter((moviedata) => moviedata.poster_path)
-                  .map((moviedata) => (
-                    <MovieCard data={moviedata} key={moviedata.id} />
-                  ))}
+                {movies ? <MoviesContainer title="" movies={movies} flex={true}/> : null}
               </div>
             </section>
             {recommendedMovies.length > 0 ? (
