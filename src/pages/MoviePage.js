@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FavouritesButton from "../components/FavouritesButton";
 import Header from "../components/Header";
@@ -40,11 +40,12 @@ const MoviePage = () => {
   // I don't actually need to keep the entire array
   // of videos, i only need the one I intend to show the user
   const [trailerKey, setTrailerKey] = useState("");
+  const { favourites, settings } = useContext(GlobalContext);
 
   const { id } = useParams();
 
   useEffect(() => {
-    getMovie(id)
+    getMovie(id, settings.adultSearch)
       .then((data) => setMovieData(data))
       .catch((error) => console.log(error));
   }, []);

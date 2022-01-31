@@ -30,7 +30,7 @@ const Home = () => {
 
   useEffect(() => {
     trackPromise(
-      getPopular().then((data) =>
+      getPopular(settings.adultSearch).then((data) =>
         setPopularMovies(sanitizeVideoData(data.results)).catch((error) =>
           console.log(error)
         )
@@ -38,21 +38,21 @@ const Home = () => {
     );
 
     trackPromise(
-      getNowPlaying().then((data) =>
+      getNowPlaying(settings.adultSearch).then((data) =>
         setNowPlayingMovies(sanitizeVideoData(data.results)).catch((error) =>
           console.log(error)
         )
       )
     );
     trackPromise(
-      getTrending().then((data) =>
+      getTrending(settings.adultSearch).then((data) =>
         setTrendingMovies(sanitizeVideoData(data.results)).catch((error) =>
           console.log(error)
         )
       )
     );
     trackPromise(
-      getTopRated().then((data) =>
+      getTopRated(settings.adultSearch).then((data) =>
         setTopRatedMovies(sanitizeVideoData(data.results)).catch((error) =>
           console.log(error)
         )
@@ -60,7 +60,7 @@ const Home = () => {
     );
 
     trackPromise(
-      getUpcoming()
+      getUpcoming(settings.adultSearch)
         .then((data) => {
           const movies = sanitizeVideoData(data.results);
           setUpcomingMovies(movies);
@@ -71,7 +71,7 @@ const Home = () => {
     if (favourites.length > 0) {
       const recommendedMovieSeed =
         favourites[generateRandomIndex(favourites.length)];
-      getRecommendedMovies(recommendedMovieSeed.id)
+      getRecommendedMovies(recommendedMovieSeed.id, settings.adultSearch)
         .then((data) => {
           const movies = sanitizeVideoData(data.results);
           setRecommendedMovies({ recommendedMovieSeed, movies });
@@ -86,17 +86,12 @@ const Home = () => {
     }
   }, [upcomingMovies]);
 
-  // useEffect(() => {
-  //   if (settings.nicCageMode) {
-  //     setHeroMovie(cageMovies[generateRandomIndex(popularMovies.length)]);
-  //   }
-  // }, [cageMovies]);
 
   useEffect(() => {
     if (settings.nicCageMode) {
       // NIC CAGE is 2963
       trackPromise(
-        getMovieCreditsByActor(2963)
+        getMovieCreditsByActor(2963, settings.adultSearch)
           .then((data) => {
             const cageMovies = sanitizeVideoData(data.cast);
             setHeroMovie(cageMovies[generateRandomIndex(cageMovies.length)]);

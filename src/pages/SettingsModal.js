@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const SettingsModal = (props) => {
   const { settings, toggleSetting } = useContext(GlobalContext);
   const [show, setShow] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -41,11 +42,33 @@ const SettingsModal = (props) => {
               <span className="slider round"></span>
             </label>
           </div>
+          <h3 className="settings-modal">Adult Search</h3>
+          <div>
+            <label className="switch">
+              <input
+                checked={settings.adultSearch ? "checked" : false}
+                onChange={() => {
+                  setShowMessage(true);
+                  toggleSetting("adultSearch");
+                }}
+                type="checkbox"
+              />
+              <span className="slider round"></span>
+            </label>
+            {showMessage && (
+              <p>Please reload the page for changes to take effect.</p>
+            )}
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
+          {showMessage && (
+            <Button variant="warning" onClick={() => window.location.reload()}>
+              Reload
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>

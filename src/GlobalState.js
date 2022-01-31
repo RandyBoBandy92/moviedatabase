@@ -11,6 +11,7 @@ const initialState = {
   favourites: JSON.parse(localStorage.getItem("favourites")) || [],
   settings: JSON.parse(localStorage.getItem("settings")) || {
     nicCageMode: false,
+    adultSearch: false
   },
 };
 
