@@ -37,7 +37,7 @@ function SearchMovies() {
         ref={ref}
         type="text"
         name="query"
-        placeholder="Search for a movie..."
+        placeholder="Movie Title..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
