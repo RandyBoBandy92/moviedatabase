@@ -53,15 +53,15 @@ main.about-page {
     & {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto;
+      grid-template-rows: 0.1fr 1fr;
     }
     img {
       grid-column: 2;
-      grid-row: 1;
+      grid-row: 2;
     }
     .about-text {
       grid-column: 1;
-      grid-row: 1;
+      grid-row: 2;
       .future-text {
         margin-right: 0.2rem;
       }
@@ -69,6 +69,9 @@ main.about-page {
       .future-text ~ h2 {
         display: inline-block;
       }
+    }
+    p {
+      font-size: 1.2rem;
     }
   }
 }
