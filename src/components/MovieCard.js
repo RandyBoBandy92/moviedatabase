@@ -39,9 +39,7 @@ const MovieCard = ({ data }) => {
   } else {
     return (
       <div className="loading">
-        {/* <img className="movie-card" src={loading} /> */}
         <LoadingSpinner/>
-      {/* <div className="loader loader8 movie-card"></div> */}
       </div>
     );
   }
