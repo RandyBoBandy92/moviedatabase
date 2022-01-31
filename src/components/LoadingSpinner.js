@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import { usePromiseTracker } from "react-promise-tracker";
+import React from "react";
 
 export const LoadingSpinner = () => {
   return (

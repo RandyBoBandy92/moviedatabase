@@ -27,27 +27,19 @@ const Home = () => {
   const { favourites, settings } = useContext(GlobalContext);
 
   useEffect(() => {
-    getPopular(settings.adultSearch).then((data) =>
-      setPopularMovies(sanitizeVideoData(data.results)).catch((error) =>
-        console.log(error)
-      )
-    );
+    getPopular(settings.adultSearch)
+      .then((data) => setPopularMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
 
-    getNowPlaying(settings.adultSearch).then((data) =>
-      setNowPlayingMovies(sanitizeVideoData(data.results)).catch((error) =>
-        console.log(error)
-      )
-    );
-    getTrending(settings.adultSearch).then((data) =>
-      setTrendingMovies(sanitizeVideoData(data.results)).catch((error) =>
-        console.log(error)
-      )
-    );
-    getTopRated(settings.adultSearch).then((data) =>
-      setTopRatedMovies(sanitizeVideoData(data.results)).catch((error) =>
-        console.log(error)
-      )
-    );
+    getNowPlaying(settings.adultSearch)
+      .then((data) => setNowPlayingMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
+    getTrending(settings.adultSearch)
+      .then((data) => setTrendingMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
+    getTopRated(settings.adultSearch)
+      .then((data) => setTopRatedMovies(sanitizeVideoData(data.results)))
+      .catch((error) => console.log(error));
 
     getUpcoming(settings.adultSearch)
       .then((data) => {
