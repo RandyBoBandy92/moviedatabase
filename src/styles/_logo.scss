@@ -2,7 +2,7 @@
 
 .logo {
   text-decoration: none;
-  color: black;
+  
   // background-color: $primary-color;
   background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%);
   background-size: 200% auto;
@@ -12,7 +12,7 @@
   h1 {
     margin: 0;
     padding: 0;
-    
+    color: black;
     letter-spacing: -0.1rem;
     font-weight: bolder;
   }
