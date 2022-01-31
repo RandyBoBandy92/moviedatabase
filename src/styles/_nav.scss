@@ -1,5 +1,5 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 // ==============================MOBILE NAV===================================================================//
 
@@ -8,7 +8,6 @@
   .link {
     text-decoration: none;
     z-index: -1;
-
   }
   ul {
     padding: 0;
@@ -16,14 +15,13 @@
   &.active {
     .nav-component:not(li) {
       transform: rotate(180deg);
-      
     }
     .hamburger-menu {
       z-index: 10000;
       .hamburger-line {
         transform: rotate(45deg);
         margin-top: -2px;
-        
+
         &::after {
           top: 0;
           background-color: $primary-color;
@@ -37,89 +35,86 @@
     }
   }
 }
-  .nav-component {
-    -webkit-tap-highlight-color: transparent; //this removes the blue outline box when tapped on mobile
-    // plus icon, home, favourites, and about
-    border-radius: 50%;
-    // Setting small size to be increased on active class
-    height: 50px;
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: $background-color-secondary;
-    background-blend-mode: multiply;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-      rgba(0, 0, 0, 0.22) 0px 15px 12px;
-    list-style-type: none;
-    border: 2px solid rgb(255, 255, 255);
-    color: $font-color-primary;
-    position: fixed;
-    bottom: 4.5rem;
-    right: 2.9rem;
-    transition: all 0.3s ease-in-out;
-    transform: rotate(0deg);
-    :hover {
-      cursor: pointer;
-    }
+.nav-component {
+  -webkit-tap-highlight-color: transparent; //this removes the blue outline box when tapped on mobile
+  // plus icon, home, favourites, and about
+  border-radius: 50%;
+  // Setting small size to be increased on active class
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $background-color-secondary;
+  background-blend-mode: multiply;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  list-style-type: none;
+  border: 2px solid rgb(255, 255, 255);
+  color: $font-color-primary;
+  position: fixed;
+  bottom: 4.5rem;
+  right: 2.9rem;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(0deg);
+  :hover {
+    cursor: pointer;
   }
+}
 
-  // Hamburger Settings
+// Hamburger Settings
 
-  .hamburger-menu {
-    z-index: 999;
-    height: 50px;
-    width: 50px;
+.hamburger-menu {
+  z-index: 999;
+  height: 50px;
+  width: 50px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  .hamburger-line {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    display: block;
     position: relative;
-    display: grid;
-    place-items: center;
-    .hamburger-line {
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      display: block;
-      position: relative;
-      transition: all 0.3s ease-in-out;
-    }
-    .hamburger-line::after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 8px;
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      transition: all 0.3s ease-in-out;
-    }
-    .hamburger-line::before {
-      content: "";
-      display: block;
-      position: absolute;
-      top: -8px;
-      width: 30px;
-      height: 3px;
-      background-color: #fff;
-      transition: all 0.3s ease-in-out;
-    }
+    transition: all 0.3s ease-in-out;
   }
-
-  .home-link,
-  .favourites-link,
-  .about-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: rotate(540deg);
-    filter: blur(3px);
-    height: 0px;
-    width: 0px;
+  .hamburger-line::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 8px;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
   }
+  .hamburger-line::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -8px;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+}
 
-  
+.home-link,
+.favourites-link,
+.about-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: rotate(540deg);
+  filter: blur(3px);
+  height: 0px;
+  width: 0px;
+}
 
-  
- // end of nav style
+// end of nav style
 .active {
   .nav-component {
     // increase the size of nav components
@@ -134,8 +129,6 @@
     opacity: 1;
     filter: blur(0px);
     transform: rotate(0deg);
-    
-    
   }
 
   .home-link {
@@ -150,11 +143,9 @@
     bottom: 3.2rem;
     right: 6.2rem;
   }
-
 }
 
-
-.nav-icon{
+.nav-icon {
   width: 1.4rem;
   height: 1.4rem;
   margin: auto;
@@ -162,15 +153,13 @@
   color: white;
 }
 
-
-
 // ==============================END MOBILE NAV===================================================================//
 
 .desktop-nav {
   margin: 0;
   padding: 0;
   display: none;
-  
+
   ul {
     display: flex;
     justify-content: space-evenly;
@@ -185,9 +174,9 @@
       padding: 0 1rem;
       a {
         color: $font-color-primary;
-   
+
         text-decoration: none;
-        transition: .15s all ease-in-out;
+        transition: 0.15s all ease-in-out;
         &:hover {
           color: $primary-color;
         }
@@ -196,10 +185,9 @@
   }
 }
 
-
 // Media Query to toggle nav
 
-@include mxMin(31.25rem) {
+@include mqMin(31.25rem) {
   .mobile-nav {
     display: none;
   }

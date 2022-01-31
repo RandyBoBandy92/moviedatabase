@@ -1,30 +1,74 @@
-.future-text {
+@use "./_mixins.scss" as *;
+
+main.about-page {
+  h2,
+  h3 {
+    margin: 0;
+  }
+  .main-heading {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .future-text {
     & * {
-        display: inline-block;
+      display: inline-block;
     }
 
     .future-of {
-        position: relative;
+      position: relative;
     }
-
 
     .future-of::after {
-        content: "(searching for)";
-        position: absolute;
-        top: -25px;
-        right: -60px;
-        font-size: 1rem;
-        transform: rotate(10deg);
+      content: "(searching for)";
+      position: absolute;
+      top: -25px;
+      right: -60px;
+      font-size: 1rem;
+      transform: rotate(10deg);
     }
     .future-today {
-        position: relative;
-        &::before {
-            position: absolute;
-            content: "v";
-            top: -10px;
-            left: -5px;
-            transform: rotate(10deg);
-            font-size: 1rem;
-        }
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "v";
+        top: -10px;
+        left: -5px;
+        transform: rotate(10deg);
+        font-size: 1rem;
+      }
     }
+  }
+  p,
+  ul {
+    font-family: CircularStdLight;
+  }
+  ul {
+    font-family: CircularStdMedium;
+  }
+  .emoji {
+    font-size: 1.3rem;
+  }
+
+  @include mqMin(850px) {
+    & {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+    img {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .about-text {
+      grid-column: 1;
+      grid-row: 1;
+      .future-text {
+        margin-right: 0.2rem;
+      }
+      .future-text,
+      .future-text ~ h2 {
+        display: inline-block;
+      }
+    }
+  }
 }

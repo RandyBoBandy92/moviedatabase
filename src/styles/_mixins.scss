@@ -1,11 +1,11 @@
-@mixin mxMin($rem) {
+@mixin mqMin($rem) {
   @media screen and (min-width: $rem) {
-      @content;
+    @content;
   }
 }
 
-@mixin mxMax($rem) {
+@mixin mqMax($rem) {
   @media screen and (max-width: $rem) {
-      @content;
+    @content;
   }
 }
