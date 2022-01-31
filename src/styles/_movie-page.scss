@@ -21,7 +21,8 @@
     }
     .poster {
       grid-row: 1;
-      grid-column: 3/5;
+      grid-column: 1/7;
+      justify-self: center;
       object-fit: cover;
       height: 200px;
       z-index: 2;
