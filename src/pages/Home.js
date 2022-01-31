@@ -79,6 +79,7 @@ const Home = () => {
       {settings.nicCageMode && popularMovies ? (
         <>
           <main className="home-page">
+              <h1 className='cage-title'>Nicholas Cage: Engaged</h1>
             <section className="cage-results">
               {popularMovies.map((nicCageMovie) => (
                 <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
@@ -105,3 +106,4 @@ const Home = () => {
 };
 
 export default Home;
+
