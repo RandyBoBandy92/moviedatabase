@@ -127,14 +127,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   grid-column: 1;
   grid-row: 2;
   
       .rating-number{
         margin:auto;
         padding: 0;
+        font-family: CircularStdLight;
+        font-size: 1rem;
 
       }
       

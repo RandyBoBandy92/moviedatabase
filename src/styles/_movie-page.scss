@@ -49,10 +49,10 @@
 
   .button-container {
     display: flex;
-    .favourite {
-      margin-left: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
+    justify-content: space-between;
+    align-items: center;
+    max-width: 10%;
+
   }
 
   .youtube-video {
