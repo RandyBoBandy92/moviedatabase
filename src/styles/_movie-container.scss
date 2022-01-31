@@ -3,6 +3,7 @@
 .movies-container {
   h2 {
     transition: all 0.3s linear;
+    margin-top: 2rem;
   }
   &:hover {
     h2 {

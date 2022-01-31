@@ -6,7 +6,7 @@ import MoviePage from "../pages/MoviePage";
 import About from "../pages/About";
 import Workshop from "../Workshop";
 import SearchPage from "../pages/SearchPage";
-import SettingsPage from "../pages/SettingsPage";
+
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
@@ -21,7 +21,7 @@ const AppRouter = () => {
           <Route path="/movie/:id" exact element={<MoviePage />} />
           <Route path="/about" exact element={<About />} />
           <Route path="/favourites" exact element={<FavouritesPage />} />
-          <Route path="/settings" exact element={<SettingsPage />} />
+
           <Route path="/" exact element={<Home />} />
         </Routes>
         <Footer />

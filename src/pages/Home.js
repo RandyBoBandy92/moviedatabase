@@ -11,6 +11,8 @@ import {
   getUpcoming,
   getMovieCreditsByActor,
   getRecommendedMovies,
+  getTrending,
+  getTopRated,
 } from "../utilities/api";
 
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
@@ -20,6 +22,8 @@ const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
+  const [trendingMovies, setTrendingMovies] = useState(false);
+  const [topRatedMovies, setTopRatedMovies] = useState(false);
   const [cageMovies, setCageMovies] = useState(false);
   const [heroMovie, setHeroMovie] = useState(false);
   const { favourites, settings } = useContext(GlobalContext);
@@ -36,6 +40,20 @@ const Home = () => {
     trackPromise(
       getNowPlaying().then((data) =>
         setNowPlayingMovies(sanitizeVideoData(data.results)).catch((error) =>
+          console.log(error)
+        )
+      )
+    );
+    trackPromise(
+      getTrending().then((data) =>
+        setTrendingMovies(sanitizeVideoData(data.results)).catch((error) =>
+          console.log(error)
+        )
+      )
+    );
+    trackPromise(
+      getTopRated().then((data) =>
+        setTopRatedMovies(sanitizeVideoData(data.results)).catch((error) =>
           console.log(error)
         )
       )
@@ -107,12 +125,15 @@ const Home = () => {
           <MoviesContainer title="Popular" movies={popularMovies} />
           <MoviesContainer title="Now Playing" movies={nowPlayingMovies} />
           <MoviesContainer title="Upcoming" movies={upcomingMovies} />
+          <MoviesContainer title="Top Rated" movies={topRatedMovies} />
+          <MoviesContainer title="Trending This Week" movies={trendingMovies} />
           {recommendedMovies?.movies?.length > 0 ? (
             <MoviesContainer
               title={`If you liked ${recommendedMovies.recommendedMovieSeed.original_title}, you might also like...`}
               movies={recommendedMovies.movies}
             />
           ) : null}
+          
         </main>
       )}
     </>
