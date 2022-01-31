@@ -117,6 +117,48 @@
     border-radius: 34px;
   }
 
+//===============================================================================================================//
+//==========================================END/MODAL============================================================//
+//===============================================================================================================//
+
+//=========================================Movie Ratings=========================================================//
+.default-rating{
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  grid-column: 1;
+  grid-row: 2;
+  
+      .rating-number{
+        margin:auto;
+        padding: 0;
+        font-family: CircularStdLight;
+        font-size: 1rem;
+
+      }
+      
+}
+
+.low-rating{
+  outline: 2px solid red;
+}
+
+.medium-rating{
+  outline: 2px solid rgb(255, 136, 0);
+}
+.good-rating{
+  outline: 2px solid rgb(68, 173, 41);
+}
+
+.no-rating {
+  outline: 2px solid white;
+}
+
+
+
 
   // Styling for accessibility on A tags
 
@@ -124,3 +166,4 @@
 
       outline: 1px solid $primary-color;
   }
+

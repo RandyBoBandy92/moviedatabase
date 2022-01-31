@@ -2,6 +2,8 @@
 @use "./mixins" as *;
 
 .movie-page {
+
+  height: 100vh;
   .movie-details {
   }
   color: white;
@@ -49,10 +51,11 @@
 
   .button-container {
     display: flex;
-    .favourite {
-      margin-left: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
+    gap: 1rem;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: 100%;
+
   }
 
   .youtube-video {

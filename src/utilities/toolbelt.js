@@ -48,6 +48,8 @@ const sanitizeVideoData = (videos) => {
   );
 };
 
+
+
 //this function adds a delay buffer when the api is called to run spinner for 1s as a buffer
 
 export {

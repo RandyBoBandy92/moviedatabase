@@ -1,8 +1,6 @@
-import { checkKey, getPopular, imageURL, URL_IMAGE } from "../utilities/api";
-import loading from "../images/Spinner-1s-200px.gif";
+import { URL_IMAGE } from "../utilities/api";
 import { Link, Navigate } from "react-router-dom";
 import { formatMovieDate, generateTextExcerpt } from "../utilities/toolbelt";
-import MoreInfo from "./MoreInfo";
 import FavouritesButton from "./FavouritesButton";
 import { LoadingSpinner } from "./LoadingSpinner";
 
@@ -16,6 +14,7 @@ import { LoadingSpinner } from "./LoadingSpinner";
 
 const MovieCard = ({ data }) => {
   if (data) {
+    
     return (
       <div
         onClick={() => <Navigate to={`/movie/${data.id}`} />}
@@ -27,7 +26,17 @@ const MovieCard = ({ data }) => {
             <h4>{formatMovieDate(data.release_date) }</h4>
           </div>
           <div className="buttons-and-rating">
-            {data.vote_average !== 0 ? <h4>{data.vote_average}</h4> : null}
+            <div className={ data.vote_average  <= 3  ? "default-rating low-rating": 
+                             data.vote_average  <= 7  ? "default-rating medium-rating": //These classes can be found in the _components.scss page;
+                             data.vote_average  <= 10 ? "default-rating good-rating" : 
+                             data.vote_average !== 0  ? "default-rating no-rating"   : null }>
+                                                       
+              {data.vote_average !== 0 && data.vote_average < 10 ?
+                <h4 className="rating-number">{data.vote_average.toFixed(1)}</h4> :
+                 data.vote_average >= 10 ? 
+                <h4 className="rating-number gold">{data.vote_average.toFixed(0)}</h4> :
+                <h4 className="rating-number">NR</h4> }
+            </div>
             <FavouritesButton movieData={data} />
           </div>
         </div>
