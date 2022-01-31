@@ -1,4 +1,4 @@
-import { getVideos, originalImageURL } from "../utilities/api";
+import { getVideos, originalImageURL, URL_IMAGE } from "../utilities/api";
 import loading from "../images/Spinner-1s-200px.gif";
 import { useEffect, useState } from "react";
 import { formatMovieDate, generateTextExcerpt, getTrailerKey } from "../utilities/toolbelt.js";
@@ -29,7 +29,8 @@ const HeroCard = ({ hero }) => {
       <div className="hero-container">
         <img
           className="hero-card"
-          src={`${originalImageURL}${hero.backdrop_path}`}
+          src={`${URL_IMAGE}w1280/${hero.backdrop_path}`}
+          alt={`${hero.original_title} large movie poster`}
         />
         <div className="hero-info-container">
           <h1 className="hero-title">{generateTextExcerpt(hero.original_title, 7) }</h1>

@@ -116,3 +116,11 @@
   .slider.round {
     border-radius: 34px;
   }
+
+
+  // Styling for accessibility on A tags
+
+  .focus-link:focus {
+
+      outline: 1px solid $primary-color;
+  }

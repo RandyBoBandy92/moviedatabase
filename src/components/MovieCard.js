@@ -1,4 +1,4 @@
-import { checkKey, getPopular, imageURL } from "../utilities/api";
+import { checkKey, getPopular, imageURL, URL_IMAGE } from "../utilities/api";
 import loading from "../images/Spinner-1s-200px.gif";
 import { Link, Navigate } from "react-router-dom";
 import { formatMovieDate, generateTextExcerpt } from "../utilities/toolbelt";
@@ -31,8 +31,8 @@ const MovieCard = ({ data }) => {
             <FavouritesButton movieData={data} />
           </div>
         </div>
-        <Link to={`/movie/${data.id}`}>
-          <img className="movie-card" src={`${imageURL}${data.poster_path}`} />
+        <Link className="focus-link" to={`/movie/${data.id}`}>
+          <img alt={`${data.original_title} poster`} className="movie-card" src={`${URL_IMAGE}w185/${data.poster_path}`} />
         </Link>
       </div>
     );

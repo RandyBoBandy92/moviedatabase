@@ -4,16 +4,19 @@
     font-family: CircularStdBold;
     src: url('./fonts/Circular/CircularStd-Bold.otf') format("opentype");
     font-weight: 700;
+    font-display: swap;
 }
 @font-face{
     font-family: CircularStdMedium;
     src: url('./fonts/Circular/CircularStd-Medium.otf') format("opentype");
     font-weight: 500;
+    font-display: swap;
 }
 @font-face{
     font-family: CircularStdLight;
     src: url('./fonts/Circular/CircularStd-Light.otf') format("opentype");
     font-weight: 300;
+    font-display: swap;
 }
 
 h1, h2 , h3, h4 {

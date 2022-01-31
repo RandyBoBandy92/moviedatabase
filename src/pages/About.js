@@ -8,7 +8,7 @@ import humans from "../images/humans.png";
 const About = () => {
   return (
     <main className="about-page">
-      <img src={humans} alt="" />
+      <img alt="Humaaans hard at work." src={humans} alt="" />
       <div className="about-text">
         <div className="main-heading">
           <div className="future-text">

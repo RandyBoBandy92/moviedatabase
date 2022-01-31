@@ -11,6 +11,7 @@ import {
   getRecommendedMovies,
   getTrending,
   getTopRated,
+  getConfigData,
 } from "../utilities/api";
 
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
@@ -58,6 +59,9 @@ const Home = () => {
         })
         .catch((error) => console.log(error));
     }
+    // debug
+    
+    console.log(getConfigData())
   }, []);
 
   useEffect(() => {

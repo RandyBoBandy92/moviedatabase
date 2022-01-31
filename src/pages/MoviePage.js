@@ -11,6 +11,7 @@ import {
   originalImageURL,
   imageURL,
   getVideos,
+  URL_IMAGE,
 } from "../utilities/api";
 import { formatMovieDate, getTrailerKey } from "../utilities/toolbelt.js";
 
@@ -70,7 +71,7 @@ const MoviePage = () => {
             />
             <img
               className="poster"
-              src={`${imageURL}${movieData.poster_path}`}
+              src={`${URL_IMAGE}w342/${movieData.poster_path}`}
               alt={`${movieData.original_title} poster`}
             />
           </div>
