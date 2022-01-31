@@ -63,32 +63,43 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    if (settings.nicCageMode & cageMovies) {
-      setHeroMovie(cageMovies[generateRandomIndex(popularMovies.length)]);
-    } else {
+    if (!settings.nicCageMode) {
       setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
     }
-  }, [upcomingMovies, settings.nicCageMode]);
+  }, [upcomingMovies]);
+
+  // useEffect(() => {
+  //   if (settings.nicCageMode) {
+  //     setHeroMovie(cageMovies[generateRandomIndex(popularMovies.length)]);
+  //   }
+  // }, [cageMovies]);
 
   useEffect(() => {
     if (settings.nicCageMode) {
       // NIC CAGE is 2963
-      getMovieCreditsByActor(2963)
-        .then((data) => setCageMovies(sanitizeVideoData(data.cast)))
-        .catch((error) => console.log(error));
+      trackPromise(
+        getMovieCreditsByActor(2963)
+          .then((data) => {
+            const cageMovies = sanitizeVideoData(data.cast);
+            setHeroMovie(cageMovies[generateRandomIndex(cageMovies.length)]);
+            setCageMovies(cageMovies);
+          })
+          .catch((error) => console.log(error))
+      );
+    } else {
+      // we need to make sure a hero movie is set again
+      setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
     }
   }, [settings.nicCageMode]);
 
   return (
     <>
-      {settings.nicCageMode && cageMovies ? (
+      {settings.nicCageMode ? (
         <>
           <main className="home-page">
             <HeroCard title="Upcoming" hero={heroMovie} />
             <section className="cage-results">
-              {cageMovies.map((nicCageMovie) => (
-                <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
-              ))}
+              <MoviesContainer title="" movies={cageMovies} flex={true} />
             </section>
           </main>
         </>
