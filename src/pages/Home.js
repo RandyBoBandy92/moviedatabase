@@ -11,6 +11,7 @@ import {
   getUpcoming,
   getMovieCreditsByActor,
   getRecommendedMovies,
+  getTrending,
 } from "../utilities/api";
 
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
@@ -20,6 +21,7 @@ const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
+  const [trendingMovies, setTrendingMovies] = useState(false);
   const [cageMovies, setCageMovies] = useState(false);
   const [heroMovie, setHeroMovie] = useState(false);
   const { favourites, settings } = useContext(GlobalContext);
@@ -36,6 +38,13 @@ const Home = () => {
     trackPromise(
       getNowPlaying().then((data) =>
         setNowPlayingMovies(sanitizeVideoData(data.results)).catch((error) =>
+          console.log(error)
+        )
+      )
+    );
+    trackPromise(
+      getTrending().then((data) =>
+        setTrendingMovies(sanitizeVideoData(data.results)).catch((error) =>
           console.log(error)
         )
       )
@@ -113,6 +122,7 @@ const Home = () => {
               movies={recommendedMovies.movies}
             />
           ) : null}
+          <MoviesContainer title="Trending This Week" movies={trendingMovies} />
         </main>
       )}
     </>
