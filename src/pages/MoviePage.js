@@ -74,7 +74,7 @@ const MoviePage = () => {
             />
           </div>
           <h2 className="movie-title">{movieData.original_title}</h2>
-          <div class="release-and-runtime">
+          <div className="release-and-runtime">
             <h3 className="release-date">
               {formatMovieDate(movieData.release_date)}
             </h3>
@@ -95,7 +95,7 @@ const MoviePage = () => {
               allowfullscreen
             ></iframe>
           ) : null}
-          <div class="button-container">
+          <div className="button-container">
             {trailerKey ? <PlayTrailerButton trailerKey={trailerKey} /> : null}
             <FavouritesButton movieData={movieData} />
           </div>

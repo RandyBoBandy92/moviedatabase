@@ -20,6 +20,7 @@ const Home = () => {
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
+  const [cageMovies, setCageMovies] = useState(false);
   const [heroMovie, setHeroMovie] = useState(false);
   const { favourites, settings } = useContext(GlobalContext);
 
@@ -62,26 +63,30 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
-  }, [upcomingMovies]);
+    if (settings.nicCageMode & cageMovies) {
+      setHeroMovie(cageMovies[generateRandomIndex(popularMovies.length)]);
+    } else {
+      setHeroMovie(upcomingMovies[generateRandomIndex(upcomingMovies.length)]);
+    }
+  }, [upcomingMovies, settings.nicCageMode]);
 
   useEffect(() => {
     if (settings.nicCageMode) {
       // NIC CAGE is 2963
       getMovieCreditsByActor(2963)
-        .then((data) => setPopularMovies(sanitizeVideoData(data.cast)))
+        .then((data) => setCageMovies(sanitizeVideoData(data.cast)))
         .catch((error) => console.log(error));
     }
   }, [settings.nicCageMode]);
 
   return (
     <>
-      {settings.nicCageMode && popularMovies ? (
+      {settings.nicCageMode && cageMovies ? (
         <>
           <main className="home-page">
-            <h1 className="cage-title">Nicholas Cage: Engaged</h1>
+            <HeroCard title="Upcoming" hero={heroMovie} />
             <section className="cage-results">
-              {popularMovies.map((nicCageMovie) => (
+              {cageMovies.map((nicCageMovie) => (
                 <MovieCard data={nicCageMovie} key={nicCageMovie.id} />
               ))}
             </section>

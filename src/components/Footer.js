@@ -14,7 +14,7 @@ const Footer = () => {
     <footer>
       {/* <Link to="/settings">Settings</Link> */}
       <SettingsPage />
-      <span class="copyright">
+      <span className="copyright">
         <FaRegCopyright />
         <p>{new Date().getFullYear()} Elongated Muskrat Inc.</p>
       </span>
