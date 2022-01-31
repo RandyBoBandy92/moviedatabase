@@ -7,7 +7,7 @@ const About = () => {
   return (
     <main className="about-page">
       <img src={humans} alt="" />
-      <div class="about-text">
+      <div className="about-text">
         <div className="main-heading">
           <div className="future-text">
             <h2 className="future-of">The future of</h2>{" "}
