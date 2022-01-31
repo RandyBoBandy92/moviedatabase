@@ -98,9 +98,7 @@ const Home = () => {
         <>
           <main className="home-page">
             <HeroCard title="Upcoming" hero={heroMovie} />
-            <section className="cage-results">
-              <MoviesContainer title="" movies={cageMovies} flex={true} />
-            </section>
+            <MoviesContainer title="" movies={cageMovies} flex={true} />
           </main>
         </>
       ) : (

@@ -122,11 +122,11 @@ const MoviesContainer = ({ title, movies, flex = false }) => {
 
   if (flex) {
     return (
-      <>
+      <div className="movies-container movies-flexed">
         {movies
           ? movies.map((movie) => <MovieCard data={movie} />)
           : renderLoadingCards()}
-      </>
+      </div>
     );
   }
 
