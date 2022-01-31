@@ -2,7 +2,7 @@ import { FaCopyright, FaFacebook, FaInstagram, FaRegCopyright, FaTwitter } from 
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { GlobalContext } from "../GlobalState";
-import SettingsPage from "../pages/SettingsPage";
+import SettingsModal from "../pages/SettingsModal";
 import { useState } from "react";
 
 const Footer = () => {
@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer>
       {/* <Link to="/settings">Settings</Link> */}
-      <SettingsPage />
+      <SettingsModal />
       <div className="socials">
         <FaFacebook className="social-icon"/>
         <FaTwitter className="social-icon"/>

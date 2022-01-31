@@ -4,7 +4,7 @@ import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const SettingsPage = (props) => {
+const SettingsModal = (props) => {
   const { settings, toggleSetting } = useContext(GlobalContext);
   const [show, setShow] = useState(false);
 
@@ -46,12 +46,9 @@ const SettingsPage = (props) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="warning" onClick={handleClose}>
-            Save Changes
-          </Button>
         </Modal.Footer>
       </Modal>
     </>
   );
 };
-export default SettingsPage;
+export default SettingsModal;

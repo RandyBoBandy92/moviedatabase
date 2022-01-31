@@ -24,6 +24,12 @@ const getUpcoming = async () => {
   );
   return response.json();
 };
+const getTopRated = async () => {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+  );
+  return response.json();
+};
 const getTrending = async () => {
   const response = await fetch(
     `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
@@ -108,6 +114,7 @@ export {
   getMovieCredits,
   getMovieCreditsByActor,
   getTrending,
+  getTopRated,
   imageURL,
   URL_SEARCH,
   originalImageURL,
