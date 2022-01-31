@@ -4,8 +4,11 @@ import { GlobalContext } from "../GlobalState";
 import MoviesContainer from "../components/MoviesContainer";
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
 import { getRecommendedMovies } from "../utilities/api";
+import { APP_NAME } from "../utilities/constants";
+
 
 const FavouritesPage = () => {
+  document.title = APP_NAME + "Favourites"
   const { favourites, addFavourite, delFavourite } = useContext(GlobalContext);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
   useEffect(() => {

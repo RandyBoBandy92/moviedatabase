@@ -5,11 +5,13 @@ import MovieCard from "../components/MovieCard";
 import Header from "../components/Header";
 import MoviesContainer from "../components/MoviesContainer";
 import { sanitizeVideoData } from "../utilities/toolbelt";
+import { APP_NAME } from "../utilities/constants";
 
 const SearchPage = () => {
   const { query } = useParams();
   const [movies, setMovies] = useState([]);
   const [recommendedMovies, setRecommendedMovies] = useState([]);
+  document.title = APP_NAME + "results for " + query;
 
   const formatQuery = (query) => {
     // split the query up

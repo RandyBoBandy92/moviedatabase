@@ -13,10 +13,15 @@ import {
   getTopRated,
   getConfigData,
 } from "../utilities/api";
+import { APP_NAME } from "../utilities/constants";
 
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
 
+
+
+
 const Home = () => {
+  document.title = APP_NAME + "Home"
   const [popularMovies, setPopularMovies] = useState(false);
   const [nowPlayingMovies, setNowPlayingMovies] = useState(false);
   const [upcomingMovies, setUpcomingMovies] = useState(false);

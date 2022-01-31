@@ -41,7 +41,7 @@ function SearchMovies() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
-      <div tabIndex="0" onClick={handleSubmit} className="searchButton">
+      <div onClick={handleSubmit} className="searchButton">
         <ImSearch className="search-icon" />
       </div>
     </form>
