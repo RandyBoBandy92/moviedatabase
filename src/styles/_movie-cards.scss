@@ -1,5 +1,5 @@
-@use './variables' as *;
-@use 'mixins' as *;
+@use "./variables" as *;
+@use "mixins" as *;
 
 div.movie-container {
   margin: 0.2rem;
@@ -47,10 +47,12 @@ div.movie-container {
       align-items: center;
       h4 {
         grid-column: 1;
+        grid-row: 2;
       }
       .favourite {
         z-index: 100000;
         grid-column: 4;
+        grid-row: 2;
         pointer-events: auto;
       }
     }
@@ -59,7 +61,6 @@ div.movie-container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-
     }
   }
   transition: all 0.1s linear;
@@ -78,7 +79,7 @@ div.movie-container {
 
 div.movie-container.fadein {
   opacity: 0;
-  animation: 1s  forwards fadeIn;
+  animation: 1s forwards fadeIn;
 }
 
 div.movie-container.loading {
