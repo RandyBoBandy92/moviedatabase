@@ -13,12 +13,12 @@ const Footer = () => {
   return (
     <footer>
       {/* <Link to="/settings">Settings</Link> */}
+      <SettingsPage />
       <span class="copyright">
         <FaRegCopyright />
         <p>{new Date().getFullYear()} Elongated Muskrat Inc.</p>
-        <SettingsPage/>
       </span>
-        </footer>
+    </footer>
   );
 };
 

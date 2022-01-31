@@ -83,7 +83,7 @@ const MoviePage = () => {
             </h3>
           </div>
           {/* YT Embed */}
-          {trailerKey && (
+          {trailerKey ? (
             <iframe
               className="youtube-video"
               width="560"
@@ -94,7 +94,7 @@ const MoviePage = () => {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-          )}
+          ) : null}
           <div class="button-container">
             {trailerKey ? <PlayTrailerButton trailerKey={trailerKey} /> : null}
             <FavouritesButton movieData={movieData} />
