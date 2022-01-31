@@ -41,6 +41,17 @@ const SettingsModal = (props) => {
               <span className="slider round"></span>
             </label>
           </div>
+          <h3 className="settings-modal">Adult Search</h3>
+          <div>
+            <label className="switch">
+              <input
+                checked={settings.adultSearch ? "checked" : false}
+                onChange={() => toggleSetting("adultSearch")}
+                type="checkbox"
+              />
+              <span className="slider round"></span>
+            </label>
+          </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
