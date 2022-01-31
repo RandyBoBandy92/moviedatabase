@@ -47,10 +47,12 @@ div.movie-container {
       align-items: center;
       h4 {
         grid-column: 1;
+        grid-row: 2;
       }
       .favourite {
         z-index: 100000;
         grid-column: 4;
+        grid-row: 2;
         pointer-events: auto;
       }
     }

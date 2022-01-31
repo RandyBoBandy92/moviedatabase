@@ -45,7 +45,7 @@ main:not(.home-page) {
 }
 
 main {
-  min-height: 60vh;
+  min-height: 70vh;
   // I figured on pages like favourites or about, we still want the footer to be near the
   // bottom of the viewport, so I set the min-height to 60vh
   margin-bottom: 4rem;

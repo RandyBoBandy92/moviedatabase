@@ -8,8 +8,8 @@ footer {
   align-items: center;
   a {
     text-decoration: none;
-    font-family: CircularStdMedium;
     color: $font-color-primary;
+    font-family: CircularStdMedium;
     transition: 0.15s all ease-in-out;
     &:hover {
       color: $primary-color;
@@ -17,6 +17,7 @@ footer {
   }
   .copyright {
     display: flex;
+    font-family: CircularStdLight;
     align-items: center;
     p {
       margin: 0;
