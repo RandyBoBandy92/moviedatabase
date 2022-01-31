@@ -4,42 +4,44 @@ const imageURL = `https://www.themoviedb.org/t/p/w600_and_h900_bestv2/`;
 const originalImageURL = `https://www.themoviedb.org/t/p/original/`;
 const URL_IMAGE = `https://www.themoviedb.org/t/p/`;
 
-const getPopular = async () => {
+// &include_adult=${adultSearch}
+
+const getPopular = async (adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&${REGION}&page=1`
+    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&${REGION}&page=1`
   );
   return response.json();
 };
 
-const getNowPlaying = async () => {
+const getNowPlaying = async (adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&${REGION}&page=1`
+    `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&${REGION}&page=1`
   );
   return response.json();
 };
 
-const getUpcoming = async () => {
+const getUpcoming = async (adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&${REGION}&with_release_type=2|3`
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&${REGION}&with_release_type=2|3`
   );
   return response.json();
 };
-const getTopRated = async () => {
+const getTopRated = async (adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&page=1`
   );
   return response.json();
 };
-const getTrending = async () => {
+const getTrending = async (adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}&include_adult=${adultSearch}`
   );
   return response.json();
 };
 
-const getMovie = async (movieId) => {
+const getMovie = async (movieId, adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US&${REGION}`
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&${REGION}`
   );
   return response.json();
 };
@@ -65,16 +67,16 @@ const getConfigData = async () => {
   return response.json();
 };
 
-const searchMovies = async (query) => {
-  const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`;
+const searchMovies = async (query, adultSearch) => {
+  const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&query=${query}&page=1&include_adult=false`;
   console.log(searchUrl);
   const response = await fetch(searchUrl);
   return response.json();
 };
 
-const getRecommendedMovies = async (movieId) => {
+const getRecommendedMovies = async (movieId, adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${API_KEY}&language=en-US&page=1&include_adult=false`
+    `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&page=1&include_adult=false`
   );
   return response.json();
 };
@@ -86,21 +88,20 @@ const getVideos = async (movieId) => {
   return response.json();
 };
 
-const getMovieCredits = async (movieId) => {
+const getMovieCredits = async (movieId, adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&include_adult=${adultSearch}`
   );
   return response.json();
 };
 
-const getMovieCreditsByActor = async (personId) => {
+const getMovieCreditsByActor = async (personId, adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${API_KEY}`
+    `https://api.themoviedb.org/3/person/${personId}/movie_credits?api_key=${API_KEY}&include_adult=${adultSearch}`
   );
   return response.json();
 };
 
-const URL_SEARCH = "https://api.themoviedb.org/3/search/movie?query=";
 
 export {
   getPopular,
@@ -116,7 +117,6 @@ export {
   getTrending,
   getTopRated,
   imageURL,
-  URL_SEARCH,
   originalImageURL,
   URL_IMAGE,
 };
