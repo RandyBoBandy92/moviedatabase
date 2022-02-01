@@ -1,15 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FavouritesButton from "../components/FavouritesButton";
-import Header from "../components/Header";
 import PlayTrailerButton from "../components/PlayTrailerButton";
 import { GlobalContext } from "../GlobalState";
 import {
   getMovie,
-  getMovieImages,
-  getMovieKeywords,
-  originalImageURL,
-  imageURL,
   getVideos,
   URL_IMAGE,
 } from "../utilities/api";
@@ -69,7 +64,7 @@ const MoviePage = () => {
           <div className="movie-poster">
             <img
               className="backdrop"
-              src={`${originalImageURL}${movieData.backdrop_path}`}
+              src={`${URL_IMAGE}w1280/${movieData.backdrop_path}`}
               alt={`${movieData.original_title} backdrop`}
             />
             <img

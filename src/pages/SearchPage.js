@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getRecommendedMovies, searchMovies } from "../utilities/api";
-import MovieCard from "../components/MovieCard";
-import Header from "../components/Header";
 import MoviesContainer from "../components/MoviesContainer";
 import { sanitizeVideoData } from "../utilities/toolbelt";
 import { APP_NAME } from "../utilities/constants";

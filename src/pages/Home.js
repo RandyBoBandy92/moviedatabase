@@ -11,7 +11,6 @@ import {
   getRecommendedMovies,
   getTrending,
   getTopRated,
-  getConfigData,
 } from "../utilities/api";
 import { APP_NAME } from "../utilities/constants";
 
@@ -64,7 +63,6 @@ const Home = () => {
         })
         .catch((error) => console.log(error));
     }
-    // debug
     
   }, []);
 

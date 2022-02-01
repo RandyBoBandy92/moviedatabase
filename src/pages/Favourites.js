@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import Header from "../components/Header";
 import { GlobalContext } from "../GlobalState";
 import MoviesContainer from "../components/MoviesContainer";
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
