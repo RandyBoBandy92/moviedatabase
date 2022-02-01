@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getRecommendedMovies, searchMovies } from "../utilities/api";
+import { FaSadCry } from "react-icons/fa";
 import MovieCard from "../components/MovieCard";
 import Header from "../components/Header";
 import MoviesContainer from "../components/MoviesContainer";
@@ -49,7 +50,7 @@ const SearchPage = () => {
   // console.log(movies);
   return (
     <>
-      <main>
+      <main >
         {movies.length > 0 ? (
           <>
             <section className="search-results-section">
@@ -65,16 +66,19 @@ const SearchPage = () => {
             {recommendedMovies.length > 0 ? (
               <section className="recommended-section">
                 <h2>
-                  If you liked {movies[0].original_title} then you gonna love
-                  this:
+                  Recommendations based on {movies[0].original_title} 
                 </h2>
                 <MoviesContainer movies={recommendedMovies} />
               </section>
             ) : null}
           </>
         ) : (
-          <section>
-            <h2 className="search-result-heading">No Movies Found :(</h2>
+          <section className="search-disclaimer">
+            <div className="no-result-container">
+            <h2 className="search-result-heading">No Movies Found</h2>
+            <FaSadCry className="sad-face"/>
+            <p className="search-excerpt">Try searching again or head to the home page to find more movies!</p>
+            </div>
           </section>
         )}
       </main>

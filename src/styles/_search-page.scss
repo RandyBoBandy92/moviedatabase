@@ -1,6 +1,21 @@
 @use 'variables' as *;
 
+.search-disclaimer{
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 10rem;
+}
 
+.sad-face{
+    height: 8rem;
+    width: 8rem;
+    padding: .5rem;
+    fill: $primary-color;
+
+}
 
 
 .search-results-section{

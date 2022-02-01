@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { GlobalContext } from "../GlobalState";
 import SettingsModal from "../pages/SettingsModal";
-import { useState } from "react";
 
 const Footer = () => {
   const { settings, toggleSetting } = useContext(GlobalContext);

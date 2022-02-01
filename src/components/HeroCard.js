@@ -1,5 +1,4 @@
-import { getVideos, originalImageURL, URL_IMAGE } from "../utilities/api";
-import loading from "../images/Spinner-1s-200px.gif";
+import { getVideos, URL_IMAGE } from "../utilities/api";
 import { useEffect, useState } from "react";
 import { formatMovieDate, generateTextExcerpt, getTrailerKey } from "../utilities/toolbelt.js";
 import MoreInfo from "./MoreInfo";
