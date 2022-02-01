@@ -12,12 +12,10 @@ import {
   getTrending,
   getTopRated,
 } from "../utilities/api";
+
 import { APP_NAME } from "../utilities/constants";
 
 import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
-
-
-
 
 const Home = () => {
   document.title = APP_NAME + "Home"
