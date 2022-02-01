@@ -6,7 +6,6 @@ const PlayTrailerButton = ({ trailerKey }) => {
 
   const handleClick = () => {
     const url = `https://youtu.be/${trailerKey}`;
-    console.log(url);
     window.location = url;
   };
 

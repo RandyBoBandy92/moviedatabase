@@ -34,7 +34,6 @@ const SearchPage = () => {
           const recommendationId = data.results[0].id;
           getRecommendedMovies(recommendationId)
             .then((data) => {
-              console.log(data);
               setRecommendedMovies(sanitizeVideoData(data.results));
             })
             .catch((error) => console.log(error));
@@ -46,7 +45,6 @@ const SearchPage = () => {
       .catch((error) => console.log(error));
     // grab recommended movies
   }, [query]);
-  // console.log(movies);
   return (
     <>
       <main>

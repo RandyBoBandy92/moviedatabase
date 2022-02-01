@@ -72,12 +72,11 @@ const getConfigData = async (genres = false) => {
 
 const searchMovies = async (query, adultSearch) => {
   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&query=${query}&page=1`;
-  console.log(searchUrl);
   const response = await fetch(searchUrl);
   return response.json();
 };
 
-const getMoviesByGenre = (genreId, adultSearch) => {
+const getMoviesByGenre = async (genreId, adultSearch) => {
   const response = await fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&with_genres=${genreId}`
   );
