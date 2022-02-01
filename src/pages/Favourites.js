@@ -24,7 +24,6 @@ const FavouritesPage = () => {
     }
   }, []);
 
-  console.log(favourites);
   return (
     <main className="favourites-page">
       {favourites.length > 0 ? (
