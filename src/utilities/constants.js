@@ -3,7 +3,7 @@
 const ADD_FAVOURITE = "ADD_FAVOURITE";
 const DEL_FAVOURITE = "DEL_FAVOURITE";
 const TOGGLE_SETTING = "TOGGLE_SETTING";
-const APP_FOLDER_NAME = '/';
+const APP_FOLDER_NAME = '/bdmi';
 const APP_NAME = "bDMI - "
 
 

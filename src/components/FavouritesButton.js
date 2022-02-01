@@ -1,12 +1,5 @@
 import { useContext } from "react";
-import {
-  BookmarkHeart,
-  BookmarkHeartFill,
-  Heart,
-  HeartFill,
-} from "react-bootstrap-icons";
 import { GlobalContext } from "../GlobalState";
-import { AiOutlineHeart } from "react-icons/ai";
 
 const FavouritesButton = ({ movieData }) => {
   // this button will take in the id of the movie it is being rendered by
