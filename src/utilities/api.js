@@ -63,9 +63,10 @@ const getConfigData = async (genres = false) => {
     `https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`
   );
   if (genres) {
-    const response = await fetch(
+    const genreResponse = await fetch(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`
     );
+    return genreResponse.json();
   }
   return response.json();
 };
@@ -78,7 +79,7 @@ const searchMovies = async (query, adultSearch) => {
 
 const getMoviesByGenre = async (genreId, adultSearch) => {
   const response = await fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&with_genres=${genreId}`
+    `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&include_adult=${adultSearch}&language=en-US&with_genres=${genreId}&sort_by=popularity.desc&vote_average.gte=9`
   );
   return response.json();
 };
@@ -122,6 +123,7 @@ export {
   getVideos,
   getMovieCredits,
   getMovieCreditsByActor,
+  getMoviesByGenre,
   getTrending,
   getTopRated,
   imageURL,
