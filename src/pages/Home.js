@@ -66,7 +66,6 @@ const Home = () => {
     }
     // debug
     
-    console.log(getConfigData())
   }, []);
 
   useEffect(() => {

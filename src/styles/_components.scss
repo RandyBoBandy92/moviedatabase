@@ -162,7 +162,7 @@
 
   // Styling for accessibility on A tags
 
-  .focus-link:focus {
+  .focus-link:focus-visible {
 
       outline: 1px solid $primary-color;
   }

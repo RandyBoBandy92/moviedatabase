@@ -19,7 +19,6 @@ const AppReducer = (state, action) => {
     case ADD_FAVOURITE:
       updatedFavourites = [...state.favourites, action.payload];
       saveToLocalStorage("favourites", updatedFavourites);
-      console.log(state);
       return {
         ...state,
         favourites: updatedFavourites,
