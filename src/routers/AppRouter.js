@@ -10,7 +10,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { APP_FOLDER_NAME } from "../utilities/constants";
 
-
 const AppRouter = () => {
   return (
     <BrowserRouter basename={APP_FOLDER_NAME}>
