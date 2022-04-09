@@ -130,7 +130,3 @@ export {
   originalImageURL,
   URL_IMAGE,
 };
-
-//
-
-//
