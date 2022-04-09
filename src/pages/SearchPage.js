@@ -46,7 +46,7 @@ const SearchPage = () => {
   }, [query]);
   return (
     <>
-      <main >
+      <main>
         {movies.length > 0 ? (
           <>
             <section className="search-results-section">
@@ -54,16 +54,13 @@ const SearchPage = () => {
                 <h2 className="searchHeading">Search results for:</h2>
                 <h1 className="searchQuery">{formatQuery(query)}</h1>
               </div>
-              <div className="search-movies">
-                {/* <h2>Search results for:{query}</h2> */}
-                {movies ? <MoviesContainer title="" movies={movies} flex={true}/> : null}
-              </div>
+              {movies ? (
+                <MoviesContainer title="" movies={movies} noSlider={true} />
+              ) : null}
             </section>
             {recommendedMovies.length > 0 ? (
               <section className="recommended-section">
-                <h2>
-                  Recommendations based on {movies[0].original_title} 
-                </h2>
+                <h2>Recommendations based on {movies[0].original_title}</h2>
                 <MoviesContainer movies={recommendedMovies} />
               </section>
             ) : null}
@@ -71,9 +68,12 @@ const SearchPage = () => {
         ) : (
           <section className="search-disclaimer">
             <div className="no-result-container">
-            <h2 className="search-result-heading">No Movies Found</h2>
-            <FaSadCry className="sad-face"/>
-            <p className="search-excerpt">Try searching again or head to the home page to find more movies!</p>
+              <h2 className="search-result-heading">No Movies Found</h2>
+              <FaSadCry className="sad-face" />
+              <p className="search-excerpt">
+                Try searching again or head to the home page to find more
+                movies!
+              </p>
             </div>
           </section>
         )}

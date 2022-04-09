@@ -3,7 +3,7 @@ import MovieCard from "./MovieCard";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { render } from "@testing-library/react";
 
-const MoviesContainer = ({ title, movies, flex = false }) => {
+const MoviesContainer = ({ title, movies, noSlider = false }) => {
   const settings = {
     dots: false,
     arrows: false,
@@ -120,11 +120,11 @@ const MoviesContainer = ({ title, movies, flex = false }) => {
     return loadingCards;
   };
 
-  if (flex) {
+  if (noSlider) {
     return (
       <>
         {title && <h2>{title}</h2>}
-        <div className="movies-container movies-flexed">
+        <div className="movies-container movies-grid">
           {movies
             ? movies.map((movie, index) => (
                 <MovieCard key={index} data={movie} />

@@ -12,9 +12,12 @@
   }
 }
 
-.movies-flexed {
-  display: flex;
-  flex-wrap: wrap;
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 165px);
+  grid-gap: 1rem;
+  // place the grid in the center of the page
+  justify-content: center;
 }
 
 .slick-next {
