@@ -1,8 +1,7 @@
-@use "variables" as *;
-@use "typography" as *;
+@use "../abstract/variables" as *;
+@use "../base/typography" as *;
 
 body {
   background: $background-color;
   color: $font-color-primary;
 }
-

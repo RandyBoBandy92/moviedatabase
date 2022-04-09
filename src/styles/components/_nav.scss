@@ -1,7 +1,8 @@
-@use "variables" as *;
-@use "mixins" as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
-// ==============================MOBILE NAV===================================================================//
+/* Mobile Nav
+--------------------------------------------- */
 
 .mobile-nav {
   position: absolute;
@@ -114,12 +115,7 @@
   width: 0px;
 }
 
-// end of nav style
 .active {
-  .nav-component {
-    // increase the size of nav components
-  }
-
   .home-link,
   .favourites-link,
   .about-link {
@@ -153,7 +149,8 @@
   color: white;
 }
 
-// ==============================END MOBILE NAV===================================================================//
+/* Desktop Nav
+--------------------------------------------- */
 
 .desktop-nav {
   margin: 0;

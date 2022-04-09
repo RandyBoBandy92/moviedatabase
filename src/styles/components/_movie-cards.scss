@@ -1,5 +1,5 @@
-@use "./variables" as *;
-@use "mixins" as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 div.movie-container {
   margin: 0.2rem;
@@ -16,9 +16,7 @@ div.movie-container {
   }
   img.movie-card {
     border-radius: 10px;
-    // padding: 0.5rem;
   }
-
 
   div.hover-card {
     display: none;
@@ -46,7 +44,7 @@ div.movie-container {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      
+
       .favourite {
         z-index: 100000;
         grid-column: 4;
