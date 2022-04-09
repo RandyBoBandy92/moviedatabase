@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Nav from "./Nav";
-import SearchMovies from "./SearchMovies";
+import SearchBar from "./SearchBar";
 import Logo from "./Logo";
 
 const Header = () => {
@@ -27,7 +27,7 @@ const Header = () => {
     <header className={headerClass} id="header">
       <div className="header-wrapper">
         <Logo />
-        <SearchMovies />
+        <SearchBar />
         <Nav />
       </div>
     </header>

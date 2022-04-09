@@ -126,7 +126,9 @@ const MoviesContainer = ({ title, movies, flex = false }) => {
         {title && <h2>{title}</h2>}
         <div className="movies-container movies-flexed">
           {movies
-            ? movies.map((movie) => <MovieCard data={movie} />)
+            ? movies.map((movie, index) => (
+                <MovieCard key={index} data={movie} />
+              ))
             : renderLoadingCards()}
         </div>
       </>
