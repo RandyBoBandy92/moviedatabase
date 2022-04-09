@@ -17,8 +17,11 @@
   grid-template-columns: repeat(auto-fit, 165px);
   grid-gap: 1rem;
   // place the grid in the center of the page
-  justify-content: center;
   margin-top: 1rem;
+}
+
+.centered-grid {
+  justify-content: center;
 }
 
 .slick-next {

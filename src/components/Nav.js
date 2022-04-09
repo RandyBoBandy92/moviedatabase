@@ -42,13 +42,19 @@ const Nav = () => {
       <nav className="desktop-nav">
         <ul>
           <li>
-            <Link className="focus-link" to="/">Home</Link>
+            <Link className="focus-link" to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link className="focus-link" to="/favourites">Favourites</Link>
+            <Link className="focus-link" to="/favourites">
+              Favourites
+            </Link>
           </li>
           <li>
-            <Link className="focus-link" to="/about">About</Link>
+            <Link className="focus-link" to="/about">
+              About
+            </Link>
           </li>
         </ul>
       </nav>

@@ -4,9 +4,8 @@ import { IoMdHeart } from "react-icons/io";
 import humans from "../images/humans.png";
 import { APP_NAME } from "../utilities/constants";
 
-
 const About = () => {
-  document.title = APP_NAME + "About"
+  document.title = APP_NAME + "About";
   return (
     <main className="about-page">
       <img alt="Humaaans hard at work." src={humans} alt="" />
