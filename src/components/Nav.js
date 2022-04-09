@@ -21,17 +21,29 @@ const Nav = () => {
         </div>
         <ul>
           <li className="nav-component home-link">
-            <Link className="link" to="/">
+            <Link
+              aria-label="navigate to the home page"
+              className="link"
+              to="/"
+            >
               <ImHome3 className="nav-icon" />
             </Link>
           </li>
           <li className="nav-component favourites-link">
-            <Link className="link" to="/favourites">
+            <Link
+              aria-label="navigate to the favourites page"
+              className="link"
+              to="/favourites"
+            >
               <IoMdHeart className="nav-icon" />
             </Link>
           </li>
           <li className="nav-component about-link">
-            <Link className="link" to="/about">
+            <Link
+              aria-label="navigate to the about page"
+              className="link"
+              to="/about"
+            >
               <FaQuestion className="nav-icon" />
             </Link>
           </li>
