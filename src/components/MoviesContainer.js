@@ -1,7 +1,6 @@
 import Slider from "react-slick";
 import MovieCard from "./MovieCard";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { render } from "@testing-library/react";
 
 const MoviesContainer = ({ title, movies, noSlider = false }) => {
   const settings = {
@@ -11,13 +10,9 @@ const MoviesContainer = ({ title, movies, noSlider = false }) => {
     slidesToScroll: 6,
     nextArrow: <FaChevronRight />,
     prevArrow: <FaChevronLeft />,
-    // swipeToSlide: true,
     swipe: true,
     draggable: true,
     infinite: true,
-    // had to change this from true to some boolean logic
-    // if not, when the user only has 1 favourite
-    // it will clone it and show the same movie twice.
     speed: 500,
     responsive: [
       {
@@ -124,7 +119,11 @@ const MoviesContainer = ({ title, movies, noSlider = false }) => {
     return (
       <>
         {title && <h2>{title}</h2>}
-        <div className="movies-container movies-grid">
+        <div
+          className={`movies-container movies-grid ${
+            movies.length > 5 ? "centered-grid" : ""
+          }`}
+        >
           {movies
             ? movies.map((movie, index) => (
                 <MovieCard key={index} data={movie} />

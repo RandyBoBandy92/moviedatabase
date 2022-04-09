@@ -10,7 +10,6 @@ const FavouritesButton = ({ movieData }) => {
 
   const { favourites, addFavourite, delFavourite } = useContext(GlobalContext);
 
-  
   const isFavourited = () => {
     const movieInFavourites = favourites.filter(
       (favourite) => favourite.id === movieData.id

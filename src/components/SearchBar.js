@@ -25,6 +25,7 @@ function SearchBar() {
 
       if (ref.current && !ref.current.contains(e.target)) {
         setSearchOpen(false);
+        setQuery("");
       }
     };
 

@@ -12,8 +12,6 @@ const SettingsModal = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const checked = settings.nicCageMode ? "checked" : "";
-
   return (
     <>
       <Button variant="warning" onClick={handleShow}>

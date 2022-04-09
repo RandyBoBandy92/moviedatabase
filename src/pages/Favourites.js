@@ -7,7 +7,7 @@ import { APP_NAME } from "../utilities/constants";
 
 const FavouritesPage = () => {
   document.title = APP_NAME + "Favourites";
-  const { favourites, addFavourite, delFavourite } = useContext(GlobalContext);
+  const { favourites } = useContext(GlobalContext);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
   useEffect(() => {
     if (favourites.length > 0) {

@@ -3,11 +3,7 @@ import { useParams } from "react-router-dom";
 import FavouritesButton from "../components/FavouritesButton";
 import PlayTrailerButton from "../components/PlayTrailerButton";
 import { GlobalContext } from "../GlobalState";
-import {
-  getMovie,
-  getVideos,
-  URL_IMAGE,
-} from "../utilities/api";
+import { getMovie, getVideos, URL_IMAGE } from "../utilities/api";
 import { formatMovieDate, getTrailerKey } from "../utilities/toolbelt.js";
 import { APP_NAME } from "../utilities/constants";
 
@@ -37,11 +33,13 @@ const MoviePage = () => {
   // I don't actually need to keep the entire array
   // of videos, i only need the one I intend to show the user
   const [trailerKey, setTrailerKey] = useState("");
-  const { favourites, settings } = useContext(GlobalContext);
+  const { settings } = useContext(GlobalContext);
 
   const { id } = useParams();
-  const movieTitle = movieData?.original_title ? movieData.original_title : "..."
-  document.title = APP_NAME + movieTitle
+  const movieTitle = movieData?.original_title
+    ? movieData.original_title
+    : "...";
+  document.title = APP_NAME + movieTitle;
 
   useEffect(() => {
     getMovie(id, settings.adultSearch)
@@ -89,17 +87,32 @@ const MoviePage = () => {
                   <PlayTrailerButton trailerKey={trailerKey} />
                 ) : null}
                 <FavouritesButton movieData={movieData} />
-                <div className={ movieData.vote_average  <= 3  ? "default-rating low-rating": 
-                                 movieData.vote_average  <= 7  ? "default-rating medium-rating": //These classes can be found in the _components.scss page;
-                                 movieData.vote_average  <= 10 ? "default-rating good-rating" : 
-                                 movieData.vote_average !== 0  ? "default-rating no-rating"   : null }>
-                                                       
-              {movieData.vote_average !== 0 && movieData.vote_average < 10 ?
-                <h4 className="rating-number">{movieData.vote_average.toFixed(1)}</h4> :
-                 movieData.vote_average >= 10 ? 
-                <h4 className="rating-number gold">{movieData.vote_average.toFixed(0)}</h4> :
-                <h4 className="rating-number">NR</h4> }
-            </div>
+                <div
+                  className={
+                    movieData.vote_average <= 3
+                      ? "default-rating low-rating"
+                      : movieData.vote_average <= 7
+                      ? "default-rating medium-rating" //These classes can be found in the _components.scss page;
+                      : movieData.vote_average <= 10
+                      ? "default-rating good-rating"
+                      : movieData.vote_average !== 0
+                      ? "default-rating no-rating"
+                      : null
+                  }
+                >
+                  {movieData.vote_average !== 0 &&
+                  movieData.vote_average < 10 ? (
+                    <h4 className="rating-number">
+                      {movieData.vote_average.toFixed(1)}
+                    </h4>
+                  ) : movieData.vote_average >= 10 ? (
+                    <h4 className="rating-number gold">
+                      {movieData.vote_average.toFixed(0)}
+                    </h4>
+                  ) : (
+                    <h4 className="rating-number">NR</h4>
+                  )}
+                </div>
               </div>
               <ul className="movie-genres">{renderMovieGenres(movieData)}</ul>
               <p className="plot-summary">{movieData.overview}</p>
@@ -122,18 +135,6 @@ const MoviePage = () => {
   } else {
     return null;
   }
-  // so what content needs to be displayed here?
-  // poster DONE
-  // poster in background opacity
-  // poster in foreground DONE
-  // Probably an H2 with the title DONE
-  // Add to favourites
-  // maybe an h3 with the release data DONE
-  // Rating MISSING from API
-  // Run time DONE
-  // Movie Categories DONE
-  // Plot Summary
-  // Watch the trailer button?
 };
 
 export default MoviePage;
