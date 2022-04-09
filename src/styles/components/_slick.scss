@@ -1,5 +1,5 @@
-/* Slider */
-@use "mixins" as *;
+@use "../abstract/mixins" as *;
+
 .slick-slider {
   position: relative;
   display: block;

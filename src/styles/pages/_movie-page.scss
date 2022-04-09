@@ -1,8 +1,7 @@
-@use "variables" as *;
-@use "./mixins" as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 .movie-page {
-
   height: 100vh;
   .movie-details {
   }
@@ -55,7 +54,6 @@
     justify-content: flex-start;
     align-items: center;
     max-width: 100%;
-
   }
 
   .youtube-video {

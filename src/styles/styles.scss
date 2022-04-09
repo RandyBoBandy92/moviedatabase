@@ -1,30 +1,174 @@
-@use "./normalize";
-@use "./slick";
-@use "./slick-theme";
-@use "./components";
-@use "./hamburger";
-@use "./header";
-@use "./_footer.scss";
-@use "./mixins";
-@use "./_logo.scss";
-@use "./movie-cards";
-@use "./_movie-page";
-@use "./_about-page";
-@use "./typography";
-@use "./variables";
-@use "./wrapper";
-@use "./body";
-@use "./nav";
-@use "./hero-card";
-@use "./more-info";
-@use "./play-trailer";
-@use "./search-movies";
-@use "./search-page";
-@use "./search-component";
-@use "./nic-cage-page";
-@use "./movie-container";
-@use "./favourites-page";
-@use "./loader.scss";
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Abstract
+	- Mixins
+  - Variables
+# Generic
+	- Normalize
+# Base
+	- Typography
+	- Body
+	- Slick Theme
+	- Wrapper
+# Pages
+	- About
+	- Favourites
+	- Movie Page
+	- Search
+# Components
+  - General Components
+	- Header
+	- Footer
+  - Logo
+	- Hero Card
+	- Loader
+	- More Info
+	- Movie Cards
+	- Movie Container
+	- Nav
+	- Play Trailer
+	- Search Component
+	- Slick
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Abstract
+--------------------------------------------------------------*/
+
+/* Mixins
+--------------------------------------------- */
+@use "./abstract/mixins";
+
+/* Variables
+--------------------------------------------- */
+@use "./abstract/variables";
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Normalize
+--------------------------------------------- */
+
+@use "./generic/normalize";
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+
+/* Typography
+--------------------------------------------- */
+
+@use "./base/typography";
+
+/* Body
+--------------------------------------------- */
+
+@use "./base/body";
+
+/* Slick Theme
+--------------------------------------------- */
+
+@use "./base/slick-theme";
+
+/* Wrapper
+--------------------------------------------- */
+
+@use "./base/wrapper";
+
+/*--------------------------------------------------------------
+# Pages
+--------------------------------------------------------------*/
+
+/* About
+--------------------------------------------- */
+
+@use "./pages/about-page";
+
+/* Favourites
+--------------------------------------------- */
+
+@use "./pages/favourites-page";
+
+/* Movie Page
+--------------------------------------------- */
+
+@use "./pages/movie-page";
+
+/* Search
+--------------------------------------------- */
+
+@use "./pages/search-page";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+
+/* General Components
+--------------------------------------------- */
+
+@use "./components/components";
+
+/* Header
+--------------------------------------------- */
+
+@use "./components/header";
+
+/* Footer
+--------------------------------------------- */
+
+@use "./components/footer";
+
+/* Logo
+--------------------------------------------- */
+
+@use "./components/logo";
+
+/* Hero Card
+--------------------------------------------- */
+
+@use "./components/hero-card";
+
+/* Loader
+--------------------------------------------- */
+
+@use "./components/loader";
+
+/* More Info
+--------------------------------------------- */
+
+@use "./components/more-info";
+
+/* Movie Cards
+--------------------------------------------- */
+
+@use "./components/movie-cards";
+
+/* Movie Container
+--------------------------------------------- */
+
+@use "./components/movie-container";
+
+/* Nav
+--------------------------------------------- */
+
+@use "./components/nav";
+
+/* Play Trailer
+--------------------------------------------- */
+
+@use "./components/play-trailer";
+
+/* Search Component
+--------------------------------------------- */
+
+@use "./components/search-component";
+
+/* Slick
+--------------------------------------------- */
+
+@use "./components/slick";
 
 .site-limiter {
   max-width: 1920px;

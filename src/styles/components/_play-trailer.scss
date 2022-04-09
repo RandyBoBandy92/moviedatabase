@@ -1,4 +1,4 @@
-@use "./variables" as *;
+@use "../abstract/variables" as *;
 
 .play-trailer {
   text-decoration: none;
@@ -14,12 +14,10 @@
     #ffc837 51%,
     #ff8008 100%
   );
-  //   outline: 1px solid rgba(255, 255, 255, 0.541);
   border: 1px solid transparent;
   border-radius: 5px;
   padding: 0.1rem;
   margin-right: 0.2rem;
-  // padding-left: 0.8rem;
   transition: all 0.15s ease-in-out;
   &:hover,
   &:focus-visible {

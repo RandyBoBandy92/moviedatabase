@@ -1,5 +1,5 @@
-@use "./_mixins.scss" as *;
-@use "./variables" as *;
+@use "../abstract/mixins" as *;
+@use "../abstract/variables" as *;
 
 main.about-page {
   color: white;
@@ -59,7 +59,7 @@ main.about-page {
     text-decoration: none;
     color: #7fc6cc;
     &:hover {
-      color: $primary-color
+      color: $primary-color;
     }
     .social-icon {
       margin-left: 0.2rem;
