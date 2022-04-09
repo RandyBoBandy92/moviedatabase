@@ -3,7 +3,7 @@ import { useState, useRef } from "react";
 import { ImSearch } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
 
-function SearchMovies() {
+function SearchBar() {
   const [query, setQuery] = useState("");
   const [navOpen, setNavOpen] = useState(false);
   const ref = useRef();
@@ -48,7 +48,4 @@ function SearchMovies() {
   );
 }
 
-export default SearchMovies;
-{
-  /* <h2>Search results for:{query}</h2> */
-}
+export default SearchBar;

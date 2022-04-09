@@ -28,7 +28,7 @@
 	- Movie Container
 	- Nav
 	- Play Trailer
-	- Search Component
+	- Search Bar
 	- Slick
 --------------------------------------------------------------*/
 
@@ -160,10 +160,10 @@
 
 @use "./components/play-trailer";
 
-/* Search Component
+/* Search Bar
 --------------------------------------------- */
 
-@use "./components/search-component";
+@use "./components/search-bar";
 
 /* Slick
 --------------------------------------------- */
