@@ -8,7 +8,7 @@ const About = () => {
   document.title = APP_NAME + "About";
   return (
     <main className="about-page">
-      <img alt="Humaaans hard at work." src={humans} alt="" />
+      <img alt="Humaaans hard at work." src={humans} />
       <div className="about-text">
         <div className="main-heading">
           <div className="future-text">
