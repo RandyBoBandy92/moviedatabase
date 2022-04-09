@@ -4,6 +4,9 @@
 .movie-page {
   height: 100vh;
   .movie-details {
+    & > * {
+      margin-bottom: 0.5rem;
+    }
   }
   color: white;
   .movie-poster {
