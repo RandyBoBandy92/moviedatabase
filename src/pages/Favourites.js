@@ -5,9 +5,8 @@ import { generateRandomIndex, sanitizeVideoData } from "../utilities/toolbelt";
 import { getRecommendedMovies } from "../utilities/api";
 import { APP_NAME } from "../utilities/constants";
 
-
 const FavouritesPage = () => {
-  document.title = APP_NAME + "Favourites"
+  document.title = APP_NAME + "Favourites";
   const { favourites, addFavourite, delFavourite } = useContext(GlobalContext);
   const [recommendedMovies, setRecommendedMovies] = useState(false);
   useEffect(() => {
@@ -26,7 +25,11 @@ const FavouritesPage = () => {
   return (
     <main className="favourites-page">
       {favourites.length > 0 ? (
-        <MoviesContainer title="Favourites" movies={favourites} flex="true" />
+        <MoviesContainer
+          title="Favourites"
+          movies={favourites}
+          noSlider="true"
+        />
       ) : (
         <>
           <h3>
