@@ -61,7 +61,7 @@ const SearchPage = () => {
             {recommendedMovies.length > 0 ? (
               <section className="recommended-section">
                 <h2>Recommendations based on {movies[0].original_title}</h2>
-                <MoviesContainer movies={recommendedMovies} />
+                <MoviesContainer noSlider={true} movies={recommendedMovies} />
               </section>
             ) : null}
           </>
